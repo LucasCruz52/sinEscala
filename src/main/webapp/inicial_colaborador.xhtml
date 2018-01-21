@@ -1,0 +1,56 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <div class="ui-g dashboard">
+                    <div class="ui-g-12 ui-md-4 ui-lg-4">
+                        <div class="ui-g card colorbox colorbox-1">
+                            <div class="ui-g-4">
+                                <i class="material-icons">&#xE8D4;</i>
+                            </div>
+                            <div class="ui-g-8">
+                                <span class="colorbox-name">Trocas</span>
+                                <span class="colorbox-count">5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-4 ui-lg-4">
+                        <div class="ui-g card colorbox colorbox-2">
+                            <div class="ui-g-4">
+                                <i class="material-icons">&#xE8D7;</i>
+                            </div>
+                            <div class="ui-g-8">
+                                <span class="colorbox-name">Transferências</span>
+                                <span class="colorbox-count">12</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-4 ui-lg-4">
+                        <div class="ui-g card colorbox colorbox-3">
+                            <div class="ui-g-4">
+                                <i class="material-icons">&#xE7FD;</i>
+                            </div>
+                            <div class="ui-g-8">
+                                <span class="colorbox-name">Afastamentos</span>
+                                <span class="colorbox-count">22</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-12 ui-lg-12">
+                    <p:panel header="Escala do Mês" style="height:100%">
+                        <p:schedule locale="pt_BR" value="#{scheduleView.eventModel}"/>
+                    </p:panel>
+                </div>
+            </div>
+        </div>
+        
+    </ui:define>
+
+</ui:composition>

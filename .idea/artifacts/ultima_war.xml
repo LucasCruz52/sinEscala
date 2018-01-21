@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ultima:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="ultima-1.1.war">
+      <element id="artifact" artifact-name="ultima:war exploded" />
+    </root>
+  </artifact>
+</component>

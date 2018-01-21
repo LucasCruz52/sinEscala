@@ -1,0 +1,66 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <div class="card">
+                    <h1>Consulta de Usuários</h1>
+                    <p:panelGrid columns="4" columnClasses="ui-grid-col-1,ui-grid-col-4, ui-grid-col-2, ui-grid-col-4" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <p:outputLabel for="login" value="Login"/>
+                        <p:inputText id="login"/>
+
+                        <p:outputLabel for="perfil" value="Perfil"/>
+                        <p:selectOneMenu id="perfil">
+                            <f:selectItem itemLabel="Selecione..." itemValue="" />
+                            <f:selectItem itemLabel="Administrador" itemValue="Xbox One" />
+                            <f:selectItem itemLabel="Técnico" itemValue="PS4" />
+                            <f:selectItem itemLabel="Enfermeiro" itemValue="Wii U" />
+                        </p:selectOneMenu>
+
+                        <p:outputLabel for="nome" value="Nome"/>
+                        <p:inputText id="nome"/>
+
+                        <p:outputLabel for="desativados" value="Incluir inativos"/>
+                        <p:inputSwitch id="desativados"/>
+                    </p:panelGrid>
+
+                    <p:panelGrid columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <p:commandButton id="btn" value="Pesquisar" icon="ui-icon-search" type="button"/>
+                    </p:panelGrid>
+                </div>
+                <div class="card">
+                    <p:dataTable var="usuario" value="#{dtUsuarioView.usuarios}" reflow="true" rows="5" paginator="true" rowKey="#{usuario.id}" >
+                        <f:facet name="header">
+                            Usuários
+                            <p:tooltip />
+                            <p:commandButton type="button" pt:data-tooltip="Cadastrar usuário" icon="ui-icon-add" styleClass="ui-btn-inline green-btn"/>
+                        </f:facet>
+                        <p:column headerText="Login" sortBy="#{usuario.login}" style="width: 20%">
+                            <h:outputText value="#{usuario.login}" />
+                        </p:column>
+
+                        <p:column headerText="Nome" sortBy="#{usuario.nome}" style="width: 50%">
+                            <h:outputText value="#{usuario.nome}" />
+                        </p:column>
+
+                        <p:column headerText="Perfil" sortBy="#{usuario.perfil}" style="width: 20%">
+                            <h:outputText value="#{usuario.perfil}" />
+                        </p:column>
+
+                        <p:column headerText="Ativo" sortBy="#{usuario.ativo}" style="width: 10%">
+                            <h:outputText value="#{usuario.ativo}" />
+                        </p:column>
+                    </p:dataTable>
+                </div>
+            </div>
+        </div>
+        
+    </ui:define>
+
+</ui:composition>
