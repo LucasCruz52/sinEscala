@@ -1,34 +1,27 @@
 /*
  * @author Pablo Lima
- * Classe de domínio que define os status de uma escala
- * Por boas práticas, todas as operações em uma escala devem ser feitas utilizando o nome das variáveis
- * e não o seu conteúdo.
+ * Classe de domínio que descrimina os status que uma solicitacao pode ter
  */
-
 package br.huUFS.sinEscala.dominio;
 
 import javax.persistence.Id;
 
-public class SituacaoEscala {
+public class SituacaoSolicitacao {
 	
 	@Id
 	public int id;
 	
 	public static final int CRIADA = 1;
 	
-	public static final int EDITADA = 2;
+	public static final int SUBMETIDA = 2;
 	
-	public static final int SUBMETIDA = 3;
+	public static final int EM_ANALISE_SUBCHEFIA = 3;
 	
 	public static final int EM_ANALISE_CHEFIA = 4;
 	
-	public static final int DEVOLVIDA_PARA_AJUSTES = 5;
+	public static final int ACEITA = 5;
 	
-	public static final int HOMOLOGADA = 6;
-	
-	public static final int EXECUTADA = 7;
-	
-	public static final int FINALIZADA = 8;
+	public static final int REJEITADA = 6;
 	
 	public String descricao;
 
@@ -47,4 +40,7 @@ public class SituacaoEscala {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	
+	
+	
 }
