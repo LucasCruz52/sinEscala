@@ -2,7 +2,7 @@
  * @author Pablo Lima
  * Classe de domínio que descrimina os status que uma solicitacao pode ter
  */
-package br.huUFS.sinEscala.dominio;
+package org.primefaces.ultima.domain;
 
 import javax.persistence.Id;
 

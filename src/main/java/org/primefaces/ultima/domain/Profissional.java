@@ -5,15 +5,12 @@
  * de Enfermagem
  */
 
-package br.huUFS.sinEscala.dominio;
+package org.primefaces.ultima.domain;
 
 import javax.persistence.*;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import org.hibernate.annotations.*;
-import org.hibernate.annotations.Columns;
-import org.joda.time.DateTime;
-
+import javax.faces.model.SelectItem;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Profissional {
 	
@@ -22,9 +19,6 @@ public class Profissional {
 	public static final int AUX_ENFERMAGEM = 2;
 	
 	public static final int TEC_ENFERMAGEM = 3;
-	
-	
-		
 	@Id 
 	int id;
 	
@@ -34,7 +28,7 @@ public class Profissional {
 	
 	public String numRegClasse;
 	
-	public CargaHoraria cargaHoraria;
+	public CargaHorariaDiaria cargaHoraria;
 	
 	public int turnoTrabalho;
 	
@@ -56,6 +50,8 @@ public class Profissional {
 	
 	public Unidade unidade;
 	
+	public StatusProfissional status;
+
 	public int getId() {
 		return id;
 	}
@@ -88,11 +84,11 @@ public class Profissional {
 		this.numRegClasse = numRegClasse;
 	}
 
-	public CargaHoraria getCargaHoraria() {
+	public CargaHorariaDiaria getCargaHoraria() {
 		return cargaHoraria;
 	}
 
-	public void setCargaHoraria(CargaHoraria cargaHoraria) {
+	public void setCargaHoraria(CargaHorariaDiaria cargaHoraria) {
 		this.cargaHoraria = cargaHoraria;
 	}
 
@@ -176,9 +172,20 @@ public class Profissional {
 		this.unidade = unidade;
 	}
 
+	public StatusProfissional getStatus() {
+		return status;
+	}
 
+	public void setStatus(StatusProfissional status) {
+		this.status = status;
+	}
 	
-	
-	
+	public List<SelectItem> getCargoCombo(){
+		List<SelectItem> lista = new ArrayList<SelectItem>();
+		lista.add(new SelectItem(ENFERMEIRO));
+		lista.add(new SelectItem(AUX_ENFERMAGEM));
+		lista.add(new SelectItem(TEC_ENFERMAGEM));
+		return lista;
+	}
 	
 }

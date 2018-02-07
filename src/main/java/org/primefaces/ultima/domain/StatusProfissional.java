@@ -3,11 +3,11 @@
  * Classe de domínio que discrimina os status possiveis de um Profissional
  */
 
-package br.huUFS.sinEscala.dominio;
+package org.primefaces.ultima.domain;
 
 import javax.persistence.Id;
 
-public class SituacaoProfissional {
+public class StatusProfissional {
 	
 	@Id
 	public int id;
@@ -33,10 +33,30 @@ public class SituacaoProfissional {
 	public String descricao;
 	
 	public String sigla;
-	
-	/* Atributo responsavel por armazenar o periodo maximo em quantidade de dias (se houver)
-	 * que cada tipo de afastamento tem por legislacao definida */
-	public int periodoMaximo;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public String getSigla() {
+		return sigla;
+	}
+
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
+	}
 	
 
 }

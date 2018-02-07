@@ -5,7 +5,7 @@
  * e não o seu conteúdo.
  */
 
-package br.huUFS.sinEscala.dominio;
+package org.primefaces.ultima.domain;
 
 import javax.persistence.Id;
 

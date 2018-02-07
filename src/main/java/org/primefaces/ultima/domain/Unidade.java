@@ -2,7 +2,7 @@
  * @author Pablo Lima
  */
 
-package br.huUFS.sinEscala.dominio;
+package org.primefaces.ultima.domain;
 
 import java.util.List;
 
