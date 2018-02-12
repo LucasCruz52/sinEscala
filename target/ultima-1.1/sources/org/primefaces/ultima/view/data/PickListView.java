@@ -45,13 +45,13 @@ public class PickListView {
         List<String> citiesSource = new ArrayList<String>();
         List<String> citiesTarget = new ArrayList<String>();
         
-        citiesSource.add("San Francisco");
-        citiesSource.add("London");
-        citiesSource.add("Paris");
-        citiesSource.add("Istanbul");
-        citiesSource.add("Berlin");
-        citiesSource.add("Barcelona");
-        citiesSource.add("Rome");
+        citiesSource.add("Gerenciamento de Usuário");
+        citiesSource.add("Gerenciamento de Escala");
+        citiesSource.add("Registro de Presença");
+        citiesSource.add("Homologação de Escala");
+        citiesSource.add("Geração da Escala");
+        citiesSource.add("Relatórios");
+        citiesSource.add("Solicitação de Troca de Turno");
         
         cities = new DualListModel<String>(citiesSource, citiesTarget);
         

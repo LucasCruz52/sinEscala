@@ -1,0 +1,51 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <style>
+        .panelGroup{
+            padding: 15px;
+        }
+    </style>
+    <ui:define name="content">
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <div class="card">
+                    <h1 style="margin-bottom: 25px;"><b>Cadastro de Perfil</b></h1>
+                    <p:panelGrid columns="2" columnClasses="ui-grid-col-6, ui-grid-col-6 " layout="grid" styleClass="ui-panelgrid-blank form-group">
+
+                        <h:panelGroup styleClass="md-inputfield">
+                            <p:inputText style="width: 65%;"/>
+                            <label>Nome</label>
+                        </h:panelGroup>
+
+                        <h:panelGroup styleClass="md-inputfield">
+                            <p:inputText style="width: 65%;"/>
+                            <label>Descrição</label>
+                        </h:panelGroup>
+
+                    </p:panelGrid>
+
+                    <p:panelGrid columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank form-group">
+
+                        <p:pickList id="pickList" value="#{pickListView.cities}" var="cities" itemLabel="#{cities}" itemValue="#{cities}"
+                                    showSourceControls="false" showTargetControls="false" showSourceFilter="true" showTargetFilter="true" responsive="true" style="width: 110%">
+                            <f:facet name="sourceCaption">Disponíveis</f:facet>
+                            <f:facet name="targetCaption">Vinculadas</f:facet>
+                        </p:pickList>
+
+                    </p:panelGrid>
+
+                    <br/>
+                    <p:commandButton id="btn" value="Cadastrar" icon="ui-icon-plus" styleClass="green-btn" type="button"/>
+
+                </div>
+            </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>

@@ -10,8 +10,9 @@
         <div class="ui-g">
             <div class="ui-g-12">
                 <div class="card">
+                    <p:tooltip />
                     <h1>Consulta de Usuários</h1>
-                    <p:panelGrid columns="4" columnClasses="ui-grid-col-1,ui-grid-col-4, ui-grid-col-2, ui-grid-col-4" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                    <p:panelGrid columns="4" columnClasses="ui-grid-col-1,ui-grid-col-6, ui-grid-col-2, ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank form-group">
                         <p:outputLabel for="login" value="Login"/>
                         <p:inputText id="login"/>
 
@@ -26,8 +27,8 @@
                         <p:outputLabel for="nome" value="Nome"/>
                         <p:inputText id="nome"/>
 
-                        <p:outputLabel for="desativados" value="Incluir inativos"/>
-                        <p:inputSwitch id="desativados"/>
+                        <p:outputLabel for="inativos" value="Incluir inativos"/>
+                        <p:inputSwitch id="inativos"/>
                     </p:panelGrid>
 
                     <p:panelGrid columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank form-group">
@@ -45,7 +46,7 @@
                             <h:outputText value="#{usuario.login}" />
                         </p:column>
 
-                        <p:column headerText="Nome" sortBy="#{usuario.nome}" style="width: 50%">
+                        <p:column headerText="Nome" sortBy="#{usuario.nome}" style="width: 40%">
                             <h:outputText value="#{usuario.nome}" />
                         </p:column>
 
@@ -55,6 +56,13 @@
 
                         <p:column headerText="Ativo" sortBy="#{usuario.ativo}" style="width: 10%">
                             <h:outputText value="#{usuario.ativo}" />
+                        </p:column>
+
+                        <p:column headerText="Ações"  style="width: 10%">
+                            <div style="text-align: center">
+                                <p:commandButton pt:data-tooltip="Editar perfil" icon="ui-icon-edit" styleClass="amber-btn"/>
+                                <p:commandButton pt:data-tooltip="Excluir perfil" icon="ui-icon-clear" styleClass="red-btn"/>
+                            </div>
                         </p:column>
                     </p:dataTable>
                 </div>

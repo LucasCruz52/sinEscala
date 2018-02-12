@@ -1,0 +1,58 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <div class="card">
+                    <h1><b>Necessidades de Plantão por Unidade</b></h1>
+                    <p:dataTable var="team" value="#{dtSubTableView.teams}">
+                        <f:facet name="header">
+                            Unidades de Internação
+                        </f:facet>
+
+                        <p:columnGroup type="header">
+                            <p:row>
+                                <p:column rowspan="2" headerText="Unidade" />
+                                <p:column colspan="2" headerText="Profissionais" />
+                            </p:row>
+                            <p:row>
+                                <p:column headerText="Técnicos" />
+                                <p:column headerText="Enfermeiros" />
+                            </p:row>
+                        </p:columnGroup>
+
+                        <p:subTable var="stats" value="#{team.stats}">
+                            <f:facet name="header">
+                                <h:outputText value="Unidade 1" />
+                            </f:facet>
+                            <p:column>
+                                <h:outputText value="01/08/2018" />
+                            </p:column>
+                            <p:column>
+                                <h:outputText value="4" />
+                            </p:column>
+                            <p:column>
+                                <h:outputText value="1" />
+                            </p:column>
+                            <p:columnGroup type="footer">
+                                <p:row>
+                                    <p:column footerText="Totais: " style="text-align:right"/>
+                                    <p:column footerText="20" />
+                                    <p:column footerText="5" />
+                                </p:row>
+                            </p:columnGroup>
+                        </p:subTable>
+                    </p:dataTable>
+                    <p:button outcome="dashboard" value="Home" style="display:inline-block;margin-top:5px"/>
+                </div>
+            </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>

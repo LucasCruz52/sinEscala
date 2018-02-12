@@ -1,0 +1,60 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <div class="card">
+                    <p:tooltip />
+                    <h1>Consulta de Perfis</h1>
+                    <p:panelGrid columns="4" columnClasses="ui-grid-col-1,ui-grid-col-6, ui-grid-col-1, ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <p:outputLabel for="nome" value="Nome"/>
+                        <p:inputText id="nome" style="width: 80%"/>
+
+                        <p:outputLabel for="inativos" value="Incluir inativos"/>
+                        <p:inputSwitch id="inativos"/>
+                    </p:panelGrid>
+
+                    <p:panelGrid columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <p:commandButton id="btn" value="Pesquisar" icon="ui-icon-search" type="button"/>
+                    </p:panelGrid>
+                </div>
+                <div class="card">
+                    <p:dataTable var="usuario" value="#{dtUsuarioView.usuarios}" reflow="true" rows="5" paginator="true" rowKey="#{usuario.id}" >
+                        <f:facet name="header">
+                            Perfis
+                            <p:tooltip />
+                            <p:commandButton type="button" pt:data-tooltip="Cadastrar perfil" icon="ui-icon-add" styleClass="ui-btn-inline green-btn"/>
+                        </f:facet>
+
+                        <p:column headerText="Nome" sortBy="#{usuario.nome}" style="width: 40%">
+                            <h:outputText value="#{usuario.nome}" />
+                        </p:column>
+
+                        <p:column headerText="Descrição" sortBy="#{usuario.perfil}" style="width: 40%">
+                            <h:outputText value="#{usuario.perfil}" />
+                        </p:column>
+
+                        <p:column headerText="Ativo" sortBy="#{usuario.ativo}" style="width: 10%">
+                            <h:outputText value="#{usuario.ativo}" />
+                        </p:column>
+
+                        <p:column headerText="Ações"  style="width: 10%">
+                            <div style="text-align: center">
+                                <p:commandButton pt:data-tooltip="Editar perfil" icon="ui-icon-edit" styleClass="amber-btn"/>
+                                <p:commandButton pt:data-tooltip="Excluir perfil" icon="ui-icon-clear" styleClass="red-btn"/>
+                            </div>
+                        </p:column>
+                    </p:dataTable>
+                </div>
+            </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>

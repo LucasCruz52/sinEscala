@@ -1,0 +1,119 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <style>
+        .panelGroup{
+            padding: 15px;
+        }
+    </style>
+    <ui:define name="content">
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <div class="card">
+                    <h1 style="margin-bottom: 25px;"><b>Cadastro de Necessidades de Trabalho</b></h1>
+                    <p:panelGrid columns="2" columnClasses="ui-grid-col-6, ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <p:selectOneMenu id="console" value="#{selectOneMenuView.console}" style="width: 65%; margin-bottom:20px;">
+                            <f:selectItem itemLabel="Mês..." itemValue="" />
+                            <f:selectItem itemLabel="Janeiro" itemValue="Xbox One" />
+                            <f:selectItem itemLabel="Fevereiro" itemValue="PS4" />
+                            <f:selectItem itemLabel="Março" itemValue="Wii U" />
+                        </p:selectOneMenu>
+                        <p:selectOneMenu id="console2" value="#{selectOneMenuView.console}" style="width: 65%; margin-bottom:20px;">
+                            <f:selectItem itemLabel="Unidade..." itemValue="" />
+                            <f:selectItem itemLabel="Unidade 1" itemValue="Xbox One" />
+                            <f:selectItem itemLabel="Unidade 2" itemValue="PS4" />
+                            <f:selectItem itemLabel="Unidade 3" itemValue="Wii U" />
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton id="btn2" value="Pesquisar" icon="ui-icon-search" type="button"/>
+                </div>
+                <div class="ui-g-12 ui-lg-12">
+                    <div class="card">
+                        <h:form id="form">
+                            <p:growl id="msgs" showDetail="true"/>
+
+                            <p:dataTable id="cars2" var="car" value="#{dtEditView.cars2}" editable="true" editMode="cell" widgetVar="cellCars">
+                                <f:facet name="header">
+                                    Necessidades da Unidade de Pediatria
+                                </f:facet>
+
+                                <p:columnGroup type="header">
+                                    <p:row>
+                                        <p:column rowspan="3" headerText="Data" />
+                                        <p:column colspan="4" headerText="Profissionais" />
+                                    </p:row>
+                                    <p:row>
+                                        <p:column colspan="2" headerText="Técnicos" />
+                                        <p:column colspan="2" headerText="Enfermeiros" />
+                                    </p:row>
+                                    <p:row>
+                                        <p:column headerText="Manhã" />
+                                        <p:column headerText="Tarde" />
+                                        <p:column headerText="Manhã" />
+                                        <p:column headerText="Tarde" />
+                                    </p:row>
+                                </p:columnGroup>
+
+                                <p:ajax event="cellEdit" listener="#{dtEditView.onCellEdit}" update=":form:msgs" />
+
+                                <p:column headerText="Data">
+                                    <p:cellEditor>
+                                        <f:facet name="output"><h:outputText value="#{car.id}" /></f:facet>
+                                        <f:facet name="input"><p:inputText id="modelInput1" value="#{car.id}" style="width:96%"/></f:facet>
+                                    </p:cellEditor>
+                                </p:column>
+
+                                <p:column>
+                                    <p:cellEditor>
+                                        <f:facet name="output"><h:outputText value="5" /></f:facet>
+                                        <f:facet name="input"><p:inputText id="modelInput2" value="5" style="width:96%"/></f:facet>
+                                    </p:cellEditor>
+                                </p:column>
+
+                                <p:column>
+                                    <p:cellEditor>
+                                        <f:facet name="input">
+                                            <f:facet name="output"><h:outputText value="5" /></f:facet>
+                                            <f:facet name="input"><p:inputText id="modelInput3" value="5" style="width:96%"/></f:facet>
+                                        </f:facet>
+                                    </p:cellEditor>
+                                </p:column>
+
+                                <p:column>
+                                    <p:cellEditor>
+                                        <f:facet name="input">
+                                            <f:facet name="output"><h:outputText value="5" /></f:facet>
+                                            <f:facet name="input"><p:inputText id="modelInput4" value="5" style="width:96%"/></f:facet>
+                                        </f:facet>
+                                    </p:cellEditor>
+                                </p:column>
+
+                                <p:column>
+                                    <p:cellEditor>
+                                        <f:facet name="output"><h:outputText value="5" /></f:facet>
+                                        <f:facet name="input"><p:inputText id="modelInput5" value="1" style="width:96%"/></f:facet>
+                                    </p:cellEditor>
+                                </p:column>
+
+                            </p:dataTable>
+
+                            <p:contextMenu for="cars2" widgetVar="cMenu">
+                                <p:menuitem value="Edit Cell" icon="ui-icon-search" onclick="PF('cellCars').showCellEditor();return false;"/>
+                                <p:menuitem value="Hide Menu" icon="ui-icon-close" onclick="PF('cMenu').hide()"/>
+                            </p:contextMenu>
+
+                        </h:form>
+                        <br/>
+                        <p:commandButton id="btn" value="Cadastrar" icon="ui-icon-plus" styleClass="green-btn" type="button"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>
