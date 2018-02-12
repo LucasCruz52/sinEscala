@@ -19,6 +19,7 @@ public class Profissional {
 	public static final int AUX_ENFERMAGEM = 2;
 	
 	public static final int TEC_ENFERMAGEM = 3;
+	
 	@Id 
 	int id;
 	
@@ -32,7 +33,7 @@ public class Profissional {
 	
 	public int turnoTrabalho;
 	
-	public Vinculo vinculo;
+	public Vinculo vinculo = new Vinculo();
 	
 	public int cargo;
 	
@@ -48,9 +49,9 @@ public class Profissional {
 	
 	public String telefoneContato2;
 	
-	public Unidade unidade;
+	public Unidade unidade = new Unidade();
 	
-	public StatusProfissional status;
+	public StatusProfissional status = new StatusProfissional();
 
 	public int getId() {
 		return id;
@@ -179,6 +180,23 @@ public class Profissional {
 	public void setStatus(StatusProfissional status) {
 		this.status = status;
 	}
+	
+	public Profissional(CargaHorariaDiaria cargaHoraria, String numRegClasse, String nome, int cargo, StatusProfissional status, 
+			int turnoTrabalho, boolean isChefe, String siape, boolean isSubchefe, boolean isPlantonista, boolean isUFS) {
+	// TODO Auto-generated constructor stub
+		this.nome = nome;
+		this.numRegClasse = numRegClasse;
+		this.cargo = cargo;
+		this.status = status;
+		this.turnoTrabalho = turnoTrabalho;
+		this.cargaHoraria = cargaHoraria;
+		this.siape = siape;
+		this.isChefe = isChefe;
+		this.isSubchefe = isSubchefe;
+		this.isPlantonista = isPlantonista;
+		this.isUFS = isUFS;
+	}
+	
 	
 	public List<SelectItem> getCargoCombo(){
 		List<SelectItem> lista = new ArrayList<SelectItem>();

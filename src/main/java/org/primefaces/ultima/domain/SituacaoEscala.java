@@ -47,4 +47,9 @@ public class SituacaoEscala {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	
+	public SituacaoEscala() {
+		// TODO Auto-generated constructor stub
+	}
+	
 }
