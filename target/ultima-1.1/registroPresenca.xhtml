@@ -1,0 +1,165 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="head">
+        <style type="text/css">
+            .cars-datalist .text-column p:last-child{
+                color:#757575;
+            }
+
+            .cars-datalist .car-item i, .cars-datalist .car-item .car-details {
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            .cars-datalist .car-item button {
+                float: right;
+            }
+
+            .cars-datalist ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            .ui-car-display td:last-child {
+                font-weight: 700;
+            }
+
+            .main-content {
+                padding: 0;
+            }
+
+            @media (max-width:640px) {
+                .cars-datalist .text-column {
+                    text-align: center;
+                }
+            }
+
+        </style>
+        <script type="text/javascript">
+            //<![CDATA[
+            function skinChart() {
+                this.cfg.shadow = false;
+                this.cfg.title = '';
+                this.cfg.seriesColors = ['#FFC107', '#03A9F4'];
+                this.cfg.grid = {
+                    background: '#ffffff',
+                    borderColor: '#ffffff',
+                    gridLineColor: '#EEEEEE',
+                    shadow: false
+                };
+                this.cfg.axesDefaults = {
+                    rendererOptions: {
+                        textColor: '#212121'
+                    }
+                };
+                this.cfg.seriesDefaults = {
+                    shadow: false,
+                    lineWidth: 1,
+                    markerOptions: {
+                        shadow: false,
+                        size: 7,
+                        style: 'circle'
+                    }
+                }
+            }
+            //]]>
+        </script>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="form">
+            <div class="ui-g">
+                <div class="ui-g-12 ui-md-12 ui-sm-12">
+                    <div class="card">
+                        <h1 style="margin-bottom: 25px;"><b>Registro de Presença</b></h1>
+                        <p:panelGrid columns="2" columnClasses="ui-grid-col-4, ui-grid-col-8" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                            <p:selectOneMenu id="console4" value="#{selectOneMenuView.console}" style="width: 65%; margin-bottom:20px; margin-top:10px;">
+                                <f:selectItem itemLabel="Unidade..." itemValue="" />
+                                <f:selectItem itemLabel="Unidade 1" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="Unidade 2" itemValue="PS4" />
+                                <f:selectItem itemLabel="Unidade 3" itemValue="Wii U" />
+                            </p:selectOneMenu>
+                            <h:panelGroup styleClass="md-inputfield">
+                                <p:calendar id="button" showOn="button" style="width: 65%; margin-bottom:20px;"/>
+                                <label>Data</label>
+                            </h:panelGroup>
+                        </p:panelGrid>
+                        <p:commandButton id="btn2" value="Pesquisar" icon="ui-icon-search" type="button"/>
+                    </div>
+                </div>
+                <div class="ui-g-6 ui-md-8 ui-sm-12">
+                    <div class="card card-w-title">
+                        <p:dataList value="#{dataListView.cars3}" var="car"
+                                    type="unordered" itemType="none" paginator="false" rows="7" styleClass="cars-datalist">
+                            <f:facet name="header">
+                                Registro de Presença
+                            </f:facet>
+                            <div style="border-bottom: 1px solid #bdbdbd" class="clearfix car-item">
+                                <i class="ui-icon ui-icon-person" style="font-size:48px;color:#757575;margin:24px;"></i>
+                                <div class="car-details">
+                                    <p>#{car.brand}</p>
+                                    <p style="color:#757575">#{car.year} - #{car.color}</p>
+                                </div>
+                                <p:selectBooleanButton onLabel="Presente" offLabel="Ausente"  style="margin:24px 24px 0 0; float: right" />
+                            </div>
+                        </p:dataList>
+
+                        <p:dialog header="Car Info" widgetVar="carDialog2" responsive="true" modal="true" showEffect="blind" hideEffect="explode" resizable="false">
+                            <p:outputPanel id="carDetail" style="text-align:center;">
+                                <p:panelGrid  columns="2" rendered="#{not empty dataListView.selectedCar}" columnClasses="label,value">
+                                    <f:facet name="header">
+                                        <i class="ui-icon ui-icon-person" style="font-size:48px;color:#757575;margin:24px;"></i>
+                                    </f:facet>
+
+                                    <h:outputText value="Id:" />
+                                    <h:outputText value="#{dataListView.selectedCar.id}" />
+
+                                    <h:outputText value="Year" />
+                                    <h:outputText value="#{dataListView.selectedCar.year}" />
+
+                                    <h:outputText value="Color:" />
+                                    <h:outputText value="#{dataListView.selectedCar.color}" style="color:#{dataListView.selectedCar.color}"/>
+
+                                    <h:outputText value="Price" />
+                                    <h:outputText value="\$#{dataListView.selectedCar.price}" />
+                                </p:panelGrid>
+                            </p:outputPanel>
+                        </p:dialog>
+                        <br/>
+                        <p:commandButton id="btn" value="Registrar" icon="ui-icon-plus" styleClass="green-btn" type="button"/>
+                    </div>
+                </div>
+                <div class="ui-g-4 ui-md-4 ui-sm-12">
+                    <div class="card card-w-title">
+                        <p:dataList value="#{dataListView.cars1}" rows="3" var="car" type="ordered">
+                            <f:facet name="header">
+                                Trocas de Turno
+                            </f:facet>
+                            Allan Silva
+                        </p:dataList>
+                        <br/>
+                        <p:dataList value="#{dataListView.cars1}" rows="3" var="car" type="ordered">
+                            <f:facet name="header">
+                                Afastamentos
+                            </f:facet>
+                            Lucas Mateus
+                        </p:dataList>
+                        <br/>
+                        <p:dataList value="#{dataListView.cars1}" rows="3" var="car" type="ordered">
+                            <f:facet name="header">
+                                Férias
+                            </f:facet>
+                            Pablo Lima
+                        </p:dataList>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

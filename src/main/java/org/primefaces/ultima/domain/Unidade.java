@@ -6,9 +6,6 @@ package org.primefaces.ultima.domain;
 
 import java.util.List;
 
-import javax.persistence.Id;
-
-
 public class Unidade {
 	
 	
@@ -17,8 +14,7 @@ public class Unidade {
 	
 	/*Descricao do departamento*/
 	public String descricao;
-	
-	@Id
+
 	public int id;
 	
 	/*Lista dos profissionais da Unidade*/

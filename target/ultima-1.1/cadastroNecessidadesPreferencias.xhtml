@@ -61,7 +61,10 @@
                                 <p:ajax event="cellEdit" listener="#{dtEditView.onCellEdit}" update=":form:msgs" />
 
                                 <p:column headerText="Data">
-                                    <f:facet name="output"><h:outputText value="#{car.id}" /></f:facet>
+                                    <p:cellEditor>
+                                        <f:facet name="output"><h:outputText value="#{car.id}" /></f:facet>
+                                        <f:facet name="input"><p:inputText id="modelInput1" value="#{car.id}" style="width:96%"/></f:facet>
+                                    </p:cellEditor>
                                 </p:column>
 
                                 <p:column>
