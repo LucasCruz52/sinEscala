@@ -242,7 +242,7 @@ CREATE TABLE Solicitacao (
     hora_solicitacao time NOT NULL,
     status varchar(10),
     CONSTRAINT PK_Solicitacao PRIMARY KEY (cod_solicitacao),
-    CONSTRAINT FK_Solicitacao_ProfissionalA FOREIGN KEY (profissional) REFERENCES ProfissionalAlocado(profissional),
+    CONSTRAINT FK_Solicitacao_Profissional FOREIGN KEY (profissional) REFERENCES Profissional(cpf),
     CONSTRAINT FK_Solicitacao_SituacaoS FOREIGN KEY (situacao_solicitacao) REFERENCES SituacaoSolicitacao(cod_situacao_solicitacao)
 );    
     
