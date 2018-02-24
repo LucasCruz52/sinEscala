@@ -35,11 +35,6 @@ public class UsuarioView implements Serializable {
     @ManagedProperty("#{usuarioService}")
     private UsuarioService service;
 
-    @PostConstruct
-    public void init() {
-        usuarios = service.createUsuarios(10);
-    }
-
     public List<Usuario> getUsuarios() {
         return usuarios;
     }

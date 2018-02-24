@@ -2,17 +2,28 @@ package org.primefaces.ultima.domain;
 
 import org.primefaces.ultima.domain.Perfil;
 
+import javax.persistence.*;
+import javax.xml.bind.annotation.XmlSchema;
 import java.io.Serializable;
 import java.util.Date;
 
+@Entity
+@Table(name = "usuario")
 public class Usuario implements Serializable{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     public Integer id;
+    @Column(name = "login")
     public String login;
     public String senha;
+    @Column(name = "nome")
     public String nome;
     public String email;
-    public Perfil perfil;
+    @Column(name = "idperfil")
+    public int idperfil;
+    @Column(name = "ativo")
     public boolean ativo;
     public Date dataCadastro;
     public Date dataExpiracao;
@@ -25,7 +36,7 @@ public class Usuario implements Serializable{
         this.senha = senha;
         this.nome = nome;
         this.email = email;
-        this.perfil = perfil;
+        this.idperfil = 1;
         this.ativo = true;
         this.dataExpiracao = dataExpiracao;
     }
@@ -36,7 +47,7 @@ public class Usuario implements Serializable{
         this.senha = senha;
         this.nome = nome;
         this.email = email;
-        this.perfil = perfil;
+        this.idperfil = 1;
         this.ativo = ativo;
         this.dataExpiracao = dataExpiracao;
     }
@@ -81,12 +92,12 @@ public class Usuario implements Serializable{
         this.email = email;
     }
 
-    public Perfil getPerfil() {
-        return perfil;
+    public int getPerfil() {
+        return 1;
     }
 
     public void setPerfil(Perfil perfil) {
-        this.perfil = perfil;
+        this.idperfil = 1;
     }
 
     public Date getDataCadastro() {
@@ -119,28 +130,6 @@ public class Usuario implements Serializable{
 
     public void desativar(){
         this.ativo = false;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + (this.id != null ? this.id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Usuario other = (Usuario) obj;
-        if ((this.id == null) ? (other.id != null) : !this.id.equals(other.id)) {
-            return false;
-        }
-        return true;
     }
 
 }

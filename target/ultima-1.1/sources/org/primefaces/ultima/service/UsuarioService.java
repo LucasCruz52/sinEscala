@@ -1,130 +1,121 @@
 package org.primefaces.ultima.service;
 
+import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.*;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
+import javax.persistence.criteria.Root;
+import javax.xml.transform.Result;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.cfg.Configuration;
+
 import org.primefaces.ultima.domain.Car;
 import org.primefaces.ultima.domain.Perfil;
+import org.primefaces.ultima.domain.Unidade;
 import org.primefaces.ultima.domain.Usuario;
 
+//Imports de elementos para o uso do Hibernate funcionar import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
 @ManagedBean(name = "usuarioService")
-@ApplicationScoped
-public class UsuarioService {
+@SessionScoped
+public class UsuarioService{
 
-    private final static String[] nome;
+    public Usuario usuario;
 
-    private final static String[] login;
+    public List<Usuario> pesquisarUsuariosCadastrados(int unidade){
 
-    private final static String[] senha;
+        List<Usuario> lista = new ArrayList<Usuario>();
 
-    private final static String[] email;
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, 1988);
+        cal.set(Calendar.MONTH, Calendar.JANUARY);
+        cal.set(Calendar.DAY_OF_MONTH, 1);
+        Date dateRepresentation = cal.getTime();
 
-    private final static Date[] dataExpiracao;
+        Usuario usuario1 = new Usuario(1,"lucas.cruz","123","lucas","lucas.cruz.52@gmail", null, dateRepresentation);
+        Usuario usuario2 = new Usuario(2,"vinicius.thadeu","456","vinicius","vinicius.thadeu@gmail", null, dateRepresentation);
 
-    private final static String[] ativo;
+        lista.add(usuario1);
+        lista.add(usuario2);
 
-    static {
-
-        nome = new String[10];
-        nome[0] = "Lucas Mateus de Santana Cruz";
-        nome[1] = "Allan Silva Santos";
-        nome[2] = "Pablo Lima";
-        nome[3] = "João José";
-        nome[4] = "Maria Cristina";
-
-        login = new String[10];
-        login[0] = "lucas.cruz";
-        login[1] = "allan.silva";
-        login[2] = "pablo.lima";
-        login[3] = "joao.jose";
-        login[4] = "maria.cristina";
-
-        senha = new String[10];
-        senha[0] = "senha1";
-        senha[1] = "senha2";
-        senha[2] = "senha3";
-        senha[3] = "senha4";
-        senha[4] = "senha5";
-
-        email = new String[10];
-        email[0] = "lucas.cruz@gmail.com";
-        email[1] = "allan.silva@gmail.com";
-        email[2] = "pablo.lima@gmail.com";
-        email[3] = "joao.jose@gmail.com";
-        email[4] = "maria.cristina@gmail.com";
-
-        dataExpiracao = new Date[10];
-        dataExpiracao[0] = new Date();
-        dataExpiracao[1] = new Date();
-        dataExpiracao[2] = new Date();
-        dataExpiracao[3] = new Date();
-        dataExpiracao[4] = new Date();
-
-        ativo = new String[2];
-        ativo[0] = "Ativo";
-        ativo[1] = "Inativo";
-
+        return lista;
     }
 
-    public List<Usuario> createUsuarios(int size) {
-        List<Usuario> list = new ArrayList<Usuario>();
-        for(int i = 0 ; i < size ; i++) {
-            list.add(new Usuario(getRandomId(), getRandomLogin(), getRandomSenha(), getRandomNome(), getRandomEmail(), null, getRandomDataExpiracao()));
-        }
+    public boolean cadastrarUsuario(Usuario usuario){
 
-        return list;
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, 1988);
+        cal.set(Calendar.MONTH, Calendar.JANUARY);
+        cal.set(Calendar.DAY_OF_MONTH, 1);
+        Date dateRepresentation = cal.getTime();
+
+        //Cria objeto que receberá as configurações
+        Configuration cfg = new Configuration();
+
+        //Informe o arquivo XML que contém a configurações
+        cfg.configure("hibernate.cfg.xml");
+
+        //Cria uma fábrica de sessões.
+        //Deve existir apenas uma instância na aplicação
+        SessionFactory sf = cfg.buildSessionFactory();
+
+        // Abre sessão com o Hibernate
+        Session session = sf.openSession();
+
+        //Cria uma transação
+        Transaction tx = session.beginTransaction();
+
+        // Cria objeto Aluno
+        //Usuario usuario = new Usuario(1,"lucas.cruz","123","lucas","lucas.cruz.52@gmail", null, dateRepresentation);
+
+        session.save(usuario); // Realiza persistência
+        tx.commit(); // Finaliza transação
+        session.close(); // Fecha sessão
+
+        return true;
     }
 
-    private int getRandomId() {
-        return (int)(Math.random() * 50 + 1960);
+    public List<Usuario> listarUsuarios() {
+
+        List<Usuario> lista = new ArrayList<Usuario>();
+
+        //Cria objeto que receberá as configurações
+        Configuration cfg = new Configuration();
+
+        //Informe o arquivo XML que contém a configurações
+        cfg.configure("hibernate.cfg.xml");
+
+        //Cria uma fábrica de sessões.
+        //Deve existir apenas uma instância na aplicação
+        SessionFactory sf = cfg.buildSessionFactory();
+
+        // Abre sessão com o Hibernate
+        Session session = sf.openSession();
+
+        Usuario usuario = session.get(Usuario.class,4);
+        lista.add(usuario);
+
+        return lista;
     }
 
-    private String getRandomNome() {
-        return nome[(int) (Math.random() * 5)];
-    }
+    public static void main(final String[] args) throws Exception {
+        UsuarioService usuarioService = new UsuarioService();
+        List<Usuario> usuarios = usuarioService.listarUsuarios();
 
-    private String getRandomLogin() {
-        return login[(int) (Math.random() * 5)];
-    }
-
-    private String getRandomSenha() {
-        return senha[(int) (Math.random() * 5)];
-    }
-
-    private String getRandomEmail() {
-        return email[(int) (Math.random() * 5)];
-    }
-
-    private Date getRandomDataExpiracao() {
-        return dataExpiracao[(int) (Math.random() * 5)];
-    }
-
-    private String getRandomAtivo() {
-        return ativo[(int) (Math.random() * 2)];
-    }
-
-    public List<String> getNomes() {
-        return Arrays.asList(nome);
-    }
-
-    public List<String> getLogins() {
-        return Arrays.asList(login);
-    }
-
-    public List<String> getSenhas() {
-        return Arrays.asList(senha);
-    }
-
-    public List<String> getEmails() {
-        return Arrays.asList(email);
-    }
-
-    public List<Date> getDatasExpiracao() {
-        return Arrays.asList(dataExpiracao);
-    }
-
-    public List<String> getAtivos() {
-        return Arrays.asList(ativo);
+        System.out.println(usuarios.get(0).login);
     }
 
 }

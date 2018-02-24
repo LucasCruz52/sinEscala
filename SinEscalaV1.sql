@@ -1,3 +1,5 @@
+CREATE DATABASE SinEscala;
+
 CREATE TABLE CargaHorariaMes (
     cod_ch_mes int NOT NULL,
     ch_mensal int NOT NULL,
@@ -187,11 +189,11 @@ CREATE TABLE SituacaoEscala (
 
 CREATE TABLE Usuario (
     cod_usuario int NOT NULL,
-    cpf int NOT NULL,
-    data_cadastro date NOT NULL,
-    data_expiracao date NOT NULL,
+    nome VARCHAR (30) NULL,
+    dataCadastro date NOT NULL,
+    dataExpiracao date NOT NULL,
     email varchar(25) NOT NULL,
-    status boolean NOT NULL,
+    ativo boolean NOT NULL,
     login varchar(15) NOT NULL,
     senha varchar(6) NOT NULL,
     CONSTRAINT PK_Usuario PRIMARY KEY (cod_usuario),

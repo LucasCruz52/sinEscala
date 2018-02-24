@@ -17,7 +17,7 @@
 
                         <p:columnGroup type="header">
                             <p:row>
-                                <p:column rowspan="2" headerText="Unidade" />
+                                <p:column rowspan="2" headerText="Data" />
                                 <p:column colspan="2" headerText="Profissionais" />
                             </p:row>
                             <p:row>
@@ -28,7 +28,7 @@
 
                         <p:subTable var="stats" value="#{team.stats}">
                             <f:facet name="header">
-                                <h:outputText value="Unidade 1" />
+                                <h:outputText value="Unidade de Pediatria" />
                             </f:facet>
                             <p:column>
                                 <h:outputText value="01/08/2018" />
@@ -48,7 +48,6 @@
                             </p:columnGroup>
                         </p:subTable>
                     </p:dataTable>
-                    <p:button outcome="dashboard" value="Home" style="display:inline-block;margin-top:5px"/>
                 </div>
             </div>
         </div>

@@ -16,51 +16,53 @@
                 <div class="card">
                     <h1 style="margin-bottom: 25px;"><b>Cadastro de Usuário</b></h1>
 
-                    <p:panelGrid id="grid" columns="2" columnClasses="ui-grid-col-6, ui-grid-col-6 " layout="grid" styleClass="ui-panelgrid-blank form-group">
+                    <h:form>
+                        <p:panelGrid id="grid" var="" columns="2" columnClasses="ui-grid-col-6, ui-grid-col-6 " layout="grid" styleClass="ui-panelgrid-blank form-group">
 
-                        <h:panelGroup styleClass="md-inputfield">
-                            <p:inputText id="login" style="width: 65%; margin-bottom:20px;" required="true"/>
-                            <label>Login*</label>
-                        </h:panelGroup>
+                            <h:panelGroup styleClass="md-inputfield">
+                                <p:inputText id="login" style="width: 65%; margin-bottom:20px;" value="usuarioService.usuario.login" required="true"/>
+                                <label>Login*</label>
+                            </h:panelGroup>
 
-                        <h:panelGroup styleClass="md-inputfield">
-                            <p:inputText style="width: 65%; margin-bottom:20px;"/>
-                            <label>Nome*</label>
-                        </h:panelGroup>
+                            <h:panelGroup styleClass="md-inputfield">
+                                <p:inputText style="width: 65%; margin-bottom:20px;" value="#{usuarioService.usuario.nome}"/>
+                                <label>Nome*</label>
+                            </h:panelGroup>
 
-                        <h:panelGroup styleClass="md-inputfield">
-                            <p:password style="width: 65%; margin-bottom:20px;"/>
-                            <label>Senha*</label>
-                        </h:panelGroup>
+                            <h:panelGroup styleClass="md-inputfield">
+                                <p:password style="width: 65%; margin-bottom:20px;" value="#{Usuario.senha}"/>
+                                <label>Senha*</label>
+                            </h:panelGroup>
 
-                        <h:panelGroup styleClass="md-inputfield">
-                            <p:password style="width: 65%; margin-bottom:20px;"/>
-                            <label>Confirmar senha*</label>
-                        </h:panelGroup>
+                            <h:panelGroup styleClass="md-inputfield">
+                                <p:password style="width: 65%; margin-bottom:20px;"/>
+                                <label>Confirmar senha*</label>
+                            </h:panelGroup>
 
-                        <h:panelGroup styleClass="md-inputfield">
-                            <p:inputText style="width: 65%; margin-bottom:20px;"/>
-                            <label>Email*</label>
-                        </h:panelGroup>
+                            <h:panelGroup styleClass="md-inputfield">
+                                <p:inputText style="width: 65%; margin-bottom:20px;" value="#{Usuario.email}"/>
+                                <label>Email*</label>
+                            </h:panelGroup>
 
-                        <p:selectOneMenu id="console" value="#{selectOneMenuView.console}" style="width: 65%; margin-bottom:20px;">
-                            <f:selectItem itemLabel="Perfil*..." itemValue="" />
-                            <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
-                            <f:selectItem itemLabel="PS4" itemValue="PS4" />
-                            <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
-                        </p:selectOneMenu>
+                            <p:selectOneMenu id="console" value="#{selectOneMenuView.console}" style="width: 65%; margin-bottom:20px;">
+                                <f:selectItem itemLabel="Perfil*..." itemValue="" />
+                                <f:selectItem itemLabel="Administrador" itemValue="Administrador" />
+                                <f:selectItem itemLabel="Técnico" itemValue="Técnico" />
+                                <f:selectItem itemLabel="Enfermeiro" itemValue="Enfermeiro" />
+                            </p:selectOneMenu>
 
-                        <h:panelGroup styleClass="md-inputfield">
-                            <p:calendar id="button" showOn="button" style="width: 65%; margin-bottom:20px;"/>
-                            <label>Data de expiração</label>
-                        </h:panelGroup>
+                            <h:panelGroup styleClass="md-inputfield">
+                                <p:calendar id="button" showOn="button" style="width: 65%; margin-bottom:20px;"/>
+                                <label>Data de expiração</label>
+                            </h:panelGroup>
 
-                        <h:panelGroup styleClass="md-inputfield">
-                        </h:panelGroup>
+                            <h:panelGroup styleClass="md-inputfield">
+                            </h:panelGroup>
 
-                        <p:commandButton id="submitButton" value="Submit" update="grid growl" styleClass="GreenButton"/>
+                            <p:commandButton id="submitButton" value="Cadastrar" actionListener="#{usuarioService.cadastrarUsuario(UsuarioCadastro)}" styleClass="green-btn"/>
 
-                    </p:panelGrid>
+                        </p:panelGrid>
+                    </h:form>
                 </div>
             </div>
         </div>
