@@ -148,7 +148,7 @@ CREATE TABLE PreferenciaDiaria (
 
 CREATE TABLE Profissional (
     siape int NOT NULL,
-    registro_conselho int NOT NULL,
+    registro_conselho int UNIQUE NOT NULL,
     ch_dia int NOT NULL,
     ch_mes int NOT NULL,
     cargo int NOT NULL,
