@@ -147,7 +147,6 @@ CREATE TABLE PreferenciaDiaria (
 );
 
 CREATE TABLE Profissional (
-    cpf int NOT NULL,
     siape int NOT NULL,
     registro_conselho int NOT NULL,
     ch_dia int NOT NULL,
@@ -155,7 +154,7 @@ CREATE TABLE Profissional (
     cargo int NOT NULL,
     vinculo int NOT NULL,
     nome varchar(45) NOT NULL,
-    CONSTRAINT PK_Profissional PRIMARY KEY (cpf),
+    CONSTRAINT PK_Profissional PRIMARY KEY (siape),
     CONSTRAINT FK_Profissional_ChDia FOREIGN KEY (ch_dia) REFERENCES CargaHorariaDia(cod_ch_dia),
     CONSTRAINT FK_Profissional_ChMes FOREIGN KEY (ch_mes) REFERENCES CargaHorariaMes(cod_ch_mes),
     CONSTRAINT FK_Profissional_TipoP FOREIGN KEY (cargo) REFERENCES TipoProfissional(cod_tipo),
@@ -163,9 +162,9 @@ CREATE TABLE Profissional (
 );
 
 CREATE TABLE Telefone(
-	cpf int,
+	siape int,
 	telefone varchar(15),
-	CONSTRAINT PK_telefone PRIMARY KEY (cpf, telefone),
+	CONSTRAINT PK_telefone PRIMARY KEY (siape, telefone),
 	CONSTRAINT FK_telefone_profissional FOREIGN KEY (cpf) REFERENCES Profissional(cpf)
 );
 
@@ -189,6 +188,7 @@ CREATE TABLE SituacaoEscala (
 
 CREATE TABLE Usuario (
     cod_usuario int NOT NULL,
+    profissional int NOT NULL,
     nome VARCHAR (30) NULL,
     dataCadastro date NOT NULL,
     dataExpiracao date NOT NULL,
@@ -197,7 +197,7 @@ CREATE TABLE Usuario (
     login varchar(15) NOT NULL,
     senha varchar(6) NOT NULL,
     CONSTRAINT PK_Usuario PRIMARY KEY (cod_usuario),
-    CONSTRAINT FK_Usuario_Profissional FOREIGN KEY (cpf) REFERENCES Profissional(cpf)
+    CONSTRAINT FK_Usuario_Profissional FOREIGN KEY (profissional) REFERENCES Profissional(siape)
 );    
     
 CREATE TABLE BlocoHorarioEscala (
@@ -231,7 +231,7 @@ CREATE TABLE ProfissionalAlocado (
     bloco_preferencia int NOT NULL,
     presente boolean NOT NULL,
     CONSTRAINT PK_ProfissionalAlocado PRIMARY KEY (cod_alocacao),
-    CONSTRAINT FK_ProfissionalA_Profissional FOREIGN KEY (profissional) REFERENCES Profissional(cpf),
+    CONSTRAINT FK_ProfissionalA_Profissional FOREIGN KEY (profissional) REFERENCES Profissional(siape),
     CONSTRAINT FK_ProfissionalA_BlocoE FOREIGN KEY (bloco_escala) REFERENCES BlocoHorarioEscala(cod_bloco_escala),
     CONSTRAINT FK_ProfissionalA_BlocoP FOREIGN KEY (bloco_preferencia) REFERENCES BlocoHorarioPreferencia(cod_bloco_preferencia)
 );    
@@ -244,7 +244,7 @@ CREATE TABLE Solicitacao (
     hora_solicitacao time NOT NULL,
     status varchar(10),
     CONSTRAINT PK_Solicitacao PRIMARY KEY (cod_solicitacao),
-    CONSTRAINT FK_Solicitacao_Profissional FOREIGN KEY (profissional) REFERENCES Profissional(cpf),
+    CONSTRAINT FK_Solicitacao_Profissional FOREIGN KEY (profissional) REFERENCES Profissional(siape),
     CONSTRAINT FK_Solicitacao_SituacaoS FOREIGN KEY (situacao_solicitacao) REFERENCES SituacaoSolicitacao(cod_situacao_solicitacao)
 );    
     
