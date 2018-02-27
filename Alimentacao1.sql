@@ -12,7 +12,7 @@ INSERT INTO CargaHorariaMes(cod_ch_mes, ch_mensal) VALUES (1, 144);
 INSERT INTO CargaHorariaMes(cod_ch_mes, ch_mensal) VALUES (2, 120);
 
 INSERT INTO TipoProfissional(cod_tipo, nome_tipo, descricao_tipo) VALUES (1, 'TE', 'TECNICO DE ENFERMAGEM');
-INSERT INTO TipoProfissional(cod_tipo, nome_tipo, descricao_tipo) VALUES (2, 'AF', 'AUXILIAR DE ENFERMAGEM');
+INSERT INTO TipoProfissional(cod_tipo, nome_tipo, descricao_tipo) VALUES (2, 'AE', 'AUXILIAR DE ENFERMAGEM');
 INSERT INTO TipoProfissional(cod_tipo, nome_tipo, descricao_tipo) VALUES (3, 'ENF', 'ENFERMEIRO');
 INSERT INTO TipoProfissional(cod_tipo, nome_tipo, descricao_tipo) VALUES (4, 'CHEF', 'CHEFE DIVISÃO DE ENFERMERMAGEM');
 INSERT INTO TipoProfissional(cod_tipo, nome_tipo, descricao_tipo) VALUES (5, 'SUBCHEF', 'SUBCHEFE DE UNIDADE');
