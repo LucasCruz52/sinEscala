@@ -165,7 +165,7 @@ CREATE TABLE Telefone(
 	siape int,
 	telefone varchar(15),
 	CONSTRAINT PK_telefone PRIMARY KEY (siape, telefone),
-	CONSTRAINT FK_telefone_profissional FOREIGN KEY (cpf) REFERENCES Profissional(cpf)
+	CONSTRAINT FK_telefone_profissional FOREIGN KEY (siape) REFERENCES Profissional(siape)
 );
 
 CREATE TABLE SituacaoEscala (
