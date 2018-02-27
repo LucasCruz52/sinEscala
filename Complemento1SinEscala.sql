@@ -21,7 +21,7 @@ CREATE TABLE AcressimoHoras (
     mes int NOT NULL,
     ano int NOT NULL,
     CONSTRAINT PK_Acressimohoras PRIMARY KEY (cod_acressimo),
-    CONSTRAINT FK_Acressimo_Profissional FOREIGN KEY (profissional) REFERENCES Profissional(cpf)
+    CONSTRAINT FK_Acressimo_Profissional FOREIGN KEY (profissional) REFERENCES Profissional(siape)
 );
 
 ALTER TABLE UnidadeInternacao ADD status boolean NOT NULL;
