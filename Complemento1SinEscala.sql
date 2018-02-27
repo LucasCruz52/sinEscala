@@ -6,6 +6,8 @@ ALTER TABLE Profissional ADD siape int NOT NULL;
 ALTER TABLE Profissional DROP COLUMN registro_conselho;
 ALTER TABLE Profissional ADD registro_conselho int NOT NULL;
 
+ALTER TABLE Intervalo DROP COLUMN turno;
+
 ALTER TABLE UnidadeInternacao ADD status boolean NOT NULL;
 
 CREATE TABLE TipoSituacaoSolicitacao (
