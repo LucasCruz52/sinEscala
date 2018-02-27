@@ -10,6 +10,20 @@ ALTER TABLE Intervalo DROP COLUMN turno;
 
 ALTER TABLE Restricao DROP COLUMN horas_trabalho;
 
+ALTER TABLE CargaHorariaMes DROP COLUMN acressimo_horas;
+ALTER TABLE CargaHorariaMes DROP COLUMN ano;
+ALTER TABLE CargaHorariaMes DROP COLUMN mes;
+
+CREATE TABLE AcressimoHoras (
+    cod_acressimo int NOT NULL,
+    profissional int NOT NULL,
+    horas_acressimo int NOT NULL,
+    mes int NOT NULL,
+    ano int NOT NULL,
+    CONSTRAINT PK_Acressimohoras PRIMARY KEY (cod_acressimo),
+    CONSTRAINT FK_Acressimo_Profissional FOREIGN KEY (profissional) REFERENCES Profissional(cpf)
+);
+
 ALTER TABLE UnidadeInternacao ADD status boolean NOT NULL;
 
 CREATE TABLE TipoSituacaoSolicitacao (
