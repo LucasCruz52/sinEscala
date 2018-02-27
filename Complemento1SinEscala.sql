@@ -8,6 +8,8 @@ ALTER TABLE Profissional ADD registro_conselho int NOT NULL;
 
 ALTER TABLE Intervalo DROP COLUMN turno;
 
+ALTER TABLE Restricao DROP COLUMN horas_trabalho;
+
 ALTER TABLE UnidadeInternacao ADD status boolean NOT NULL;
 
 CREATE TABLE TipoSituacaoSolicitacao (
