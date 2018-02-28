@@ -10,8 +10,8 @@ import java.util.Date;
 @Entity
 @Table(name = "usuario")
 public class Usuario implements Serializable{
-
-    @Id
+	
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     public Integer id;
@@ -27,7 +27,9 @@ public class Usuario implements Serializable{
     public boolean ativo;
     public Date dataCadastro;
     public Date dataExpiracao;
-
+    
+    public Perfil perfil = new Perfil();
+    
     public Usuario(){}
 
     public Usuario(Integer id, String login, String senha, String nome, String email, Perfil perfil, Date dataExpiracao) {
@@ -36,7 +38,7 @@ public class Usuario implements Serializable{
         this.senha = senha;
         this.nome = nome;
         this.email = email;
-        this.idperfil = 1;
+        this.idperfil = Perfil.ADMINISTRADOR;
         this.ativo = true;
         this.dataExpiracao = dataExpiracao;
     }
@@ -47,7 +49,7 @@ public class Usuario implements Serializable{
         this.senha = senha;
         this.nome = nome;
         this.email = email;
-        this.idperfil = 1;
+        this.idperfil = Perfil.ADMINISTRADOR;
         this.ativo = ativo;
         this.dataExpiracao = dataExpiracao;
     }
@@ -92,13 +94,6 @@ public class Usuario implements Serializable{
         this.email = email;
     }
 
-    public int getPerfil() {
-        return 1;
-    }
-
-    public void setPerfil(Perfil perfil) {
-        this.idperfil = 1;
-    }
 
     public Date getDataCadastro() {
         return dataCadastro;
@@ -124,7 +119,11 @@ public class Usuario implements Serializable{
         this.ativo = ativo;
     }
 
-    public void ativar(){
+    public Perfil getPerfil() {
+		return perfil;
+	}
+
+	public void ativar(){
         this.ativo = true;
     }
 

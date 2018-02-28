@@ -2,28 +2,12 @@ package org.primefaces.ultima.DAO;
 
 import org.primefaces.ultima.domain.Usuario;
 
+import br.huufs.sinEscala.DAO.GenericDAO;
+
 import java.util.List;
 
-public class UsuarioDAO {
+public class UsuarioDAO extends GenericDAO<Usuario, Long>{
 
-    List<Usuario> findAll(){
-        return null;
-    };
-    List<Usuario> findById(){
-        return null;
-    };
-    List<Usuario> findByName(){
-        return null;
-    };
-
-    boolean insertEmployee(Usuario employee){
-        return false;
-    };
-    boolean updateEmployee(Usuario employee){
-        return false;
-    };
-    boolean deleteEmployee(Usuario employee){
-        return false;
-    };
+  
 
 }
