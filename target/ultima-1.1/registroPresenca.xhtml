@@ -105,15 +105,30 @@
                                     <p>#{car.brand}</p>
                                     <p style="color:#757575">#{car.year} - #{car.color}</p>
                                 </div>
+                                <p:commandButton styleClass="cyan-btn" id="dialog2" value="Obs." icon="ui-icon-edit" type="button" onclick="PF('dlg').show()" style="max-width:150px; margin:24px 24px 0 0; float: right; text-align: center"  />
                                 <p:selectBooleanButton onLabel="Presente" offLabel="Ausente"  style="margin:24px 24px 0 0; float: right" />
                             </div>
                         </p:dataList>
+
+                        <p:dialog header="Observações" widgetVar="dlg" resizable="false" draggable="false" responsive="true" hideEffect="scale">
+                            <div class="ui-g form-group" style="margin-bottom: 16px;">
+                                <div class="ui-g-12">
+                                    <h:panelGroup styleClass="md-inputfield">
+                                        <p:inputTextarea id="area" autoResize="false" cols="50" rows="5"/>
+                                    </h:panelGroup>
+                                </div>
+                            </div>
+
+                            <f:facet name="footer">
+                                <p:commandButton value="Registrar" type="button" onclick="PF('dlg').hide()" style="width:auto;" icon="ui-icon-check"/>
+                            </f:facet>
+                        </p:dialog>
 
                         <p:dialog header="Car Info" widgetVar="carDialog2" responsive="true" modal="true" showEffect="blind" hideEffect="explode" resizable="false">
                             <p:outputPanel id="carDetail" style="text-align:center;">
                                 <p:panelGrid  columns="2" rendered="#{not empty dataListView.selectedCar}" columnClasses="label,value">
                                     <f:facet name="header">
-                                        <i class="ui-icon ui-icon-person" style="font-size:48px;color:#757575;margin:24px;"></i>
+                                        <i class="ui-icon ui-icon-check" style="font-size:48px;color:#757575;margin:24px;"></i>
                                     </f:facet>
 
                                     <h:outputText value="Id:" />

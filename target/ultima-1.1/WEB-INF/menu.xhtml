@@ -49,22 +49,34 @@
                     
                     <pu:menu widgetVar="me">
                         <p:menuitem id="um_inicial" value="Inicial" icon="&#xE871;" outcome="/inicial_colaborador"/>
-                        <p:submenu id="um_usuario" label="Usuário" icon="&#xE55A;" styleClass="amber-badge">
-                            <p:menuitem id="um_cadastroUsuario" value="Cadastro de Usuário" icon="&#xE871;" outcome="/cadastroUsuario"/>
-                            <p:menuitem id="um_pesquisaUsuario" value="Pesquisa de Usuário" icon="&#xE871;" outcome="/listaUsuarios"/>
+                        <p:submenu id="um_controleAcesso" label="Controle de Acesso" icon="&#xE55A;" styleClass="amber-badge">
+                            <p:submenu id="um_usuario" label="Usuário" icon="&#xE55A;" styleClass="amber-badge">
+                                <p:menuitem id="um_cadastroUsuario" value="Cadastro de Usuário" icon="&#xE871;" outcome="/cadastroUsuario"/>
+                                <p:menuitem id="um_pesquisaUsuario" value="Pesquisa de Usuário" icon="&#xE871;" outcome="/listaUsuarios"/>
+                            </p:submenu>
+                            <p:submenu id="um_perfil" label="Perfil" icon="&#xE8B8;" styleClass="amber-badge">
+                                <p:menuitem id="um_cadastroPerfil" value="Cadastro de Perfil" icon="&#xE871;" outcome="/cadastroPerfis"/>
+                                <p:menuitem id="um_pesquisaPerfil" value="Pesquisa de Perfil" icon="&#xE871;" outcome="/listaPerfis"/>
+                            </p:submenu>
+                            <p:submenu id="um_pagina" label="Página" icon="&#xE8B8;" styleClass="amber-badge">
+                                <p:menuitem id="um_cadastroPagina" value="Cadastro de Página" icon="&#xE871;" outcome="/cadastroPagina"/>
+                                <p:menuitem id="um_pesquisaPagina" value="Pesquisa de Página" icon="&#xE871;" outcome="/listaPaginas"/>
+                            </p:submenu>
                         </p:submenu>
-                        <p:submenu id="um_perfil" label="Perfil" icon="&#xE8B8;" styleClass="amber-badge">
-                            <p:menuitem id="um_cadastroPerfil" value="Cadastro de Perfil" icon="&#xE871;" outcome="/cadastroPerfis"/>
-                            <p:menuitem id="um_pesquisaPerfil" value="Pesquisa de Perfil" icon="&#xE871;" outcome="/listaPerfis"/>
-                        </p:submenu>
-                        <p:submenu id="um_pagina" label="Página" icon="&#xE8B8;" styleClass="amber-badge">
-                            <p:menuitem id="um_cadastroPagina" value="Cadastro de Página" icon="&#xE871;" outcome="/cadastroPagina"/>
-                            <p:menuitem id="um_pesquisaPagina" value="Pesquisa de Página" icon="&#xE871;" outcome="/listaPaginas"/>
+                        <p:submenu id="um_unidade" label="Unidade" icon="&#xE8B8;" styleClass="amber-badge">
+                            <p:menuitem id="um_cadastroUnidade" value="Cadastro de Unidade" icon="&#xE871;" outcome="/cadastroUnidadeInternacao"/>
+                            <p:menuitem id="um_pesquisaUnidade" value="Pesquisa de Unidades" icon="&#xE871;" outcome="/listaUnidadesInternacao"/>
                         </p:submenu>
                         <p:menuitem id="um_feriados" value="Feriados" icon="&#xE8B8;" outcome="/cadastroFeriados"/>
-                        <p:submenu id="um_necessidadesPreferencias" label="Preferências" icon="&#xE8B8;" styleClass="amber-badge">
-                            <p:menuitem id="um_cadastroNecessidades" value="Cadastro de Necessidades" icon="&#xE871;" outcome="/cadastroNecessidadesPreferencias"/>
-                            <p:menuitem id="um_pesquisaNecessidades" value="Listagem de Necessidades" icon="&#xE871;" outcome="/visualizaNecessidadesPreferencia"/>
+                        <p:submenu id="um_necessidades" label="Preferências" icon="&#xE8B8;" styleClass="amber-badge">
+                            <p:submenu id="um_necessidadesPreferencias" label="Necessidades" icon="&#xE8B8;" styleClass="amber-badge">
+                                <p:menuitem id="um_cadastroNecessidades" value="Cadastro" icon="&#xE871;" outcome="/cadastroNecessidadesPreferencias"/>
+                                <p:menuitem id="um_pesquisaNecessidades" value="Consulta" icon="&#xE871;" outcome="/visualizaNecessidadesPreferencia"/>
+                            </p:submenu>
+                            <p:submenu id="um_listaPreferencias" label="Lista" icon="&#xE8B8;" styleClass="amber-badge">
+                                <p:menuitem id="um_cadastroListaNecessidades" value="Consulta" icon="&#xE871;" outcome="/cadastroNecessidadesPreferencias"/>
+                                <p:menuitem id="um_registroListaNecessidades" value="Registro" icon="&#xE871;" outcome="/registroNecessidadesPreferencias"/>
+                            </p:submenu>
                         </p:submenu>
                         <p:submenu id="um_profissional" label="Profissional" icon="&#xE8B8;" styleClass="amber-badge">
                             <p:menuitem id="um_registroPresenca" value="Registro de Presença" icon="&#xE871;" outcome="/registroPresenca"/>

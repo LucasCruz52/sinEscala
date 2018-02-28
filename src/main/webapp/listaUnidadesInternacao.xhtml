@@ -1,0 +1,66 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <div class="card">
+                    <h1>Consulta de Unidades de Internação</h1>
+                    <p:panelGrid columns="6" columnClasses="ui-grid-col-1, ui-grid-col-5, ui-grid-col-1, ui-grid-col-2, ui-grid-col-2, ui-grid-col-2" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <p:outputLabel for="nome" value="Nome"/>
+                        <p:inputText id="nome" style="width: 80%; margin-left: 0px;"/>
+
+                        <p:outputLabel for="sigla" value="Sigla"/>
+                        <p:inputText id="sigla" style="width: 50%"/>
+
+                        <p:outputLabel for="inativos" value="Incluir inativas"/>
+                        <p:inputSwitch id="inativos" />
+                    </p:panelGrid>
+
+                    <p:panelGrid columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <p:commandButton id="btn" value="Pesquisar" icon="ui-icon-search" type="button"/>
+                    </p:panelGrid>
+                </div>
+                <div class="card">
+                    <p:dataTable var="usuario" value="#{dtUsuarioView.usuarios}" reflow="true" rows="10" paginator="true" rowKey="#{usuario.id}" >
+                        <f:facet name="header">
+                            Unidades de Internação
+                            <p:tooltip />
+                            <p:commandButton type="button" pt:data-tooltip="Cadastrar unidade" icon="ui-icon-add" styleClass="ui-btn-inline green-btn"/>
+                        </f:facet>
+                        <p:column headerText="Nome" sortBy="#{usuario.login}">
+                            <h:outputText value="#{usuario.login}" />
+                        </p:column>
+
+                        <p:column headerText="Descrição" sortBy="#{usuario.perfil}">
+                            <h:outputText value="#{usuario.nome}" />
+                        </p:column>
+
+                        <p:column headerText="Sigla" sortBy="#{usuario.nome}" >
+                            <h:outputText value="#{usuario.nome}" />
+                        </p:column>
+
+                        <p:column headerText="Ativo" sortBy="#{usuario.ativo}">
+                            <h:outputText value="#{usuario.ativo}" />
+                        </p:column>
+
+                        <p:column headerText="Ações">
+                            <div style="text-align: center">
+                                <p:commandButton pt:data-tooltip="Editar unidade" icon="ui-icon-edit" styleClass="amber-btn"/>
+                                <p:commandButton pt:data-tooltip="Excluir unidade" icon="ui-icon-clear" styleClass="red-btn"/>
+                            </div>
+                        </p:column>
+
+                    </p:dataTable>
+                </div>
+            </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>

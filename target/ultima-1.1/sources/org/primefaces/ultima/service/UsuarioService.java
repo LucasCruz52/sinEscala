@@ -1,36 +1,27 @@
 package org.primefaces.ultima.service;
 
-import java.io.Serializable;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.*;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.ParameterExpression;
-import javax.persistence.criteria.Root;
-import javax.xml.transform.Result;
 
-import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
 
-import org.primefaces.ultima.domain.Car;
-import org.primefaces.ultima.domain.Perfil;
-import org.primefaces.ultima.domain.Unidade;
 import org.primefaces.ultima.domain.Usuario;
 
 //Imports de elementos para o uso do Hibernate funcionar import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.primefaces.ultima.view.message.MessagesView;
 
 @ManagedBean(name = "usuarioService")
-@SessionScoped
+@ApplicationScoped
 public class UsuarioService{
 
     public Usuario usuario;
@@ -88,9 +79,11 @@ public class UsuarioService{
         return true;
     }
 
-    public List<Usuario> listarUsuarios() {
+    public List<Usuario> listarUsuarios(int unidade) {
 
-        List<Usuario> lista = new ArrayList<Usuario>();
+        List<Usuario> usuarios = new ArrayList<Usuario>();
+
+        String login = "lucas.cruz";
 
         //Cria objeto que receberá as configurações
         Configuration cfg = new Configuration();
@@ -105,17 +98,43 @@ public class UsuarioService{
         // Abre sessão com o Hibernate
         Session session = sf.openSession();
 
-        Usuario usuario = session.get(Usuario.class,4);
-        lista.add(usuario);
+        Query query = session.createQuery("from Usuario where login = :login");
+        query.setParameter("login", login);
+        usuarios = query.list();
 
-        return lista;
+        //Usuario usuario = session.get(Usuario.class,3);
+        //usuarios.add(usuario);
+
+        session.close();
+
+        return usuarios;
     }
 
-    public static void main(final String[] args) throws Exception {
-        UsuarioService usuarioService = new UsuarioService();
-        List<Usuario> usuarios = usuarioService.listarUsuarios();
+    public void removerUsuario(int codUsuario) {
 
-        System.out.println(usuarios.get(0).login);
+        //Cria objeto que receberá as configurações
+        Configuration cfg = new Configuration();
+
+        //Informe o arquivo XML que contém a configurações
+        cfg.configure("hibernate.cfg.xml");
+
+        //Cria uma fábrica de sessões.
+        //Deve existir apenas uma instância na aplicação
+        SessionFactory sf = cfg.buildSessionFactory();
+
+        // Abre sessão com o Hibernate
+        Session session = sf.openSession();
+
+        //Cria uma transação
+        Transaction tx = session.beginTransaction();
+
+        Usuario usuario = session.get(Usuario.class,codUsuario);
+
+        session.save(usuario);
+
+        tx.commit();
+
+        session.close();
     }
 
 }

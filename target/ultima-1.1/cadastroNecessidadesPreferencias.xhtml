@@ -15,8 +15,14 @@
             <div class="ui-g-12">
                 <div class="card">
                     <h1 style="margin-bottom: 25px;"><b>Cadastro de Necessidades de Trabalho</b></h1>
-                    <p:panelGrid columns="2" columnClasses="ui-grid-col-6, ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                    <p:panelGrid columns="3" columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank form-group">
                         <p:selectOneMenu id="console" value="#{selectOneMenuView.console}" style="width: 65%; margin-bottom:20px;">
+                            <f:selectItem itemLabel="Ano..." itemValue="" />
+                            <f:selectItem itemLabel="2018" itemValue="Xbox One" />
+                            <f:selectItem itemLabel="2017" itemValue="PS4" />
+                            <f:selectItem itemLabel="2016" itemValue="Wii U" />
+                        </p:selectOneMenu>
+                        <p:selectOneMenu id="console1" value="#{selectOneMenuView.console}" style="width: 65%; margin-bottom:20px;">
                             <f:selectItem itemLabel="Mês..." itemValue="" />
                             <f:selectItem itemLabel="Janeiro" itemValue="Xbox One" />
                             <f:selectItem itemLabel="Fevereiro" itemValue="PS4" />
@@ -24,9 +30,9 @@
                         </p:selectOneMenu>
                         <p:selectOneMenu id="console2" value="#{selectOneMenuView.console}" style="width: 65%; margin-bottom:20px;">
                             <f:selectItem itemLabel="Unidade..." itemValue="" />
-                            <f:selectItem itemLabel="Unidade 1" itemValue="Xbox One" />
-                            <f:selectItem itemLabel="Unidade 2" itemValue="PS4" />
-                            <f:selectItem itemLabel="Unidade 3" itemValue="Wii U" />
+                            <f:selectItem itemLabel="Unidade 1" itemValue="Unidade 1" />
+                            <f:selectItem itemLabel="Unidade 2" itemValue="Unidade 2" />
+                            <f:selectItem itemLabel="Unidade 3" itemValue="Unidade 3" />
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton id="btn2" value="Pesquisar" icon="ui-icon-search" type="button"/>
@@ -44,17 +50,19 @@
                                 <p:columnGroup type="header">
                                     <p:row>
                                         <p:column rowspan="3" headerText="Data" />
-                                        <p:column colspan="4" headerText="Profissionais" />
+                                        <p:column colspan="6" headerText="Profissionais" />
                                     </p:row>
                                     <p:row>
-                                        <p:column colspan="2" headerText="Técnicos" />
-                                        <p:column colspan="2" headerText="Enfermeiros" />
+                                        <p:column colspan="3" headerText="Técnicos" />
+                                        <p:column colspan="3" headerText="Enfermeiros" />
                                     </p:row>
                                     <p:row>
                                         <p:column headerText="Manhã" />
                                         <p:column headerText="Tarde" />
+                                        <p:column headerText="Noite" />
                                         <p:column headerText="Manhã" />
                                         <p:column headerText="Tarde" />
+                                        <p:column headerText="Noite" />
                                     </p:row>
                                 </p:columnGroup>
 
@@ -96,6 +104,22 @@
                                     <p:cellEditor>
                                         <f:facet name="output"><h:outputText value="5" /></f:facet>
                                         <f:facet name="input"><p:inputText id="modelInput5" value="1" style="width:96%"/></f:facet>
+                                    </p:cellEditor>
+                                </p:column>
+
+                                <p:column>
+                                    <p:cellEditor>
+                                        <f:facet name="input">
+                                            <f:facet name="output"><h:outputText value="5" /></f:facet>
+                                            <f:facet name="input"><p:inputText id="modelInput6" value="5" style="width:96%"/></f:facet>
+                                        </f:facet>
+                                    </p:cellEditor>
+                                </p:column>
+
+                                <p:column>
+                                    <p:cellEditor>
+                                        <f:facet name="output"><h:outputText value="5" /></f:facet>
+                                        <f:facet name="input"><p:inputText id="modelInput7" value="1" style="width:96%"/></f:facet>
                                     </p:cellEditor>
                                 </p:column>
 
