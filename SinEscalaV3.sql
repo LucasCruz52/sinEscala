@@ -1,3 +1,5 @@
+CREATE DATABASE SinEscala;
+
 CREATE TABLE CargaHorariaMes (
     cod_ch_mes int NOT NULL,
     ch_mensal int NOT NULL,
@@ -166,6 +168,7 @@ CREATE TABLE Profissional (
     vinculo int NOT NULL,
     turno int NOT NULL,
     nome varchar(45) NOT NULL,
+    status boolean NOT NULL,
     CONSTRAINT PK_Profissional PRIMARY KEY (siape),
     CONSTRAINT FK_Profissional_TipoP FOREIGN KEY (cargo) REFERENCES TipoProfissional(cod_tipo),
     CONSTRAINT FK_Profissional_Vinculo FOREIGN KEY (vinculo) REFERENCES Vinculo(cod_vinculo),
