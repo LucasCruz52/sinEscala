@@ -15,11 +15,15 @@ public class Usuario implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     public Integer id;
+    @Column(name = "login")
     public String login;
     public String senha;
+    @Column(name = "nome")
     public String nome;
     public String email;
+    @Column(name = "idperfil")
     public int idperfil;
+    @Column(name = "ativo")
     public boolean ativo;
     public Date dataCadastro;
     public Date dataExpiracao;
