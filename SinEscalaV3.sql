@@ -3,15 +3,11 @@ CREATE DATABASE SinEscala;
 CREATE TABLE CargaHorariaMes (
     cod_ch_mes int NOT NULL,
     ch_mensal int NOT NULL,
-    acressimo_horas int NULL,
-    ano int NOT NULL,
-    mes int NOT NULL,
     CONSTRAINT PK_CargaHorariaMes PRIMARY KEY (cod_ch_mes)
 );
 
 CREATE TABLE Intervalo (
     cod_intervalo int NOT NULL,
-    turno varchar(10),
     duracao int NOT NULL,
     CONSTRAINT PK_Intervalo PRIMARY KEY (cod_intervalo)
 );
@@ -30,17 +26,24 @@ CREATE TABLE Log (
 CREATE TABLE Restricao (
     cod_restricao int NOT NULL,
     descricao varchar (100) NOT NULL,
-    horas_trabalho int NOT NULL,
     horas_folga int NOT NULL,
     CONSTRAINT PK_Restricao PRIMARY KEY (cod_restricao)
+);
+
+CREATE TABLE TipoSituacaoSolicitacao (
+    cod_tipo int NOT NULL,
+    nome_tipo varchar(45) NOT NULL,
+    descricao_tipo varchar(100) NOT NULL,
+    CONSTRAINT PK_TipoSituacaoS PRIMARY KEY (cod_tipo)
 );
 
 CREATE TABLE SituacaoSolicitacao(
     cod_situacao_solicitacao int NOT NULL,
     data_situacao date NOT NULL,
     hora_situacao time NOT NULL,
-    motivo_situacao varchar(40) NOT NULL,
-    CONSTRAINT PK_TipoSituacaoSolicitacao PRIMARY KEY (cod_situacao_solicitacao)
+    tipo_situacao int NOT NULL,
+    CONSTRAINT PK_TipoSituacaoSolicitacao PRIMARY KEY (cod_situacao_solicitacao),
+    CONSTRAINT FK_SituacaoS_TipoS FOREIGN KEY (tipo_situacao) REFERENCES TipoSituacaoSolicitacao(cod_tipo)
 );
 
 CREATE TABLE TipoAfastamento (
@@ -75,19 +78,20 @@ CREATE TABLE TipoRegistro (
     CONSTRAINT PK_TipoRegistro PRIMARY KEY (cod_tipo)
 );
 
+CREATE TABLE Turno (
+    cod_tipo int NOT NULL,
+    descricao_tipo varchar(100) NOT NULL,
+    nome_tipo varchar(45) NOT NULL,
+    CONSTRAINT PK_Turno PRIMARY KEY (cod_tipo)
+);
+
 CREATE TABLE UnidadeInternacao (
     cod_unidade int NOT NULL,
     nome_unidade varchar(45) NOT NULL,
     sigla_unidade varchar(10) NOT NULL,
     descricao_unidade varchar(100) NOT NULL,
+    status boolean NOT NULL,
     CONSTRAINT PK_UnidadeInternacao PRIMARY KEY (cod_unidade)
-);
-
-CREATE TABLE Vinculo (
-    cod_vinculo int NOT NULL,
-    nome_vinculo varchar(45) NOT NULL,
-    descricao_vinculo varchar(100) NOT NULL,
-    CONSTRAINT PK_Vinculo PRIMARY KEY (cod_vinculo)
 );
 
 CREATE TABLE CargaHorariaDia (
@@ -98,6 +102,17 @@ CREATE TABLE CargaHorariaDia (
     CONSTRAINT PK_CargaHorariaDia PRIMARY KEY (cod_ch_dia),
     CONSTRAINT FK_Ch_Int FOREIGN KEY (intervalo) REFERENCES Intervalo(cod_intervalo),
     CONSTRAINT FK_Ch_Rest FOREIGN KEY (restricao) REFERENCES Restricao(cod_restricao)
+);
+
+CREATE TABLE Vinculo (
+    cod_vinculo int NOT NULL,
+    ch_dia int NOT NULL,
+    ch_mes int NOT NULL,
+    nome_vinculo varchar(45) NOT NULL,
+    descricao_vinculo varchar(100) NOT NULL,
+    CONSTRAINT PK_Vinculo PRIMARY KEY (cod_vinculo),
+    CONSTRAINT FK_Vinculo_ChDia FOREIGN KEY (ch_dia) REFERENCES CargaHorariaDia(cod_ch_dia),
+    CONSTRAINT FK_Vinculo_ChMes FOREIGN KEY (ch_mes) REFERENCES CargaHorariaMes(cod_ch_mes)
 );
 
 CREATE TABLE EscalaMensal (
@@ -149,16 +164,15 @@ CREATE TABLE PreferenciaDiaria (
 CREATE TABLE Profissional (
     siape int NOT NULL,
     registro_conselho int UNIQUE NOT NULL,
-    ch_dia int NOT NULL,
-    ch_mes int NOT NULL,
     cargo int NOT NULL,
     vinculo int NOT NULL,
+    turno int NOT NULL,
     nome varchar(45) NOT NULL,
+    status boolean NOT NULL,
     CONSTRAINT PK_Profissional PRIMARY KEY (siape),
-    CONSTRAINT FK_Profissional_ChDia FOREIGN KEY (ch_dia) REFERENCES CargaHorariaDia(cod_ch_dia),
-    CONSTRAINT FK_Profissional_ChMes FOREIGN KEY (ch_mes) REFERENCES CargaHorariaMes(cod_ch_mes),
     CONSTRAINT FK_Profissional_TipoP FOREIGN KEY (cargo) REFERENCES TipoProfissional(cod_tipo),
-    CONSTRAINT FK_Profissional_Vinculo FOREIGN KEY (vinculo) REFERENCES Vinculo(cod_vinculo)
+    CONSTRAINT FK_Profissional_Vinculo FOREIGN KEY (vinculo) REFERENCES Vinculo(cod_vinculo),
+    CONSTRAINT FK_Profissional_Turno FOREIGN KEY (turno) REFERENCES Turno(cod_tipo)
 );
 
 CREATE TABLE Telefone(
@@ -166,6 +180,13 @@ CREATE TABLE Telefone(
 	telefone varchar(15),
 	CONSTRAINT PK_telefone PRIMARY KEY (siape, telefone),
 	CONSTRAINT FK_telefone_profissional FOREIGN KEY (siape) REFERENCES Profissional(siape)
+);
+
+CREATE TABLE TipoSituacaoEscala (
+    cod_tipo int NOT NULL,
+    nome_tipo varchar(45) NOT NULL,
+    descricao_tipo varchar(100) NOT NULL,
+    CONSTRAINT PK_TipoSituacaoEscala PRIMARY KEY (cod_tipo)
 );
 
 CREATE TABLE SituacaoEscala (
@@ -178,12 +199,13 @@ CREATE TABLE SituacaoEscala (
     data_situacao date NOT NULL,
     hora_situacao time NOT NULL,
     profissional_situacao varchar(45) NOT NULL,
-    tipo_situacao varchar(20) NOT NULL,
+    tipo_situacao int NOT NULL,
     CONSTRAINT PK_SituacaoEscala PRIMARY KEY (cod_situacao),
     CONSTRAINT FK_Situacao_PreferenciaDia FOREIGN KEY (preferencia_dia) REFERENCES PreferenciaDiaria(cod_preferencia_dia),
     CONSTRAINT FK_Situacao_PreferenciaMes FOREIGN KEY (preferencia_mes) REFERENCES PreferenciaMensal(cod_preferencia_mes),
     CONSTRAINT FK_Situacao_EscalaDia FOREIGN KEY (escala_dia) REFERENCES EscalaDiaria(cod_escala_dia),
-    CONSTRAINT FK_Situacao_Mes FOREIGN KEY (escala_mes) REFERENCES EscalaMensal(cod_escala_mes)
+    CONSTRAINT FK_Situacao_Mes FOREIGN KEY (escala_mes) REFERENCES EscalaMensal(cod_escala_mes),
+    CONSTRAINT FK_SituacaoE_TipoS FOREIGN KEY (tipo_situacao) REFERENCES TipoSituacaoEscala(cod_tipo)
 );
 
 CREATE TABLE Usuario (
@@ -205,11 +227,12 @@ CREATE TABLE BlocoHorarioEscala (
     escala_dia int NOT NULL,
     horario_inicio time NOT NULL,
     horario_termino time NOT NULL,
-    turno varchar(10) NOT NULL,
+    turno int NOT NULL,
     tecnicos_necessario int NOT NULL,
     enfermeiros_necessarios int NOT NULL,
     CONSTRAINT PK_BlocoHorarioEscala PRIMARY KEY (cod_bloco_escala),
-    CONSTRAINT FK_BlocoE_EscalaDia FOREIGN KEY (escala_dia) REFERENCES EscalaDiaria(cod_escala_dia)
+    CONSTRAINT FK_BlocoE_EscalaDia FOREIGN KEY (escala_dia) REFERENCES EscalaDiaria(cod_escala_dia),
+    CONSTRAINT FK_BlocoE_Turno FOREIGN KEY (turno) REFERENCES Turno(cod_tipo)
 );
 
 CREATE TABLE BlocoHorarioPreferencia (
@@ -217,11 +240,12 @@ CREATE TABLE BlocoHorarioPreferencia (
     preferencia_dia int NOT NULL,
     horario_inicio time NOT NULL,
     horario_termino time NOT NULL,
-    turno varchar(10) NOT NULL,
+    turno int NOT NULL,
     tecnicos_necessario int NOT NULL,
     enfermeiros_necessarios int NOT NULL,
     CONSTRAINT PK_BlocoHorarioPreferencias PRIMARY KEY (cod_bloco_preferencia),
-    CONSTRAINT FK_BlocoP_PreferenciaD FOREIGN KEY (preferencia_dia) REFERENCES PreferenciaDiaria(cod_preferencia_dia)
+    CONSTRAINT FK_BlocoP_PreferenciaD FOREIGN KEY (preferencia_dia) REFERENCES PreferenciaDiaria(cod_preferencia_dia),
+    CONSTRAINT FK_Profissional_Turno FOREIGN KEY (turno) REFERENCES Turno(cod_tipo)
 );
     
 CREATE TABLE ProfissionalAlocado (
@@ -316,7 +340,3 @@ CREATE TABLE TrocaHorario (
     CONSTRAINT FK_Troca_Solicitacao FOREIGN KEY (solicitacao) REFERENCES Solicitacao(cod_solicitacao),
     CONSTRAINT FK_Troca_BlocoE FOREIGN KEY (bloco_escala) REFERENCES BlocoHorarioEscala(cod_bloco_escala)
 );
-    
-    
-    
-    
