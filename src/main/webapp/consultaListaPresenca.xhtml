@@ -3,39 +3,96 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
                 template="/WEB-INF/template.xhtml">
 
+    <ui:define name="head">
+        <style type="text/css">
+            .cars-datalist .text-column p:last-child{
+                color:#757575;
+            }
+
+            .cars-datalist .car-item i, .cars-datalist .car-item .car-details {
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            .cars-datalist .car-item button {
+                float: right;
+            }
+
+            .cars-datalist ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            .ui-car-display td:last-child {
+                font-weight: 700;
+            }
+
+            .main-content {
+                padding: 0;
+            }
+
+            @media (max-width:640px) {
+                .cars-datalist .text-column {
+                    text-align: center;
+                }
+            }
+
+        </style>
+        <script type="text/javascript">
+            //<![CDATA[
+            function skinChart() {
+                this.cfg.shadow = false;
+                this.cfg.title = '';
+                this.cfg.seriesColors = ['#FFC107', '#03A9F4'];
+                this.cfg.grid = {
+                    background: '#ffffff',
+                    borderColor: '#ffffff',
+                    gridLineColor: '#EEEEEE',
+                    shadow: false
+                };
+                this.cfg.axesDefaults = {
+                    rendererOptions: {
+                        textColor: '#212121'
+                    }
+                };
+                this.cfg.seriesDefaults = {
+                    shadow: false,
+                    lineWidth: 1,
+                    markerOptions: {
+                        shadow: false,
+                        size: 7,
+                        style: 'circle'
+                    }
+                }
+            }
+            //]]>
+        </script>
+    </ui:define>
+
     <ui:define name="content">
-        <div class="ui-g">
-            <div class="ui-g-12">
-                <div class="card">
-                    <p:tooltip />
-                    <h1>Consulta de Lista de Presença</h1>
-                    <p:panelGrid columns="4" columnClasses="ui-grid-col-1,ui-grid-col-6, ui-grid-col-2, ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank form-group">
-                        <p:outputLabel for="login" value="Login"/>
-                        <p:inputText id="login"/>
-
-                        <p:outputLabel for="perfil" value="Perfil"/>
-                        <p:selectOneMenu id="perfil">
-                            <f:selectItem itemLabel="Selecione..." itemValue="" />
-                            <f:selectItem itemLabel="Administrador" itemValue="Xbox One" />
-                            <f:selectItem itemLabel="Técnico" itemValue="PS4" />
-                            <f:selectItem itemLabel="Enfermeiro" itemValue="Wii U" />
-                        </p:selectOneMenu>
-
-                        <p:outputLabel for="nome" value="Nome"/>
-                        <p:inputText id="nome"/>
-
-                        <p:outputLabel for="inativos" value="Incluir inativos"/>
-                        <p:inputSwitch id="inativos"/>
-                    </p:panelGrid>
-
-                    <p:panelGrid columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank form-group">
+        <h:form id="form">
+            <div class="ui-g">
+                <div class="ui-g-12 ui-md-12 ui-sm-12">
+                    <div class="card">
+                        <h1 style="margin-bottom: 25px;"><b>Consulta de Lista de Presença</b></h1>
+                        <p:panelGrid columns="2" columnClasses="ui-grid-col-4, ui-grid-col-8" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                            <p:selectOneMenu id="console4" value="#{selectOneMenuView.console}" style="width: 65%; margin-bottom:20px; margin-top:10px;">
+                                <f:selectItem itemLabel="Unidade..." itemValue="" />
+                                <f:selectItem itemLabel="Unidade 1" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="Unidade 2" itemValue="PS4" />
+                                <f:selectItem itemLabel="Unidade 3" itemValue="Wii U" />
+                            </p:selectOneMenu>
+                            <h:panelGroup styleClass="md-inputfield">
+                                <p:calendar id="button" showOn="button" style="width: 65%; margin-bottom:20px;"/>
+                                <label>Data</label>
+                            </h:panelGroup>
+                        </p:panelGrid>
                         <p:commandButton id="btn2" value="Pesquisar" icon="ui-icon-search" type="button"/>
-                    </p:panelGrid>
+                    </div>
                 </div>
-                <div class="ui-g-8 ui-md-8 ui-sm-12">
+                <div class="ui-g-6 ui-md-8 ui-sm-12">
                     <div class="card card-w-title">
                         <p:dataList value="#{dataListView.cars3}" var="car"
                                     type="unordered" itemType="none" paginator="false" rows="7" styleClass="cars-datalist">
@@ -48,15 +105,26 @@
                                     <p>#{car.brand}</p>
                                     <p style="color:#757575">#{car.year} - #{car.color}</p>
                                 </div>
-                                <p:selectBooleanButton onLabel="Presente" offLabel="Ausente"  style="margin:24px 24px 0 0; float: right" />
+                                <p:commandButton styleClass="cyan-btn" id="dialog2" value="Obs." icon="ui-icon-edit" type="button" onclick="PF('dlg').show()" style="max-width:150px; margin:24px 24px 0 0; float: right; text-align: center"  />
+                                <p:selectBooleanButton onLabel="Presente" offLabel="Ausente"  style="margin:24px 24px 0 0; float: right" disabled="true"/>
                             </div>
                         </p:dataList>
+
+                        <p:dialog header="Observações" widgetVar="dlg" resizable="false" draggable="false" responsive="true" hideEffect="scale">
+                            <div class="ui-g form-group" style="margin-bottom: 16px;">
+                                <div class="ui-g-12">
+                                    <h:panelGroup styleClass="md-inputfield">
+                                        <p:inputTextarea id="area" value="Observações sobre a presença" autoResize="false" cols="50" rows="5" style="font-weight: bold" disabled="true"/>
+                                    </h:panelGroup>
+                                </div>
+                            </div>
+                        </p:dialog>
 
                         <p:dialog header="Car Info" widgetVar="carDialog2" responsive="true" modal="true" showEffect="blind" hideEffect="explode" resizable="false">
                             <p:outputPanel id="carDetail" style="text-align:center;">
                                 <p:panelGrid  columns="2" rendered="#{not empty dataListView.selectedCar}" columnClasses="label,value">
                                     <f:facet name="header">
-                                        <i class="ui-icon ui-icon-person" style="font-size:48px;color:#757575;margin:24px;"></i>
+                                        <i class="ui-icon ui-icon-check" style="font-size:48px;color:#757575;margin:24px;"></i>
                                     </f:facet>
 
                                     <h:outputText value="Id:" />
@@ -73,8 +141,6 @@
                                 </p:panelGrid>
                             </p:outputPanel>
                         </p:dialog>
-                        <br/>
-                        <p:commandButton id="btn" value="Registrar" icon="ui-icon-plus" styleClass="green-btn" type="button"/>
                     </div>
                 </div>
                 <div class="ui-g-4 ui-md-4 ui-sm-12">
@@ -102,8 +168,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-
+        </h:form>
     </ui:define>
 
 </ui:composition>

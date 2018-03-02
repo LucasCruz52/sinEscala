@@ -1,0 +1,82 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <div class="card">
+                    <p:tooltip />
+                    <h1>Registro de Preferências</h1>
+                    <p:panelGrid columns="4" columnClasses="ui-grid-col-1,ui-grid-col-6, ui-grid-col-2, ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <p:outputLabel for="login" value="Login"/>
+                        <p:inputText id="login"/>
+
+                        <p:outputLabel for="perfil" value="Perfil"/>
+                        <p:selectOneMenu id="perfil">
+                            <f:selectItem itemLabel="Selecione..." itemValue="" />
+                            <f:selectItem itemLabel="Administrador" itemValue="Xbox One" />
+                            <f:selectItem itemLabel="Técnico" itemValue="PS4" />
+                            <f:selectItem itemLabel="Enfermeiro" itemValue="Wii U" />
+                        </p:selectOneMenu>
+
+                        <p:outputLabel for="nome" value="Nome"/>
+                        <p:inputText id="nome"/>
+
+                        <p:outputLabel for="inativos" value="Incluir inativos"/>
+                        <p:inputSwitch id="inativos"/>
+                    </p:panelGrid>
+
+                    <p:panelGrid columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <p:commandButton id="btn" value="Pesquisar" icon="ui-icon-search" type="button"/>
+                    </p:panelGrid>
+                </div>
+                <div class="ui-g-12">
+                    <div class="card">
+                        <h:form id="form">
+                            <h1>Finais de Semana e Feriados</h1>
+                            <p:dataTable id="radioDT" var="car" value="#{dtSelectionView.cars5}" selection="#{dtSelectionView.selectedCar}" rowKey="#{car.id}">
+                                <f:facet name="header">
+                                    01/01/2018
+                                </f:facet>
+                                <p:column selectionMode="single" style="width:16px;text-align:center"/>
+                                <p:column headerText="Turno">
+                                    <h:outputText value="Manhã" />
+                                </p:column>
+                                <p:column headerText="Vagas">
+                                    <h:outputText value="5" />
+                                </p:column>
+                                <p:column headerText="Solicitação">
+                                    <h:outputText value="Não solicitado" />
+                                </p:column>
+                            </p:dataTable>
+                            <br/>
+                            <p:dataTable id="radioDT2" var="car" value="#{dtSelectionView.cars5}" selection="#{dtSelectionView.selectedCar}" rowKey="#{car.id}">
+                                <f:facet name="header">
+                                    02/01/2018
+                                </f:facet>
+                                <p:column selectionMode="single" style="width:16px;text-align:center"/>
+                                <p:column headerText="Turno">
+                                    <h:outputText value="Manhã" />
+                                </p:column>
+                                <p:column headerText="Vagas">
+                                    <h:outputText value="5" />
+                                </p:column>
+                                <p:column headerText="Solicitação">
+                                    <h:outputText value="Não solicitado" />
+                                </p:column>
+                            </p:dataTable>
+
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>

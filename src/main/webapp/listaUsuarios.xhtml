@@ -10,7 +10,6 @@
         <div class="ui-g">
             <div class="ui-g-12">
                 <div class="card">
-                    <p:tooltip />
                     <h1>Consulta de Usuários</h1>
                     <p:panelGrid columns="4" columnClasses="ui-grid-col-1,ui-grid-col-6, ui-grid-col-2, ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank form-group">
                         <p:outputLabel for="login" value="Login"/>
@@ -36,7 +35,7 @@
                     </p:panelGrid>
                 </div>
                 <div class="card">
-                    <p:dataTable var="usuario" value="#{usuarioService.listarUsuarios()}" reflow="true" rows="5" paginator="true" rowKey="#{usuario.id}" >
+                    <p:dataTable var="usuario" value="#{usuarioService.pegar()}" reflow="true" rows="5" paginator="true" rowKey="#{usuario.id}" >
                         <f:facet name="header">
                             Usuários
                             <p:tooltip />
@@ -60,8 +59,10 @@
 
                         <p:column headerText="Ações"  style="width: 10%">
                             <div style="text-align: center">
-                                <p:commandButton pt:data-tooltip="Editar perfil" actionListener="#{usuarioService.removerUsuario(3)}" icon="ui-icon-edit" styleClass="amber-btn"/>
-                                <p:commandButton pt:data-tooltip="Excluir perfil" icon="ui-icon-clear" styleClass="red-btn"/>
+                                <p:tooltip for="btnExcluir" position="top" value="Editar perfil"/>
+                                <p:commandButton id="btnExcluir" icon="ui-icon-edit" styleClass="amber-btn"/>
+                                <p:tooltip for="btnEditar" position="top" value="Excluir perfil"/>
+                                <p:commandButton id="btnEditar"  icon="ui-icon-clear" styleClass="red-btn"/>
                             </div>
                         </p:column>
                     </p:dataTable>

@@ -4,38 +4,54 @@ import javax.persistence.Id;
 
 public class Vinculo {
 
-	public static final int EBSERH = 10;
-	
-	public static final int UFS = 20;
-	
-	public static final int UFS_E_EBSERH = 30;
-	
 	@Id
-	public int id;
-	
-	public String descricao;
-	
-	/*Cada tipo de vinculo possui um intervalo minimo de folga na Jornada, em caso de plantões 
-	 * (noturnos ou diurnos) 
-	 * EBSERH - 36 horas, UFS - 60 horas*/
-	public int folgaJornada;
-	
-	public String getDescricao() {
-		return descricao;
-	}
+	private int id;
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+    private String nome;
 
-	public int getFolgaJornada() {
-		return folgaJornada;
-	}
+    private String descricao;
 
-	public void setFolgaJornada(int folgaJornada) {
-		this.folgaJornada = folgaJornada;
-	}
-	
-	
-	
+    private CargaHorariaDiaria cargaHorariaDiaria;
+
+    private CargaHorariaMensal cargaHorariaMensal;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public CargaHorariaDiaria getCargaHorariaDiaria() {
+        return cargaHorariaDiaria;
+    }
+
+    public void setCargaHorariaDiaria(CargaHorariaDiaria cargaHorariaDiaria) {
+        this.cargaHorariaDiaria = cargaHorariaDiaria;
+    }
+
+    public CargaHorariaMensal getCargaHorariaMensal() {
+        return cargaHorariaMensal;
+    }
+
+    public void setCargaHorariaMensal(CargaHorariaMensal cargaHorariaMensal) {
+        this.cargaHorariaMensal = cargaHorariaMensal;
+    }
 }

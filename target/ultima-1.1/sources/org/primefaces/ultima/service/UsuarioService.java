@@ -1,140 +1,112 @@
 package org.primefaces.ultima.service;
 
 import java.util.*;
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
+import javax.faces.model.SelectItem;
 
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
-
+import org.primefaces.ultima.DAO.UsuarioDAO;
+import org.primefaces.ultima.domain.Perfil;
 import org.primefaces.ultima.domain.Usuario;
 
 //Imports de elementos para o uso do Hibernate funcionar import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.primefaces.ultima.view.message.MessagesView;
 
 @ManagedBean(name = "usuarioService")
-@ApplicationScoped
+@SessionScoped
 public class UsuarioService{
 
-    public Usuario usuario;
+    private String login;
+    
+	private String nome;
+    
+    private String senha;
+    
+    private String email;
+    
+    private Date dataAtual= new Date();
+    
+    private Date dataExpiracao;
+   
+    private int idPerfil;
+    
+	public String getLogin() {
+		return login;
+	}
 
-    public List<Usuario> pesquisarUsuariosCadastrados(int unidade){
+	public void setLogin(String login) {
+		this.login = login;
+	}
 
-        List<Usuario> lista = new ArrayList<Usuario>();
+	public String getNome() {
+		return nome;
+	}
 
-        Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.YEAR, 1988);
-        cal.set(Calendar.MONTH, Calendar.JANUARY);
-        cal.set(Calendar.DAY_OF_MONTH, 1);
-        Date dateRepresentation = cal.getTime();
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-        Usuario usuario1 = new Usuario(1,"lucas.cruz","123","lucas","lucas.cruz.52@gmail", null, dateRepresentation);
-        Usuario usuario2 = new Usuario(2,"vinicius.thadeu","456","vinicius","vinicius.thadeu@gmail", null, dateRepresentation);
+	public String getSenha() {
+		return senha;
+	}
 
-        lista.add(usuario1);
-        lista.add(usuario2);
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
-        return lista;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public boolean cadastrarUsuario(Usuario usuario){
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public Date getDataAtual() {
+		return dataAtual;
+	}
 
-        Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.YEAR, 1988);
-        cal.set(Calendar.MONTH, Calendar.JANUARY);
-        cal.set(Calendar.DAY_OF_MONTH, 1);
-        Date dateRepresentation = cal.getTime();
+	public Date getDataExpiracao() {
+		return dataExpiracao;
+	}
 
-        //Cria objeto que receberá as configurações
-        Configuration cfg = new Configuration();
+	public void setDataExpiracao(Date dataExpiracao) {
+		this.dataExpiracao = dataExpiracao;
+	}
 
-        //Informe o arquivo XML que contém a configurações
-        cfg.configure("hibernate.cfg.xml");
+	public int getIdPerfil() {
+		return idPerfil;
+	}
 
-        //Cria uma fábrica de sessões.
-        //Deve existir apenas uma instância na aplicação
-        SessionFactory sf = cfg.buildSessionFactory();
+	public void setIdPerfil(int idPerfil) {
+		this.idPerfil = idPerfil;
+	}
+	
+	public String cadastrar() {
+		//validar();
+		Usuario obj = new Usuario();
+		obj.setDataCadastro(dataAtual);
+		obj.setDataExpiracao(dataExpiracao);
+		obj.setNome(nome);
+		obj.setLogin(login);
+		obj.setSenha(senha);
+		//obj.getPerfil().setIdPerfil(idPerfil);
+		
+		//UsuarioDAO usuarioDao = new UsuarioDAO();
+		//usuarioDao.salvar(obj);
+        System.out.println("SALVANDO...");
+		return "SIM";
+	}
 
-        // Abre sessão com o Hibernate
-        Session session = sf.openSession();
-
-        //Cria uma transação
-        Transaction tx = session.beginTransaction();
-
-        // Cria objeto Aluno
-        //Usuario usuario = new Usuario(1,"lucas.cruz","123","lucas","lucas.cruz.52@gmail", null, dateRepresentation);
-
-        session.save(usuario); // Realiza persistência
-        tx.commit(); // Finaliza transação
-        session.close(); // Fecha sessão
-
-        return true;
-    }
-
-    public List<Usuario> listarUsuarios(int unidade) {
-
-        List<Usuario> usuarios = new ArrayList<Usuario>();
-
-        String login = "lucas.cruz";
-
-        //Cria objeto que receberá as configurações
-        Configuration cfg = new Configuration();
-
-        //Informe o arquivo XML que contém a configurações
-        cfg.configure("hibernate.cfg.xml");
-
-        //Cria uma fábrica de sessões.
-        //Deve existir apenas uma instância na aplicação
-        SessionFactory sf = cfg.buildSessionFactory();
-
-        // Abre sessão com o Hibernate
-        Session session = sf.openSession();
-
-        Query query = session.createQuery("from Usuario where login = :login");
-        query.setParameter("login", login);
-        usuarios = query.list();
-
-        //Usuario usuario = session.get(Usuario.class,3);
-        //usuarios.add(usuario);
-
-        session.close();
-
-        return usuarios;
-    }
-
-    public void removerUsuario(int codUsuario) {
-
-        //Cria objeto que receberá as configurações
-        Configuration cfg = new Configuration();
-
-        //Informe o arquivo XML que contém a configurações
-        cfg.configure("hibernate.cfg.xml");
-
-        //Cria uma fábrica de sessões.
-        //Deve existir apenas uma instância na aplicação
-        SessionFactory sf = cfg.buildSessionFactory();
-
-        // Abre sessão com o Hibernate
-        Session session = sf.openSession();
-
-        //Cria uma transação
-        Transaction tx = session.beginTransaction();
-
-        Usuario usuario = session.get(Usuario.class,codUsuario);
-
-        session.save(usuario);
-
-        tx.commit();
-
-        session.close();
-    }
-
+	public Usuario pegar() {
+		return new Usuario();
+	}
+	
+	public void Validar() {
+		//METODO PRA VALIDACAO DOS CAMPOS
+	}
 }
+	

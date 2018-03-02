@@ -1,0 +1,90 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <div class="card">
+                    <h1>Consulta de Profissionais</h1>
+                    <p:panelGrid columns="4" columnClasses="ui-grid-col-1,ui-grid-col-6, ui-grid-col-2, ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <p:outputLabel for="nome" value="Nome"/>
+                        <p:inputText id="nome"/>
+
+                        <p:outputLabel for="siape" value="SIAPE"/>
+                        <p:inputText id="siape"/>
+
+                        <p:outputLabel for="cargo" value="Cargo"/>
+                        <p:selectOneMenu id="cargo">
+                            <f:selectItem itemLabel="Selecione..." itemValue="" />
+                            <f:selectItem itemLabel="Administrador" itemValue="Xbox One" />
+                            <f:selectItem itemLabel="Técnico" itemValue="PS4" />
+                            <f:selectItem itemLabel="Enfermeiro" itemValue="Wii U" />
+                        </p:selectOneMenu>
+
+                        <p:outputLabel for="vinculo" value="Vinculo"/>
+                        <p:selectOneMenu id="vinculo">
+                            <f:selectItem itemLabel="Selecione..." itemValue="" />
+                            <f:selectItem itemLabel="Administrador" itemValue="Xbox One" />
+                            <f:selectItem itemLabel="Técnico" itemValue="PS4" />
+                            <f:selectItem itemLabel="Enfermeiro" itemValue="Wii U" />
+                        </p:selectOneMenu>
+
+                        <p:outputLabel for="rcc" value="RCC"/>
+                        <p:inputText id="rcc"/>
+
+                        <p:outputLabel for="inativos" value="Incluir inativos"/>
+                        <p:inputSwitch id="inativos"/>
+                    </p:panelGrid>
+
+                    <p:panelGrid columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <p:commandButton id="btn" value="Pesquisar" icon="ui-icon-search" type="button"/>
+                    </p:panelGrid>
+                </div>
+                <div class="card">
+                    <p:dataTable var="usuario" value="#{usuarioService.pegar()}" reflow="true" rows="5" paginator="true" rowKey="#{usuario.id}" >
+                        <f:facet name="header">
+                            Profissionais
+                            <p:tooltip />
+                            <p:commandButton type="button" pt:data-tooltip="Cadastrar profissional" icon="ui-icon-add" styleClass="ui-btn-inline green-btn"/>
+                        </f:facet>
+                        <p:column headerText="Nome" sortBy="#{usuario.login}" style="width: 28%">
+                            <h:outputText value="#{usuario.login}" />
+                        </p:column>
+
+                        <p:column headerText="SIAPE" sortBy="#{usuario.nome}" style="width: 12%">
+                            <h:outputText value="#{usuario.nome}" />
+                        </p:column>
+
+                        <p:column headerText="Cargo" sortBy="#{usuario.perfil}" style="width: 20%">
+                            <h:outputText value="#{usuario.perfil}" />
+                        </p:column>
+
+                        <p:column headerText="Vínculo" sortBy="#{usuario.perfil}" style="width: 20%">
+                            <h:outputText value="#{usuario.perfil}" />
+                        </p:column>
+
+                        <p:column headerText="Ativo" sortBy="#{usuario.ativo}" style="width: 10%">
+                            <h:outputText value="#{usuario.ativo}" />
+                        </p:column>
+
+                        <p:column headerText="Ações"  style="width: 10%">
+                            <div style="text-align: center">
+                                <p:tooltip for="btnExcluir" position="top" value="Editar profissional"/>
+                                <p:commandButton id="btnExcluir" icon="ui-icon-edit" styleClass="amber-btn"/>
+                                <p:tooltip for="btnEditar" position="top" value="Excluir profissional"/>
+                                <p:commandButton id="btnEditar"  icon="ui-icon-clear" styleClass="red-btn"/>
+                            </div>
+                        </p:column>
+                    </p:dataTable>
+                </div>
+            </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>

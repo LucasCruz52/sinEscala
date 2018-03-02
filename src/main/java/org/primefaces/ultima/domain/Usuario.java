@@ -52,6 +52,7 @@ public class Usuario implements Serializable{
         this.dataExpiracao = dataExpiracao;
     }
 
+
     public Integer getId() {
         return id;
     }

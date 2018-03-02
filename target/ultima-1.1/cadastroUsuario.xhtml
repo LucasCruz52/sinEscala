@@ -20,17 +20,17 @@
                         <p:panelGrid id="grid" var="" columns="2" columnClasses="ui-grid-col-6, ui-grid-col-6 " layout="grid" styleClass="ui-panelgrid-blank form-group">
 
                             <h:panelGroup styleClass="md-inputfield">
-                                <p:inputText id="login" style="width: 65%; margin-bottom:20px;" value="usuarioService.usuario.login" required="true"/>
+                                <p:inputText id="login" style="width: 65%; margin-bottom:20px;" value="#{usuarioService.login}" required="true"/>
                                 <label>Login*</label>
                             </h:panelGroup>
 
                             <h:panelGroup styleClass="md-inputfield">
-                                <p:inputText style="width: 65%; margin-bottom:20px;" value="#{usuarioService.usuario.nome}"/>
+                                <p:inputText style="width: 65%; margin-bottom:20px;" value="#{usuarioService.nome}" onkeypress ="return onlyDigits(event)" required="true"/>
                                 <label>Nome*</label>
                             </h:panelGroup>
 
                             <h:panelGroup styleClass="md-inputfield">
-                                <p:password style="width: 65%; margin-bottom:20px;" value="#{Usuario.senha}"/>
+                                <p:password style="width: 65%; margin-bottom:20px;" value="#{usuarioService.senha}" required="true"/>
                                 <label>Senha*</label>
                             </h:panelGroup>
 
@@ -40,33 +40,43 @@
                             </h:panelGroup>
 
                             <h:panelGroup styleClass="md-inputfield">
-                                <p:inputText style="width: 65%; margin-bottom:20px;" value="#{Usuario.email}"/>
+                                <p:inputText style="width: 65%; margin-bottom:20px;" value="#{usuarioService.email}" required="true"/>
                                 <label>Email*</label>
                             </h:panelGroup>
 
-                            <p:selectOneMenu id="console" value="#{selectOneMenuView.console}" style="width: 65%; margin-bottom:20px;">
-                                <f:selectItem itemLabel="Perfil*..." itemValue="" />
-                                <f:selectItem itemLabel="Administrador" itemValue="Administrador" />
-                                <f:selectItem itemLabel="Técnico" itemValue="Técnico" />
-                                <f:selectItem itemLabel="Enfermeiro" itemValue="Enfermeiro" />
+                            <p:selectOneMenu id="console" value="#{usuarioService.idPerfil}" style="width: 65%; margin-bottom:20px;" required="true">
+                                <f:selectItem itemLabel = "Perfil*" itemValue= "0" />
+                                <f:selectItem itemLabel = "Administrador" itemValue= "1" />
+                                <f:selectItem itemLabel = "Técnico em Enfermagem" itemValue= "2" />
+                                <f:selectItem itemLabel = "Enfermeiro" itemValue= "3" />
                             </p:selectOneMenu>
 
                             <h:panelGroup styleClass="md-inputfield">
-                                <p:calendar id="button" showOn="button" style="width: 65%; margin-bottom:20px;"/>
+                                <p:calendar id="button" showOn="button" mindate="#{usuarioService.dataAtual}" value ="#{usuarioService.dataExpiracao}" style="width: 65%; margin-bottom:20px;">
+                                </p:calendar>
                                 <label>Data de expiração</label>
                             </h:panelGroup>
 
                             <h:panelGroup styleClass="md-inputfield">
                             </h:panelGroup>
 
-                            <p:commandButton id="submitButton" value="Cadastrar" actionListener="#{usuarioService.cadastrarUsuario(UsuarioCadastro)}" styleClass="green-btn"/>
+                            <p:commandButton id="submitButton" value="Cadastrar" actionListener="#{usuarioService.cadastrar}" styleClass="green-btn"/>
 
                         </p:panelGrid>
                     </h:form>
                 </div>
             </div>
         </div>
-
+<script>
+//<![CDATA[
+	function onlyDigits(evt) {
+    var charCode = (evt.which) ? evt.which : event.keyCode         
+		if (charCode > 31 && (charCode < 48 || charCode > 57))
+      		return true;
+   		return false;
+	}
+//]]>
+</script>
     </ui:define>
 
 </ui:composition>

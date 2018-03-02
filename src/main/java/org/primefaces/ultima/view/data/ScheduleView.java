@@ -39,6 +39,8 @@ import org.primefaces.model.ScheduleModel;
 @ViewScoped
 public class ScheduleView implements Serializable {
 
+	private static Locale locale = new Locale("pt_Br");
+
 	private ScheduleModel eventModel;
 	
 	private ScheduleModel lazyEventModel;
@@ -48,10 +50,61 @@ public class ScheduleView implements Serializable {
     @PostConstruct
 	public void init() {
 		eventModel = new DefaultScheduleModel();
-		eventModel.addEvent(new DefaultScheduleEvent("Champions League Match", previousDay8Pm(), previousDay11Pm()));
-		eventModel.addEvent(new DefaultScheduleEvent("Birthday Party", today1Pm(), today6Pm()));
-		eventModel.addEvent(new DefaultScheduleEvent("Breakfast at Tiffanys", nextDay9Am(), nextDay11Am()));
-		eventModel.addEvent(new DefaultScheduleEvent("Plant the new garden stuff", theDayAfter3Pm(), fourDaysLater3pm()));
+		for (int i = 0; i < 31; i++) {
+		    if(i!=2 && i!=3 && i!=9 && i!=10 && i!=16 && i!=17 && i!=23 && i!=24 && i!=30) {
+                DefaultScheduleEvent evento1 = new DefaultScheduleEvent("Lucas Mateus de Santana Cruz", exactDayHour(i + 1, 2, 1, 7, 0), exactDayHour(i + 1, 2, 2, 1, 0));
+                evento1.setStyleClass("manha");
+                evento1.setEditable(false);
+                eventModel.addEvent(evento1);
+            }else{
+                DefaultScheduleEvent evento1 = new DefaultScheduleEvent("Lucas Mateus de Santana Cruz", exactDayHour(i + 1, 2, 2, 7, 0), exactDayHour(i + 2, 2, 1, 7, 0));
+                evento1.setStyleClass("feriado");
+                evento1.setEditable(false);
+                eventModel.addEvent(evento1);
+            }
+            //DefaultScheduleEvent evento2 = new DefaultScheduleEvent("Allan Silva Santos", exactDayHour(i+1, 2, 1, 7, 0), exactDayHour(i+1, 2, 2, 1, 0));
+            //evento2.setStyleClass("manha");
+            //eventModel.addEvent(evento2);
+            //DefaultScheduleEvent evento3 = new DefaultScheduleEvent("Pablo Lima", exactDayHour(i+1, 2, 1, 7, 0), exactDayHour(i+1, 2, 2, 1, 0));
+            //evento3.setStyleClass("manha");
+            //eventModel.addEvent(evento3);
+            //DefaultScheduleEvent evento4 = new DefaultScheduleEvent("Enfermeiro 1", exactDayHour(i+1, 2, 1, 7, 0), exactDayHour(i+1, 2, 2, 1, 0));
+            //evento4.setStyleClass("manha");
+            //eventModel.addEvent(evento4);
+            //DefaultScheduleEvent evento5 = new DefaultScheduleEvent("Técnico 1", exactDayHour(i+1, 2, 1, 7, 0), exactDayHour(i+1, 2, 2, 1, 0));
+            //evento5.setStyleClass("manha");
+            //eventModel.addEvent(evento5);
+        }
+
+        for (int i = 0; i < 31; i++) {
+            //DefaultScheduleEvent evento1 = new DefaultScheduleEvent("Lucas Mateus de Santana Cruz", exactDayHour(i + 1, 2, 2, 1, 0), exactDayHour(i + 1, 2, 2, 7, 0));
+            //evento1.setStyleClass("tarde");
+            //eventModel.addEvent(evento1);
+            //DefaultScheduleEvent evento2 = new DefaultScheduleEvent("Allan Silva Santos", exactDayHour(i+1, 2, 2, 1, 0), exactDayHour(i+1, 2, 2, 7, 0));
+            //evento2.setStyleClass("tarde");
+            //eventModel.addEvent(evento2);
+            //DefaultScheduleEvent evento3 = new DefaultScheduleEvent("Pablo Lima", exactDayHour(i+1, 2, 2, 1, 0), exactDayHour(i+1, 2, 2, 7, 0));
+            //evento3.setStyleClass("tarde");
+            //eventModel.addEvent(evento3);
+        }
+
+        for (int i = 0; i < 31; i++) {
+            //DefaultScheduleEvent evento1 = new DefaultScheduleEvent("Lucas Mateus de Santana Cruz", exactDayHour(i + 1, 2, 2, 7, 0), exactDayHour(i + 2, 2, 1, 7, 0));
+            //evento1.setStyleClass("noite");
+            //eventModel.addEvent(evento1);
+            //DefaultScheduleEvent evento2 = new DefaultScheduleEvent("Allan Silva Santos", exactDayHour(i+1, 2, 2, 7, 0), exactDayHour(i+2, 2, 1, 7, 0));
+            //evento2.setStyleClass("noite");
+            //eventModel.addEvent(evento2);
+            //DefaultScheduleEvent evento3 = new DefaultScheduleEvent("Pablo Lima", exactDayHour(i+1, 2, 2, 7, 0), exactDayHour(i+2, 2, 1, 7, 0));
+            //evento3.setStyleClass("noite");
+            //eventModel.addEvent(evento3);
+            //DefaultScheduleEvent evento4 = new DefaultScheduleEvent("Enfermeio 1", exactDayHour(i+1, 2, 2, 7, 0), exactDayHour(i+2, 2, 1, 7, 0));
+            //evento4.setStyleClass("noite");
+            //eventModel.addEvent(evento4);
+            //DefaultScheduleEvent evento5 = new DefaultScheduleEvent("Técnico 1", exactDayHour(i+1, 2, 2, 7, 0), exactDayHour(i+2, 2, 1, 7, 0));
+            //evento5.setStyleClass("noite");
+            //eventModel.addEvent(evento5);
+        }
 		
 		lazyEventModel = new LazyScheduleModel() {
 			
@@ -95,6 +148,24 @@ public class ScheduleView implements Serializable {
 
 		return calendar;
 	}
+
+	private Date exactDayHour(int day, int month, int pmAm, int hour, int minute){
+        Calendar t = (Calendar) today().clone();
+
+        t.set(Calendar.MONTH, month);
+        t.set(Calendar.DAY_OF_MONTH, day);
+
+        if(pmAm == 1) {
+            t.set(Calendar.AM_PM, Calendar.AM);
+        }else {
+            t.set(Calendar.AM_PM, Calendar.PM);
+        }
+
+        t.set(Calendar.HOUR, hour);
+        t.set(Calendar.MINUTE, minute);
+
+        return t.getTime();
+    }
 	
 	private Date previousDay8Pm() {
 		Calendar t = (Calendar) today().clone();
@@ -121,6 +192,14 @@ public class ScheduleView implements Serializable {
 		
 		return t.getTime();
 	}
+
+    private Date today6Am() {
+        Calendar t = (Calendar) today().clone();
+        t.set(Calendar.AM_PM, Calendar.AM);
+        t.set(Calendar.HOUR, 6);
+
+        return t.getTime();
+    }
 	
 	private Date theDayAfter3Pm() {
 		Calendar t = (Calendar) today().clone();

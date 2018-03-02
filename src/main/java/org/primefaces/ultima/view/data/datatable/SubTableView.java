@@ -34,19 +34,37 @@ public class SubTableView {
         lakers.getStats().add(new Stats("2005-2006", 50, 32));
         lakers.getStats().add(new Stats("2006-2007", 44, 38));
         lakers.getStats().add(new Stats("2007-2008", 40, 42));
-        lakers.getStats().add(new Stats("2008-2009", 45, 37));
-        lakers.getStats().add(new Stats("2009-2010", 48, 34));
-        lakers.getStats().add(new Stats("2010-2011", 42, 42));
+        //lakers.getStats().add(new Stats("2008-2009", 45, 37));
+        //lakers.getStats().add(new Stats("2009-2010", 48, 34));
+        //lakers.getStats().add(new Stats("2010-2011", 42, 42));
         teams.add(lakers);
         
         Team celtics = new Team("Boston Celtics");
         celtics.getStats().add(new Stats("2005-2006", 46, 36));
         celtics.getStats().add(new Stats("2006-2007", 50, 32));
         celtics.getStats().add(new Stats("2007-2008", 41, 41));
-        celtics.getStats().add(new Stats("2008-2009", 45, 37));
-        celtics.getStats().add(new Stats("2009-2010", 38, 44));
-        celtics.getStats().add(new Stats("2010-2011", 35, 47));
+        //celtics.getStats().add(new Stats("2008-2009", 45, 37));
+        //celtics.getStats().add(new Stats("2009-2010", 38, 44));
+        //celtics.getStats().add(new Stats("2010-2011", 35, 47));
         teams.add(celtics);
+
+        Team teste = new Team("Teste");
+        teste.getStats().add(new Stats("2005-2006", 46, 36));
+        teste.getStats().add(new Stats("2006-2007", 50, 32));
+        teste.getStats().add(new Stats("2007-2008", 41, 41));
+        //celtics.getStats().add(new Stats("2008-2009", 45, 37));
+        //celtics.getStats().add(new Stats("2009-2010", 38, 44));
+        //celtics.getStats().add(new Stats("2010-2011", 35, 47));
+        teams.add(teste);
+
+        Team teste2 = new Team("Teste");
+        teste2.getStats().add(new Stats("2005-2006", 46, 36));
+        teste2.getStats().add(new Stats("2006-2007", 50, 32));
+        teste2.getStats().add(new Stats("2007-2008", 41, 41));
+        //celtics.getStats().add(new Stats("2008-2009", 45, 37));
+        //celtics.getStats().add(new Stats("2009-2010", 38, 44));
+        //celtics.getStats().add(new Stats("2010-2011", 35, 47));
+        teams.add(teste2);
     }
     
     public List<Team> getTeams() {

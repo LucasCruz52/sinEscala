@@ -18,11 +18,75 @@
         <h:outputScript name="js/layout.js" library="ultima-layout" />
         <h:outputScript name="js/ripple.js" library="ultima-layout" />
         <h:outputScript name="js/swipe.js" library="ultima-layout" />
-        <h:outputScript name="primefaces-locale.js" library="js" />
         <ui:insert name="head"/>
+
+        <style>
+
+            .manha {
+                font-size: 14px;
+                background-color: #ffe789 !important;
+            }
+
+            .tarde {
+                font-size: 14px;
+                background-color: #81c784 !important;
+                color: #2ebcfc;
+            }
+
+            .noite {
+                font-size: 14px;
+                background-color: #008cba !important;
+
+            }
+
+            .feriado {
+                font-size: 14px;
+                background-color: red !important;
+                color: white !important;
+            }
+
+            .fc-today  /* today */
+            {
+                background-image: linear-gradient(to bottom, #ff6666, #ff6666) !important;
+            }
+
+
+        </style>
+
+
     </h:head>
 
     <h:body styleClass="main-body #{guestPreferences.compact ? 'layout-compact' : null}">
+
+        <script language="javascript">
+            PrimeFaces.locales['pt'] = {
+                closeText: 'Fechar',
+                prevText: 'Anterior',
+                nextText: 'Próximo',
+                currentText: 'Começo',
+                monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+                dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+                dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
+                weekHeader: 'Semana',
+                firstDay: 0,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: '',
+                timeOnlyTitle: 'Só Horas',
+                timeText: 'Tempo',
+                hourText: 'Hora',
+                minuteText: 'Minuto',
+                secondText: 'Segundo',
+                currentText: 'Data Atual',
+                ampm: false,
+                month: 'Mês',
+                week: 'Semana',
+                day: 'Dia',
+                allDayText: 'Todo Dia'
+            };
+        </script>
         
         <div class="layout-wrapper #{guestPreferences.menuLayout} #{guestPreferences.orientationRTL ? 'layout-rtl' : null}">
             <ui:include src="./topbar.xhtml" />

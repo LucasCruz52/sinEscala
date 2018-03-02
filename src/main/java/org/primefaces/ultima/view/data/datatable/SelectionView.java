@@ -51,7 +51,7 @@ public class SelectionView implements Serializable {
         cars2 = service.createCars(10);
         cars3 = service.createCars(10);
         cars4 = service.createCars(10);
-        cars5 = service.createCars(10);
+        cars5 = service.createCars(3);
         cars6 = service.createCars(10);
         cars7 = service.createCars(50);
     }

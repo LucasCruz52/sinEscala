@@ -80,11 +80,12 @@ public class UsuarioService{
 	public int getIdPerfil() {
 		return idPerfil;
 	}
+
 	public void setIdPerfil(int idPerfil) {
 		this.idPerfil = idPerfil;
 	}
 	
-	public String Cadastrar() {
+	public String cadastrar() {
 		//validar();
 		Usuario obj = new Usuario();
 		obj.setDataCadastro(dataAtual);
@@ -92,11 +93,16 @@ public class UsuarioService{
 		obj.setNome(nome);
 		obj.setLogin(login);
 		obj.setSenha(senha);
-		obj.getPerfil().setIdPerfil(idPerfil);
+		//obj.getPerfil().setIdPerfil(idPerfil);
 		
-		UsuarioDAO usuarioDao = new UsuarioDAO();
-		usuarioDao.salvar(obj);
+		//UsuarioDAO usuarioDao = new UsuarioDAO();
+		//usuarioDao.salvar(obj);
+        System.out.println("SALVANDO...");
 		return "SIM";
+	}
+
+	public Usuario pegar() {
+		return new Usuario();
 	}
 	
 	public void Validar() {
