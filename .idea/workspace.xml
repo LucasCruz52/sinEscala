@@ -7,63 +7,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a9812dd-e542-43f6-a309-8dc3f1779ecb" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/CargaHorariaMensal.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/TipoProfissional.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/locale-primefaces.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/cadastroProfissional.xhtml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/listaProfissionais.xhtml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Horario.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Intervalo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Restricao.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/cadastroCargaHorariaDiaria.xhtml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Usuario.java" afterPath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Usuario.java" />
+      <change beforePath="$PROJECT_DIR$/Alimentacao1.sql" afterPath="$PROJECT_DIR$/Alimentacao1.sql" />
+      <change beforePath="$PROJECT_DIR$/SinEscalaV3.sql" afterPath="$PROJECT_DIR$/SinEscalaV3.sql" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/CargaHorariaDiaria.java" afterPath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/CargaHorariaDiaria.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Profissional.java" afterPath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Profissional.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Vinculo.java" afterPath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Vinculo.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/service/UsuarioService.java" afterPath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/service/UsuarioService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/view/data/ScheduleView.java" afterPath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/view/data/ScheduleView.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/view/data/datatable/SelectionView.java" afterPath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/view/data/datatable/SelectionView.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/view/data/datatable/SubTableView.java" afterPath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/view/data/datatable/SubTableView.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/menu.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/menu.xhtml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/template.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/template.xhtml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/cadastroNecessidadesPreferencias.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/cadastroNecessidadesPreferencias.xhtml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/cadastroUsuario.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/cadastroUsuario.xhtml" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/consultaListaPresenca.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/consultaListaPresenca.xhtml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/inicial_colaborador.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/inicial_colaborador.xhtml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/listaUsuarios.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/listaUsuarios.xhtml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/registroNecessidadesPreferencias.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/registroPreferencias.xhtml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/registroPresenca.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/registroPresenca.xhtml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/primefaces-locale.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/primefaces-locale.js" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/DAO/UsuarioDAO.class" afterPath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/DAO/UsuarioDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/domain/Perfil.class" afterPath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/domain/Perfil.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/domain/Usuario.class" afterPath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/domain/Usuario.class" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/listaProfissionais.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/listaProfissionais.xhtml" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/registroPreferencias.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/registroPreferencias.xhtml" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/domain/CargaHorariaDiaria.class" afterPath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/domain/CargaHorariaDiaria.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/domain/Vinculo.class" afterPath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/domain/Vinculo.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/service/UsuarioService.class" afterPath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/service/UsuarioService.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/view/data/ScheduleView$1.class" afterPath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/view/data/ScheduleView$1.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/view/data/ScheduleView.class" afterPath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/view/data/ScheduleView.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/view/data/datatable/SelectionView.class" afterPath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/view/data/datatable/SelectionView.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/view/data/datatable/SubTableView.class" afterPath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/view/data/datatable/SubTableView.class" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1.war" afterPath="$PROJECT_DIR$/target/ultima-1.1.war" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/DAO/UsuarioDAO.class" afterPath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/DAO/UsuarioDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/domain/Perfil.class" afterPath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/domain/Perfil.class" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/domain/Usuario.class" afterPath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/domain/Usuario.class" />
+      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/domain/CargaHorariaDiaria.class" afterPath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/domain/CargaHorariaDiaria.class" />
       <change beforePath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/domain/Vinculo.class" afterPath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/domain/Vinculo.class" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/service/UsuarioService.class" afterPath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/service/UsuarioService.class" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/view/data/ScheduleView$1.class" afterPath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/view/data/ScheduleView$1.class" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/view/data/ScheduleView.class" afterPath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/view/data/ScheduleView.class" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/view/data/datatable/SelectionView.class" afterPath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/view/data/datatable/SelectionView.class" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/view/data/datatable/SubTableView.class" afterPath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/view/data/datatable/SubTableView.class" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/menu.xhtml" afterPath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/menu.xhtml" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/template.xhtml" afterPath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/template.xhtml" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/cadastroNecessidadesPreferencias.xhtml" afterPath="$PROJECT_DIR$/target/ultima-1.1/cadastroNecessidadesPreferencias.xhtml" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/cadastroUsuario.xhtml" afterPath="$PROJECT_DIR$/target/ultima-1.1/cadastroUsuario.xhtml" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/inicial_colaborador.xhtml" afterPath="$PROJECT_DIR$/target/ultima-1.1/inicial_colaborador.xhtml" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/listaUsuarios.xhtml" afterPath="$PROJECT_DIR$/target/ultima-1.1/listaUsuarios.xhtml" />
       <change beforePath="$PROJECT_DIR$/target/ultima-1.1/registroPresenca.xhtml" afterPath="$PROJECT_DIR$/target/ultima-1.1/registroPresenca.xhtml" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/resources/js/primefaces-locale.js" afterPath="$PROJECT_DIR$/target/ultima-1.1/resources/js/primefaces-locale.js" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/DAO/UsuarioDAO.java" afterPath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/DAO/UsuarioDAO.java" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/domain/Perfil.java" afterPath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/domain/Perfil.java" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/domain/Usuario.java" afterPath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/domain/Usuario.java" />
+      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/domain/CargaHorariaDiaria.java" afterPath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/domain/CargaHorariaDiaria.java" />
       <change beforePath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/domain/Vinculo.java" afterPath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/domain/Vinculo.java" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/service/UsuarioService.java" afterPath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/service/UsuarioService.java" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/view/data/ScheduleView.java" afterPath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/view/data/ScheduleView.java" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/view/data/datatable/SelectionView.java" afterPath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/view/data/datatable/SelectionView.java" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/view/data/datatable/SubTableView.java" afterPath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/view/data/datatable/SubTableView.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -121,106 +85,158 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="forms.xhtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/forms.xhtml">
+      <file leaf-file-name="Horario.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Horario.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="129" column="20" lean-forward="true" selection-start-line="129" selection-start-column="20" selection-end-line="133" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="visualizaNecessidadesPreferencia.xhtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/visualizaNecessidadesPreferencia.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="49" column="34" lean-forward="true" selection-start-line="12" selection-start-column="20" selection-end-line="49" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="registroPresenca.xhtml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/registroPresenca.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="107" column="83" lean-forward="false" selection-start-line="107" selection-start-column="83" selection-end-line="107" selection-end-column="83" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="registroPreferencias.xhtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/registroPreferencias.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="56" column="33" lean-forward="false" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SelectionView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/view/data/datatable/SelectionView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="49" column="30" lean-forward="true" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CarService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/service/CarService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
-              <caret line="35" column="26" lean-forward="false" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="facelets_jsf_core.taglib.xml" pinned="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar!/resources/schemas/facelets_jsf_core.taglib.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="1205" column="65" lean-forward="false" selection-start-line="1205" selection-start-column="64" selection-end-line="1205" selection-end-column="65" />
+            <state relative-caret-position="53">
+              <caret line="47" column="29" lean-forward="true" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
               <folding>
-                <element signature="e#50943#50947#0" expanded="true" />
+                <element signature="e#305#306#0" expanded="true" />
+                <element signature="e#330#331#0" expanded="true" />
+                <element signature="e#363#364#0" expanded="true" />
+                <element signature="e#391#392#0" expanded="true" />
+                <element signature="e#422#423#0" expanded="true" />
+                <element signature="e#449#450#0" expanded="true" />
+                <element signature="e#489#490#0" expanded="true" />
+                <element signature="e#521#522#0" expanded="true" />
+                <element signature="e#557#558#0" expanded="true" />
+                <element signature="e#589#590#0" expanded="true" />
+                <element signature="e#639#640#0" expanded="true" />
+                <element signature="e#681#682#0" expanded="true" />
+                <element signature="e#713#714#0" expanded="true" />
+                <element signature="e#741#742#0" expanded="true" />
+                <element signature="e#783#784#0" expanded="true" />
+                <element signature="e#817#818#0" expanded="true" />
+                <element signature="e#874#875#0" expanded="true" />
+                <element signature="e#915#916#0" expanded="true" />
+                <element signature="e#1090#1091#0" expanded="true" />
+                <element signature="e#1120#1121#0" expanded="true" />
+                <element signature="e#1167#1168#0" expanded="true" />
+                <element signature="e#1205#1206#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sample.xhtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/sample.xhtml">
+      <file leaf-file-name="Vinculo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Vinculo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="32" lean-forward="false" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="79" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SubTableView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/view/data/datatable/SubTableView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="66" column="24" lean-forward="false" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
+            <state relative-caret-position="123">
+              <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
               <folding>
-                <element signature="e#2936#2937#0" expanded="true" />
-                <element signature="e#2964#2965#0" expanded="true" />
+                <element signature="e#163#164#0" expanded="true" />
+                <element signature="e#188#189#0" expanded="true" />
+                <element signature="e#221#222#0" expanded="true" />
+                <element signature="e#249#250#0" expanded="true" />
+                <element signature="e#281#282#0" expanded="true" />
+                <element signature="e#309#310#0" expanded="true" />
+                <element signature="e#351#352#0" expanded="true" />
+                <element signature="e#385#386#0" expanded="true" />
+                <element signature="e#421#422#0" expanded="true" />
+                <element signature="e#453#454#0" expanded="true" />
+                <element signature="e#503#504#0" expanded="true" />
+                <element signature="e#545#546#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cadastroNecessidadesPreferencias.xhtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/cadastroNecessidadesPreferencias.xhtml">
+      <file leaf-file-name="Profissional.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Profissional.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="51" column="60" lean-forward="false" selection-start-line="51" selection-start-column="60" selection-end-line="51" selection-end-column="60" />
+            <state relative-caret-position="-121">
+              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Usuario.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Usuario.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-265">
+              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cadastroCargaHorariaDiaria.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/cadastroCargaHorariaDiaria.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="56" lean-forward="false" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CargaHorariaDiaria.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/CargaHorariaDiaria.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+              <folding>
+                <element signature="e#364#365#0" expanded="true" />
+                <element signature="e#389#390#0" expanded="true" />
+                <element signature="e#422#423#0" expanded="true" />
+                <element signature="e#450#451#0" expanded="true" />
+                <element signature="e#479#480#0" expanded="true" />
+                <element signature="e#507#508#0" expanded="true" />
+                <element signature="e#546#547#0" expanded="true" />
+                <element signature="e#580#581#0" expanded="true" />
+                <element signature="e#619#620#0" expanded="true" />
+                <element signature="e#651#652#0" expanded="true" />
+                <element signature="e#704#705#0" expanded="true" />
+                <element signature="e#746#747#0" expanded="true" />
+                <element signature="e#778#779#0" expanded="true" />
+                <element signature="e#806#807#0" expanded="true" />
+                <element signature="e#848#849#0" expanded="true" />
+                <element signature="e#882#883#0" expanded="true" />
+                <element signature="e#918#919#0" expanded="true" />
+                <element signature="e#950#951#0" expanded="true" />
+                <element signature="e#1000#1001#0" expanded="true" />
+                <element signature="e#1042#1043#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Document.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Document.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Restricao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Restricao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cadastroProfissional.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/cadastroProfissional.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="31" column="28" lean-forward="false" selection-start-line="31" selection-start-column="28" selection-end-line="35" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -233,9 +249,9 @@
       <list>
         <option value="hibernate-configuration-5.0" />
         <option value="hibernate-main-5.0" />
-        <option value="Class" />
-        <option value="jsf" />
         <option value="JavaScript File" />
+        <option value="jsf" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -287,17 +303,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/footer.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/listaPerfis.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/cadastroUsuario.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/cadastroPerfis.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/listaPaginas.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/cadastroPagina.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/cadastroPerfis.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/messages.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/view/data/PickListView.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Unidade.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/CargaHorariaDiaria.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/CadastroNecessidadesPlantao.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/loginUsuario.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/cadastroFeriados.xhtml" />
@@ -319,7 +330,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/registroNecessidadesPreferencias.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Usuario.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/TipoProfissional.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Vinculo.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/service/UsuarioService.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/listaUsuarios.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/cadastroUsuario.xhtml" />
@@ -330,14 +340,20 @@
         <option value="$PROJECT_DIR$/src/main/webapp/inicial_colaborador.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/view/data/ScheduleView.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/template.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/consultaListaPresenca.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/menu.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/cadastroNecessidadesPreferencias.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/view/data/datatable/SubTableView.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/view/data/datatable/SelectionView.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/service/CarService.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/registroPreferencias.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/registroPresenca.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/registroPreferencias.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/consultaListaPresenca.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Intervalo.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/cadastroCargaHorariaDiaria.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Vinculo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/CargaHorariaDiaria.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Restricao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Horario.java" />
       </list>
     </option>
   </component>
@@ -671,7 +687,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.registroPreferencias.jsf">
+  <component name="RunManager" selected="JavaScript Debug.cadastroCargaHorariaDiaria.xhtml">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -785,7 +801,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="registroPreferencias.jsf" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/ultima-1.1/registroPreferencias.jsf" />
+    <configuration name="cadastroCargaHorariaDiaria.xhtml" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/ultima-1.1/cadastroCargaHorariaDiaria.xhtml" />
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -820,8 +836,8 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="registroPreferencias.xhtml (1)" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.231" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/registroPreferencias.xhtml" />
+    <configuration name="cadastroCargaHorariaDiaria.xhtml (1)" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.231" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/cadastroCargaHorariaDiaria.xhtml" />
       <deployment>
         <artifact name="ultima:war exploded">
           <settings>
@@ -857,8 +873,8 @@
         </option>
       </method>
     </configuration>
-    <configuration name="registroPreferencias.xhtml (2)" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.231" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/registroPreferencias.xhtml" />
+    <configuration name="cadastroCargaHorariaDiaria.xhtml (2)" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.231" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/cadastroCargaHorariaDiaria.xhtml" />
       <deployment>
         <artifact name="ultima:war exploded">
           <settings>
@@ -894,8 +910,8 @@
         </option>
       </method>
     </configuration>
-    <configuration name="registroPreferencias.xhtml (3)" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.231" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/registroPreferencias.xhtml" />
+    <configuration name="cadastroCargaHorariaDiaria.xhtml (3)" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.231" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/cadastroCargaHorariaDiaria.xhtml" />
       <deployment>
         <artifact name="ultima:war exploded">
           <settings>
@@ -931,8 +947,8 @@
         </option>
       </method>
     </configuration>
-    <configuration name="registroPreferencias.xhtml" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.231" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/registroPreferencias.xhtml" />
+    <configuration name="cadastroCargaHorariaDiaria.xhtml" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.231" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/cadastroCargaHorariaDiaria.xhtml" />
       <deployment>
         <artifact name="ultima:war exploded">
           <settings>
@@ -976,19 +992,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="GlassFish Server.sinEscala" />
-      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.registroPreferencias.jsf" />
-      <item index="2" class="java.lang.String" itemvalue="Tomcat Server.registroPreferencias.xhtml (1)" />
-      <item index="3" class="java.lang.String" itemvalue="Tomcat Server.registroPreferencias.xhtml (2)" />
-      <item index="4" class="java.lang.String" itemvalue="Tomcat Server.registroPreferencias.xhtml (3)" />
-      <item index="5" class="java.lang.String" itemvalue="Tomcat Server.registroPreferencias.xhtml" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.cadastroCargaHorariaDiaria.xhtml" />
+      <item index="2" class="java.lang.String" itemvalue="Tomcat Server.cadastroCargaHorariaDiaria.xhtml" />
+      <item index="3" class="java.lang.String" itemvalue="Tomcat Server.cadastroCargaHorariaDiaria.xhtml (1)" />
+      <item index="4" class="java.lang.String" itemvalue="Tomcat Server.cadastroCargaHorariaDiaria.xhtml (2)" />
+      <item index="5" class="java.lang.String" itemvalue="Tomcat Server.cadastroCargaHorariaDiaria.xhtml (3)" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.registroPreferencias.jsf" />
-        <item index="1" class="java.lang.String" itemvalue="Tomcat Server.registroPreferencias.xhtml" />
-        <item index="2" class="java.lang.String" itemvalue="Tomcat Server.registroPreferencias.xhtml (3)" />
-        <item index="3" class="java.lang.String" itemvalue="Tomcat Server.registroPreferencias.xhtml (2)" />
-        <item index="4" class="java.lang.String" itemvalue="Tomcat Server.registroPreferencias.xhtml (1)" />
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.cadastroCargaHorariaDiaria.xhtml" />
+        <item index="1" class="java.lang.String" itemvalue="Tomcat Server.cadastroCargaHorariaDiaria.xhtml (3)" />
+        <item index="2" class="java.lang.String" itemvalue="Tomcat Server.cadastroCargaHorariaDiaria.xhtml (2)" />
+        <item index="3" class="java.lang.String" itemvalue="Tomcat Server.cadastroCargaHorariaDiaria.xhtml (1)" />
+        <item index="4" class="java.lang.String" itemvalue="Tomcat Server.cadastroCargaHorariaDiaria.xhtml" />
       </list>
     </recent_temporary>
   </component>
@@ -1036,7 +1052,7 @@
       <workItem from="1519932109513" duration="331000" />
       <workItem from="1519932495522" duration="6736000" />
       <workItem from="1519943969597" duration="7280000" />
-      <workItem from="1520020538958" duration="8457000" />
+      <workItem from="1520020538958" duration="14208000" />
     </task>
     <task id="LOCAL-00001" summary="Mais um commit">
       <created>1519781547095</created>
@@ -1045,11 +1061,18 @@
       <option name="project" value="LOCAL" />
       <updated>1519781547095</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Mais um commit">
+      <created>1520031301634</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1520031301635</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159223000" />
+    <option name="totallyTimeSpent" value="164974000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1065,7 +1088,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41127923" sideWeight="0.5266559" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41127923" sideWeight="0.53311795" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32599726" sideWeight="0.490625" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.026655897" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1082,13 +1105,13 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.49353796" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18569463" sideWeight="0.4838449" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41127923" sideWeight="0.47334412" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18569463" sideWeight="0.4806139" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41127923" sideWeight="0.46688208" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.49353796" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33117932" sideWeight="0.44429162" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37479806" sideWeight="0.5557084" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3117932" sideWeight="0.3927711" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933334" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3117932" sideWeight="0.3927711" order="6" side_tool="true" content_ui="tabs" />
@@ -1158,148 +1181,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Unidade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/service/CadastroNecessidadesServico.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/cadastroUnidadeInternacao.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="31" lean-forward="false" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/listaUnidadesInternacao.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="38" lean-forward="false" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Usuario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Profissional.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/TipoProfissional.xhtml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/TipoProfissional.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Vinculo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="e#300#301#0" expanded="false" />
-            <element signature="e#325#326#0" expanded="false" />
-            <element signature="e#358#359#0" expanded="false" />
-            <element signature="e#386#387#0" expanded="false" />
-            <element signature="e#417#418#0" expanded="false" />
-            <element signature="e#444#445#0" expanded="false" />
-            <element signature="e#484#485#0" expanded="false" />
-            <element signature="e#516#517#0" expanded="false" />
-            <element signature="e#552#553#0" expanded="false" />
-            <element signature="e#584#585#0" expanded="false" />
-            <element signature="e#634#635#0" expanded="false" />
-            <element signature="e#676#677#0" expanded="false" />
-            <element signature="e#733#734#0" expanded="false" />
-            <element signature="e#774#775#0" expanded="false" />
-            <element signature="e#971#972#0" expanded="false" />
-            <element signature="e#1012#1013#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/cadastroPagina.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="34" lean-forward="false" selection-start-line="17" selection-start-column="20" selection-end-line="39" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/cadastroPerfis.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="122" lean-forward="false" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="122" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/service/UsuarioService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="103" column="18" lean-forward="false" selection-start-line="103" selection-start-column="18" selection-end-line="103" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/CargaHorariaMensal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="31" lean-forward="false" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/listaUsuarios.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="48" column="24" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="74" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/cadastroUsuario.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="50" column="68" lean-forward="false" selection-start-line="50" selection-start-column="68" selection-end-line="50" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/cadastroProfissional.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="34" column="69" lean-forward="false" selection-start-line="34" selection-start-column="69" selection-end-line="34" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/listaProfissionais.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-177">
-          <caret line="58" column="94" lean-forward="false" selection-start-line="58" selection-start-column="94" selection-end-line="58" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/CargaHorariaDiaria.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/6.0/primefaces-6.0-sources.jar!/org/primefaces/component/schedule/Schedule.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
@@ -1365,6 +1246,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="26" column="2" lean-forward="false" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1419,7 +1301,7 @@
         <state relative-caret-position="75">
           <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1429,8 +1311,8 @@
         <state relative-caret-position="1110">
           <caret line="117" column="19" lean-forward="false" selection-start-line="117" selection-start-column="19" selection-end-line="117" selection-end-column="19" />
           <folding>
-            <element signature="e#2590#2591#0" expanded="true" />
-            <element signature="e#2621#2622#0" expanded="true" />
+            <element signature="e#2590#2591#0" expanded="false" />
+            <element signature="e#2621#2622#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1480,26 +1362,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/consultaListaPresenca.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="108" column="151" lean-forward="false" selection-start-line="108" selection-start-column="151" selection-end-line="108" selection-end-column="151" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/menu.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="77" column="129" lean-forward="false" selection-start-line="77" selection-start-column="129" selection-end-line="77" selection-end-column="129" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/cadastroNecessidadesPreferencias.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="51" column="60" lean-forward="false" selection-start-line="51" selection-start-column="60" selection-end-line="51" selection-end-column="60" />
           <folding />
         </state>
       </provider>
@@ -1565,19 +1431,247 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Alimentacao1.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-719">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/service/UsuarioService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="87" column="27" lean-forward="false" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/service/ThemeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/view/data/datatable/UsuarioView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="28" column="19" lean-forward="false" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/view/data/datatable/BasicView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="26" column="19" lean-forward="false" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/cadastroNecessidadesPreferencias.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="36" column="34" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="36" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/registroPreferencias.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="56" column="33" lean-forward="false" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
-          <folding />
+        <state relative-caret-position="335">
+          <caret line="26" column="111" lean-forward="false" selection-start-line="26" selection-start-column="111" selection-end-line="26" selection-end-column="111" />
+          <folding>
+            <marker date="1520034204615" expanded="true" signature="864:931" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/registroPresenca.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="107" column="83" lean-forward="false" selection-start-line="107" selection-start-column="83" selection-end-line="107" selection-end-column="83" />
+        <state relative-caret-position="266">
+          <caret line="107" column="228" lean-forward="true" selection-start-line="107" selection-start-column="32" selection-end-line="107" selection-end-column="228" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/consultaListaPresenca.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="107" column="228" lean-forward="false" selection-start-line="107" selection-start-column="228" selection-end-line="107" selection-end-column="228" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Intervalo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="e#141#142#0" expanded="true" />
+            <element signature="e#169#170#0" expanded="true" />
+            <element signature="e#208#209#0" expanded="true" />
+            <element signature="e#242#243#0" expanded="true" />
+            <element signature="e#273#274#0" expanded="true" />
+            <element signature="e#303#304#0" expanded="true" />
+            <element signature="e#346#347#0" expanded="true" />
+            <element signature="e#384#385#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/CargaHorariaMensal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="31" lean-forward="false" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/cadastroPagina.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="22" column="39" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="46" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/cadastroProfissional.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="31" column="28" lean-forward="false" selection-start-line="31" selection-start-column="28" selection-end-line="35" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Profissional.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-121">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Usuario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-265">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Vinculo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+          <folding>
+            <element signature="e#163#164#0" expanded="true" />
+            <element signature="e#188#189#0" expanded="true" />
+            <element signature="e#221#222#0" expanded="true" />
+            <element signature="e#249#250#0" expanded="true" />
+            <element signature="e#281#282#0" expanded="true" />
+            <element signature="e#309#310#0" expanded="true" />
+            <element signature="e#351#352#0" expanded="true" />
+            <element signature="e#385#386#0" expanded="true" />
+            <element signature="e#421#422#0" expanded="true" />
+            <element signature="e#453#454#0" expanded="true" />
+            <element signature="e#503#504#0" expanded="true" />
+            <element signature="e#545#546#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/cadastroCargaHorariaDiaria.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="56" lean-forward="false" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Restricao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/CargaHorariaDiaria.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+          <folding>
+            <element signature="e#364#365#0" expanded="true" />
+            <element signature="e#389#390#0" expanded="true" />
+            <element signature="e#422#423#0" expanded="true" />
+            <element signature="e#450#451#0" expanded="true" />
+            <element signature="e#479#480#0" expanded="true" />
+            <element signature="e#507#508#0" expanded="true" />
+            <element signature="e#546#547#0" expanded="true" />
+            <element signature="e#580#581#0" expanded="true" />
+            <element signature="e#619#620#0" expanded="true" />
+            <element signature="e#651#652#0" expanded="true" />
+            <element signature="e#704#705#0" expanded="true" />
+            <element signature="e#746#747#0" expanded="true" />
+            <element signature="e#778#779#0" expanded="true" />
+            <element signature="e#806#807#0" expanded="true" />
+            <element signature="e#848#849#0" expanded="true" />
+            <element signature="e#882#883#0" expanded="true" />
+            <element signature="e#918#919#0" expanded="true" />
+            <element signature="e#950#951#0" expanded="true" />
+            <element signature="e#1000#1001#0" expanded="true" />
+            <element signature="e#1042#1043#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Document.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Horario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="47" column="29" lean-forward="true" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+          <folding>
+            <element signature="e#305#306#0" expanded="true" />
+            <element signature="e#330#331#0" expanded="true" />
+            <element signature="e#363#364#0" expanded="true" />
+            <element signature="e#391#392#0" expanded="true" />
+            <element signature="e#422#423#0" expanded="true" />
+            <element signature="e#449#450#0" expanded="true" />
+            <element signature="e#489#490#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
+            <element signature="e#557#558#0" expanded="true" />
+            <element signature="e#589#590#0" expanded="true" />
+            <element signature="e#639#640#0" expanded="true" />
+            <element signature="e#681#682#0" expanded="true" />
+            <element signature="e#713#714#0" expanded="true" />
+            <element signature="e#741#742#0" expanded="true" />
+            <element signature="e#783#784#0" expanded="true" />
+            <element signature="e#817#818#0" expanded="true" />
+            <element signature="e#874#875#0" expanded="true" />
+            <element signature="e#915#916#0" expanded="true" />
+            <element signature="e#1090#1091#0" expanded="true" />
+            <element signature="e#1120#1121#0" expanded="true" />
+            <element signature="e#1167#1168#0" expanded="true" />
+            <element signature="e#1205#1206#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

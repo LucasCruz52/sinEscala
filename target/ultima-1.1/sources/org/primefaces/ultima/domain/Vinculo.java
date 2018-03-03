@@ -13,8 +13,6 @@ public class Vinculo {
 
     private CargaHorariaDiaria cargaHorariaDiaria;
 
-    private CargaHorariaMensal cargaHorariaMensal;
-
     public int getId() {
         return id;
     }
@@ -47,11 +45,4 @@ public class Vinculo {
         this.cargaHorariaDiaria = cargaHorariaDiaria;
     }
 
-    public CargaHorariaMensal getCargaHorariaMensal() {
-        return cargaHorariaMensal;
-    }
-
-    public void setCargaHorariaMensal(CargaHorariaMensal cargaHorariaMensal) {
-        this.cargaHorariaMensal = cargaHorariaMensal;
-    }
 }

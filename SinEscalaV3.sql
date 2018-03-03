@@ -165,13 +165,13 @@ CREATE TABLE Profissional (
     siape int NOT NULL,
     registro_conselho int UNIQUE NOT NULL,
     cargo int NOT NULL,
-    vinculo int NOT NULL,
+    horario int NOT NULL,
     turno int NOT NULL,
     nome varchar(45) NOT NULL,
     status boolean NOT NULL,
     CONSTRAINT PK_Profissional PRIMARY KEY (siape),
     CONSTRAINT FK_Profissional_TipoP FOREIGN KEY (cargo) REFERENCES TipoProfissional(cod_tipo),
-    CONSTRAINT FK_Profissional_Vinculo FOREIGN KEY (vinculo) REFERENCES Vinculo(cod_vinculo),
+    CONSTRAINT FK_Profissional_Vinculo FOREIGN KEY (horario) REFERENCES Vinculo(cod_vinculo),
     CONSTRAINT FK_Profissional_Turno FOREIGN KEY (turno) REFERENCES Turno(cod_tipo)
 );
 

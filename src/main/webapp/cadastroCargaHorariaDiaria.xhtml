@@ -1,0 +1,51 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <style>
+        .panelGroup{
+            padding: 15px;
+        }
+    </style>
+    <ui:define name="content">
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <div class="card">
+                    <h1 style="margin-bottom: 25px;"><b>Cadastro de Carga Horária Diária</b></h1>
+                    <p:panelGrid columns="4" columnClasses="ui-grid-col-4, ui-grid-col-2, ui-grid-col-2, ui-grid-col-5 " layout="grid" styleClass="ui-panelgrid-blank form-group">
+
+                        <h:panelGroup styleClass="md-inputfield">
+                            <p:inputText style="width: 95%;"/>
+                            <label>Descrição</label>
+                        </h:panelGroup>
+
+                        <h:panelGroup styleClass="md-inputfield">
+                            <p:inputText style="width: 65%; "/>
+                            <label>Sigla</label>
+                        </h:panelGroup>
+
+                        <h:panelGroup styleClass="md-inputfield">
+                            <p:inputText style="width: 65%; "/>
+                            <label>Duração</label>
+                        </h:panelGroup>
+
+                        <p:selectOneMenu id="console" value="#{usuarioService.idPerfil}" style="width: 65%;" required="true">
+                            <f:selectItem itemLabel = "Turno*" itemValue= "0" />
+                            <f:selectItem itemLabel = "Manhã" itemValue= "1" />
+                            <f:selectItem itemLabel = "Tarde" itemValue= "2" />
+                            <f:selectItem itemLabel = "Noite" itemValue= "3" />
+                        </p:selectOneMenu>
+
+                        <p:commandButton id="btn" value="Cadastrar" icon="ui-icon-plus" styleClass="green-btn" type="button"/>
+
+                    </p:panelGrid>
+                </div>
+            </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>

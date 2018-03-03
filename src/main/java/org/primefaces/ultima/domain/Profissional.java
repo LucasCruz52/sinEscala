@@ -33,7 +33,7 @@ public class Profissional {
 	
 	public int turnoTrabalho;
 	
-	public Vinculo vinculo = new Vinculo();
+	public Horario horario = new Horario();
 	
 	public int cargo;
 	
@@ -101,12 +101,12 @@ public class Profissional {
 		this.turnoTrabalho = turnoTrabalho;
 	}
 
-	public Vinculo getVinculo() {
-		return vinculo;
+	public Horario getHorario() {
+		return horario;
 	}
 
-	public void setVinculo(Vinculo vinculo) {
-		this.vinculo = vinculo;
+	public void setHorario(Horario horario) {
+		this.horario = horario;
 	}
 
 	public int getCargo() {

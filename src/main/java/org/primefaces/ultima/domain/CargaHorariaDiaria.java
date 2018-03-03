@@ -6,26 +6,58 @@ public class CargaHorariaDiaria {
 
 	@Id
 	public int id;
+
+	private int turno;
+
+	private Intervalo intervalo;
+
+	private Restricao restricao;
 	
-	public static final int MATUTINO = 100;
+	private String sigla;
 	
-	public static final int VESPERTINO = 200;
-		
-	public static final int PLANTAO_NOTURNO = 300;
-	
-	public int turno;
-	
-	public String sigla;
-	
-	public String descricao;
+	private String descricao;
 	
 	public CargaHorariaDiaria() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-	
-	
-	
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getTurno() {
+        return turno;
+    }
+
+    public void setTurno(int turno) {
+        this.turno = turno;
+    }
+
+    public Intervalo getIntervalo() {
+        return intervalo;
+    }
+
+    public void setIntervalo(Intervalo intervalo) {
+        this.intervalo = intervalo;
+    }
+
+    public String getSigla() {
+        return sigla;
+    }
+
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 }
