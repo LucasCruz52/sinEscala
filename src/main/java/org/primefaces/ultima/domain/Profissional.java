@@ -85,7 +85,7 @@ public class Profissional {
 		this.numRegClasse = numRegClasse;
 	}
 
-	public CargaHorariaDiaria getCargaHoraria() {
+	public CargaHorariaDiaria getCargaHorariaDiaria() {
 		return cargaHoraria;
 	}
 

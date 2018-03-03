@@ -7,13 +7,15 @@ public class CargaHorariaDiaria {
 	@Id
 	public int id;
 
-	public int turno;
+	private int turno;
 
-	public Intervalo intervalo;
+	private Intervalo intervalo;
+
+	private Restricao restricao;
 	
-	public String sigla;
+	private String sigla;
 	
-	public String descricao;
+	private String descricao;
 	
 	public CargaHorariaDiaria() {
 		// TODO Auto-generated constructor stub

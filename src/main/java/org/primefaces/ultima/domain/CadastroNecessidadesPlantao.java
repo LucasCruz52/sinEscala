@@ -96,5 +96,45 @@ public class CadastroNecessidadesPlantao {
 	public void cadastrar() {
 		
 	}
-	
+
+    public static class ProfissionalAlocado {
+
+        static Integer ultimoId = 1;
+
+        protected Integer id;
+        protected Profissional profissional;
+        protected boolean presente;
+
+        public ProfissionalAlocado(Profissional profissional, boolean presente) {
+            this.id = ultimoId;
+            this.profissional = profissional;
+            this.presente = presente;
+
+            ultimoId = ultimoId +1;
+        }
+
+        public Integer getId() {
+            return id;
+        }
+
+        public void setId(Integer id) {
+            this.id = id;
+        }
+
+        public Profissional getProfissional() {
+            return profissional;
+        }
+
+        public void setProfissional(Profissional profissional) {
+            this.profissional = profissional;
+        }
+
+        public boolean isPresente() {
+            return presente;
+        }
+
+        public void setPresente(boolean presente) {
+            this.presente = presente;
+        }
+    }
 }

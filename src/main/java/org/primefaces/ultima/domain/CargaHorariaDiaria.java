@@ -16,6 +16,8 @@ public class CargaHorariaDiaria {
 	private String sigla;
 	
 	private String descricao;
+
+	private int duracao;
 	
 	public CargaHorariaDiaria() {
 		// TODO Auto-generated constructor stub
@@ -59,5 +61,21 @@ public class CargaHorariaDiaria {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public Restricao getRestricao() {
+        return restricao;
+    }
+
+    public void setRestricao(Restricao restricao) {
+        this.restricao = restricao;
+    }
+
+    public int getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(int duracao) {
+        this.duracao = duracao;
     }
 }
