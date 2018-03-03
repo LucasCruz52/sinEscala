@@ -7,8 +7,6 @@ public class CargaHorariaDiaria {
 	@Id
 	public int id;
 
-	private int turno;
-
 	private Intervalo intervalo;
 
 	private Restricao restricao;
@@ -29,14 +27,6 @@ public class CargaHorariaDiaria {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getTurno() {
-        return turno;
-    }
-
-    public void setTurno(int turno) {
-        this.turno = turno;
     }
 
     public Intervalo getIntervalo() {

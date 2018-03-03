@@ -1,0 +1,86 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <div class="card">
+                    <h1>Consulta de Carga Horária Diária</h1>
+                    <p:panelGrid columns="4" columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-2" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <p:outputLabel for="descricao" value="Descrição"/>
+                        <p:inputText id="descricao"/>
+
+                        <p:outputLabel for="sigla" value="Sigla"/>
+                        <p:inputText id="sigla" style="width: 35%;"/>
+
+                        <p:outputLabel for="turno" value="Turno"/>
+                        <p:selectOneMenu id="turno">
+                            <f:selectItem itemLabel="Selecione..." itemValue="" />
+                            <f:selectItem itemLabel="Manhã" itemValue="Xbox One" />
+                            <f:selectItem itemLabel="Tarde" itemValue="PS4" />
+                            <f:selectItem itemLabel="Noite" itemValue="Wii U" />
+                        </p:selectOneMenu>
+
+                        <p:outputLabel for="restricao" value="Restrição"/>
+                        <p:selectOneMenu id="restricao">
+                            <f:selectItem itemLabel="Selecione..." itemValue="" />
+                            <f:selectItem itemLabel="6/11" itemValue="Xbox One" />
+                            <f:selectItem itemLabel="12/36" itemValue="PS4" />
+                        </p:selectOneMenu>
+
+                        <p:outputLabel for="inativos" value="Incluir inativos"/>
+                        <p:inputSwitch id="inativos"/>
+                    </p:panelGrid>
+
+                    <p:panelGrid columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <p:commandButton id="btn" value="Pesquisar" icon="ui-icon-search" type="button"/>
+                    </p:panelGrid>
+                </div>
+                <div class="card">
+                    <p:dataTable var="usuario" value="#{dtUsuarioView.usuarios}" reflow="true" rows="10" paginator="true" rowKey="#{usuario.id}" >
+                        <f:facet name="header">
+                            Carga Horária Diária
+                            <p:tooltip />
+                            <p:commandButton type="button" pt:data-tooltip="Cadastrar carga horária diária" icon="ui-icon-add" styleClass="ui-btn-inline green-btn"/>
+                        </f:facet>
+
+                        <p:column headerText="Descrição" sortBy="#{usuario.nome}" >
+                            <h:outputText value="#{usuario.nome}" />
+                        </p:column>
+
+                        <p:column headerText="Sigla" sortBy="#{usuario.nome}" >
+                            <h:outputText value="#{usuario.nome}" />
+                        </p:column>
+
+                        <p:column headerText="Turno" sortBy="#{usuario.login}">
+                            <h:outputText value="#{usuario.login}" />
+                        </p:column>
+
+                        <p:column headerText="Restrição" sortBy="#{usuario.perfil}">
+                            <h:outputText value="#{usuario.nome}" />
+                        </p:column>
+
+                        <p:column headerText="Ativo" sortBy="#{usuario.ativo}">
+                            <h:outputText value="#{usuario.ativo}" />
+                        </p:column>
+
+                        <p:column headerText="Ações">
+                            <div style="text-align: center">
+                                <p:commandButton pt:data-tooltip="Editar carga horária diária" icon="ui-icon-edit" styleClass="amber-btn"/>
+                                <p:commandButton pt:data-tooltip="Excluir carga horária diária" icon="ui-icon-clear" styleClass="red-btn"/>
+                            </div>
+                        </p:column>
+
+                    </p:dataTable>
+                </div>
+            </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>

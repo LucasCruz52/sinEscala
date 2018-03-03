@@ -1,5 +1,8 @@
 package org.primefaces.ultima.domain;
 
+import org.primefaces.ultima.service.PreferenciaMensalService;
+import org.primefaces.ultima.service.UsuarioService;
+
 import java.util.*;
 
 public class PreferenciaMensal {
@@ -164,6 +167,7 @@ public class PreferenciaMensal {
             for (int j = 0; j < preferenciaMensal.preferenciasDiarias.get(i).blocosHorarioPreferencia.size(); j++) {
                 Calendar calendario = new GregorianCalendar(preferenciaMensal.ano, preferenciaMensal.mes, preferenciaMensal.preferenciasDiarias.get(i).dia);
                 System.out.println(preferenciaMensal.preferenciasDiarias.get(i).getTipo());
+                System.out.println(preferenciaMensal.preferenciasDiarias.get(i).getBlocosHorarioPreferencia().get(0).getTecnicosAlocados().get(0).getProfissional().getNome());
                 System.out.println(preferenciaMensal.ano);
                 //System.out.println(preferenciaMensal.mes);
                 System.out.println(calendario.getDisplayName(calendario.MONTH, 1, local));

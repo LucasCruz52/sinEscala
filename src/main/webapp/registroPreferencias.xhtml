@@ -41,20 +41,6 @@
                 <div class="card">
                     <h:form id="form">
 
-                        <!--
-                        <ui:repeat var="o" value="#{preferenciaMensalService.recuperarPreferenciasDiarias()}" varStatus="status">
-                            <table>
-                                <ui:repeat var="p" value="#{o.getBlocosHorarioPreferencia()}" varStatus="status">
-                                    <tr>
-                                        <td>#{p.horaInicio }</td>
-                                        <td>#{p.horaFim }</td>
-                                        <td>#{p.turno }</td>
-                                    </tr>
-                                </ui:repeat>
-                            </table>
-                        </ui:repeat>
-                        -->
-
                          <ui:repeat var="o" value="#{preferenciaMensalService.recuperarPreferenciasDiarias()}" varStatus="status">
                             <p:dataTable id="radioDT" var="BH" value="#{o.getBlocosHorarioPreferencia()}" selection="#{preferenciaMensalService.selectedBlock}" rowKey="#{BH.getId()}">
                                 <f:facet name="header">

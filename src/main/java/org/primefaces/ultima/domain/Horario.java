@@ -13,6 +13,8 @@ public class Horario {
 
     private String sigla;
 
+    private int turno;
+
     private CargaHorariaDiaria cargaHorariaDiaria;
 
     private Vinculo vinculo;
@@ -47,6 +49,14 @@ public class Horario {
 
     public void setSigla(String sigla) {
         this.sigla = sigla;
+    }
+
+    public int getTurno() {
+        return turno;
+    }
+
+    public void setTurno(int turno) {
+        this.turno = turno;
     }
 
     public CargaHorariaDiaria getCargaHorariaDiaria() {

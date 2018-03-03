@@ -205,5 +205,23 @@ public class Profissional {
 		lista.add(new SelectItem(TEC_ENFERMAGEM));
 		return lista;
 	}
-	
+
+    public String recuperarDescricaoCargo(int i){
+
+	    String cargo = "Indefinido";
+
+        if(i == 1){
+            cargo = "Técnico";
+        }else if(i == 2){
+            cargo = "Enfermeiro";
+        }
+
+        return cargo;
+    }
+
+    public String getNomeETurno(){
+
+        return this.nome + " ("+this.recuperarDescricaoCargo(this.turnoTrabalho)+")";
+    }
+
 }

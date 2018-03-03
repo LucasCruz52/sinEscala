@@ -33,10 +33,9 @@
                         </h:panelGroup>
 
                         <p:selectOneMenu id="console" value="#{usuarioService.idPerfil}" style="width: 65%;" required="true">
-                            <f:selectItem itemLabel = "Turno*" itemValue= "0" />
-                            <f:selectItem itemLabel = "Manhã" itemValue= "1" />
-                            <f:selectItem itemLabel = "Tarde" itemValue= "2" />
-                            <f:selectItem itemLabel = "Noite" itemValue= "3" />
+                            <f:selectItem itemLabel = "Restrição*" itemValue= "0" />
+                            <f:selectItem itemLabel = "Restrição 6/11" itemValue= "1" />
+                            <f:selectItem itemLabel = "Restrição 12/36" itemValue= "2" />
                         </p:selectOneMenu>
 
                         <p:commandButton id="btn" value="Cadastrar" icon="ui-icon-plus" styleClass="green-btn" type="button"/>

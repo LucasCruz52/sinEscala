@@ -72,11 +72,11 @@ public class BlocoHorarioPreferencia {
         this.turno = turno;
     }
 
-    public int getQuantidadeNecessidadeEnferemeiros() {
+    public int getQuantidadeNecessidadeEnfermeiros() {
         return quantidadeNecessidadeEnfermeiros;
     }
 
-    public void setQuantidadeNecessidadeEnferemeiros(int quantidadeNecessidadeEnferemeiros) {
+    public void setQuantidadeNecessidadeEnfermeiros(int quantidadeNecessidadeEnferemeiros) {
         this.quantidadeNecessidadeEnfermeiros = quantidadeNecessidadeEnferemeiros;
     }
 
@@ -114,9 +114,26 @@ public class BlocoHorarioPreferencia {
 
         List<BlocoHorarioPreferencia> blocosHorarioPreferencia = new ArrayList<BlocoHorarioPreferencia>();
 
+        Profissional profissional = new Profissional(null,"1", "Lucas",1, null, 1,false, "1", false, false, false);
+        ProfissionalAlocado profissionalAlocado = new ProfissionalAlocado(profissional, false);
+
+        List<ProfissionalAlocado> profissionaisAlocados = new ArrayList<ProfissionalAlocado>();
+        profissionaisAlocados.add(profissionalAlocado);
+
+        for(int j = 0; j < 4; j++){
+            ProfissionalAlocado profissionalAlocado2 = new ProfissionalAlocado(null, false);
+            profissionaisAlocados.add(profissionalAlocado2);
+        }
+
         for(int i = 0; i < 3; i++){
-            blocosHorarioPreferencia.add(new BlocoHorarioPreferencia(idPreferenciaDiaria, turno.get(i).getHrInicio(), turno.get(i).getHrFim(),
-                    turno.get(i).getTurno(), 0, 0));
+
+            BlocoHorarioPreferencia bloco = new BlocoHorarioPreferencia(idPreferenciaDiaria, turno.get(i).getHrInicio(), turno.get(i).getHrFim(),
+                    turno.get(i).getTurno(), 0, 0);
+
+            bloco.tecnicosAlocados = profissionaisAlocados;
+
+            blocosHorarioPreferencia.add(bloco);
+
         }
 
         return blocosHorarioPreferencia;
@@ -243,6 +260,24 @@ public class BlocoHorarioPreferencia {
         }
 
         return horario;
+    }
+
+    public List<ProfissionalAlocado> recuperarTodosProfissionaisBloco(){
+        List<ProfissionalAlocado> profissionaisAlocados = new ArrayList<ProfissionalAlocado>();
+
+        if(enfermeirosAlocados != null) {
+            for (int i = 0; i < enfermeirosAlocados.size(); i++) {
+                profissionaisAlocados.add(enfermeirosAlocados.get(i));
+            }
+        }
+
+        if(tecnicosAlocados != null) {
+            for (int i = 0; i < tecnicosAlocados.size(); i++) {
+                profissionaisAlocados.add(tecnicosAlocados.get(i));
+            }
+        }
+
+        return profissionaisAlocados;
     }
 
 }

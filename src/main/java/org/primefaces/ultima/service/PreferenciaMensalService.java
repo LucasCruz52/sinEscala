@@ -4,6 +4,7 @@ import org.primefaces.ultima.domain.*;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -125,5 +126,17 @@ public class PreferenciaMensalService {
 
         this.selectedBlocks = selectedBlocks;
 
+    }
+
+    public String formatarDiaMes(int numero){
+        String numeroFormatado;
+
+        if(numero < 10){
+            numeroFormatado = "0" + numero;
+        }else{
+            numeroFormatado = "" + numero;
+        }
+
+        return  numeroFormatado;
     }
 }
