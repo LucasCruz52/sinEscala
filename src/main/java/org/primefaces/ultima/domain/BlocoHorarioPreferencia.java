@@ -14,7 +14,7 @@ public class BlocoHorarioPreferencia {
     protected Time horaInicio;
     protected Time horaFim;
     protected int turno;
-    protected int quantidadeNecessidadeEnferemeiros;
+    protected int quantidadeNecessidadeEnfermeiros;
     protected int quantidadeNecessidadeTecnicos;
     protected List<ProfissionalAlocado> enfermeirosAlocados;
     protected List<ProfissionalAlocado> tecnicosAlocados;
@@ -26,7 +26,7 @@ public class BlocoHorarioPreferencia {
         this.horaInicio = horaInicio;
         this.horaFim = horaFim;
         this.turno = turno;
-        this.quantidadeNecessidadeEnferemeiros = quantidadeNecessidadeEnferemeiros;
+        this.quantidadeNecessidadeEnfermeiros = quantidadeNecessidadeEnferemeiros;
         this.quantidadeNecessidadeTecnicos = quantidadeNecessidadesTecnicos;
 
         ultimoId = ultimoId + 1;
@@ -73,11 +73,11 @@ public class BlocoHorarioPreferencia {
     }
 
     public int getQuantidadeNecessidadeEnferemeiros() {
-        return quantidadeNecessidadeEnferemeiros;
+        return quantidadeNecessidadeEnfermeiros;
     }
 
     public void setQuantidadeNecessidadeEnferemeiros(int quantidadeNecessidadeEnferemeiros) {
-        this.quantidadeNecessidadeEnferemeiros = quantidadeNecessidadeEnferemeiros;
+        this.quantidadeNecessidadeEnfermeiros = quantidadeNecessidadeEnferemeiros;
     }
 
     public int getQuantidadeNecessidadeTecnicos() {
@@ -129,7 +129,7 @@ public class BlocoHorarioPreferencia {
         //Chamar DAO para verificar se a lista de preferências ainda não foi disponibilizada
 
         if(novaNecessidadeEnfermeiros > this.enfermeirosAlocados.size()){
-            this.quantidadeNecessidadeEnferemeiros = novaNecessidadeEnfermeiros;
+            this.quantidadeNecessidadeEnfermeiros = novaNecessidadeEnfermeiros;
             modificado = true;
         }
 
@@ -198,7 +198,7 @@ public class BlocoHorarioPreferencia {
         if (ExigenciasLegais.atendeExigenciasLegaisPreferencia(this.id, profissionalParaAlocacao.id)) {
 
             if (profissionalParaAlocacao.cargo == 1) {
-                if (blocoHorarioPreferenciaParaAlocacao.quantidadeNecessidadeEnferemeiros < blocoHorarioPreferenciaParaAlocacao.enfermeirosAlocados.size()) {
+                if (blocoHorarioPreferenciaParaAlocacao.quantidadeNecessidadeEnfermeiros < blocoHorarioPreferenciaParaAlocacao.enfermeirosAlocados.size()) {
                     blocoHorarioPreferenciaParaAlocacao.enfermeirosAlocados.add(new ProfissionalAlocado(profissionalParaAlocacao, false));
                     alocado = true;
                 }
@@ -218,6 +218,31 @@ public class BlocoHorarioPreferencia {
         }
 
         return alocado;
+    }
+
+    public String recuperarDescricaoTurnos(int i){
+        String turno;
+
+        if(i == 1){
+            turno = "Manhã";
+        }else if(i == 2){
+            turno = "Tarde";
+        }else if(i == 3){
+            turno = "Noite";
+        }else{
+            turno = "";
+        }
+
+        return turno;
+    }
+
+    public String formatarHorarioExibicao(String horario){
+
+        if(horario.length() == 8){
+            horario = horario.substring(0,5);
+        }
+
+        return horario;
     }
 
 }

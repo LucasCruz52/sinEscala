@@ -163,6 +163,7 @@ public class PreferenciaMensal {
         for(int i = 0; i < preferenciaMensal.preferenciasDiarias.size(); i++) {
             for (int j = 0; j < preferenciaMensal.preferenciasDiarias.get(i).blocosHorarioPreferencia.size(); j++) {
                 Calendar calendario = new GregorianCalendar(preferenciaMensal.ano, preferenciaMensal.mes, preferenciaMensal.preferenciasDiarias.get(i).dia);
+                System.out.println(preferenciaMensal.preferenciasDiarias.get(i).getTipo());
                 System.out.println(preferenciaMensal.ano);
                 //System.out.println(preferenciaMensal.mes);
                 System.out.println(calendario.getDisplayName(calendario.MONTH, 1, local));
@@ -172,7 +173,7 @@ public class PreferenciaMensal {
                 System.out.println(preferenciaMensal.preferenciasDiarias.get(i).blocosHorarioPreferencia.get(j).turno);
                 System.out.println(preferenciaMensal.preferenciasDiarias.get(i).blocosHorarioPreferencia.get(j).horaInicio);
                 System.out.println(preferenciaMensal.preferenciasDiarias.get(i).blocosHorarioPreferencia.get(j).horaFim);
-                System.out.println(preferenciaMensal.preferenciasDiarias.get(i).blocosHorarioPreferencia.get(j).quantidadeNecessidadeEnferemeiros);
+                System.out.println(preferenciaMensal.preferenciasDiarias.get(i).blocosHorarioPreferencia.get(j).quantidadeNecessidadeEnfermeiros);
                 System.out.println(preferenciaMensal.preferenciasDiarias.get(i).blocosHorarioPreferencia.get(j).quantidadeNecessidadeTecnicos);
             }
         }

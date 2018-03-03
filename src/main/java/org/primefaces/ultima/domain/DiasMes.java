@@ -31,7 +31,14 @@ public class DiasMes {
         int quantidadeDiasMes = calendario.getActualMaximum(Calendar.DAY_OF_MONTH);
 
         for(int i = 0; i < quantidadeDiasMes; i++){
-            diasMes.add(new DiasMes(calendario.get(5),calendario.get(7),1));
+
+            int tipoDia = 1;
+
+            if(calendario.get(7) == calendario.SUNDAY || calendario.get(7) == calendario.SATURDAY){
+                tipoDia = 2;
+            }
+
+            diasMes.add(new DiasMes(calendario.get(5),calendario.get(7),tipoDia));
             dia++;
             calendario = new GregorianCalendar(ano, mes, dia);
         }

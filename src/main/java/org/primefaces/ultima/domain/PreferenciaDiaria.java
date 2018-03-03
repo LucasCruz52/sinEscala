@@ -19,6 +19,7 @@ public class PreferenciaDiaria {
         this.idPreferenciaMensal = idPreferenciaMensal;
         this.dia = dia;
         this.diaSemana = diaSemana;
+        this.tipo = tipo;
         this.blocosHorarioPreferencia = BlocoHorarioPreferencia.gerarBlocosHorarioPreferencia(this.id);
 
         ultimoId = ultimoId + 1;
@@ -57,6 +58,7 @@ public class PreferenciaDiaria {
     }
 
     public List<BlocoHorarioPreferencia> getBlocosHorarioPreferencia() {
+
         return blocosHorarioPreferencia;
     }
 
