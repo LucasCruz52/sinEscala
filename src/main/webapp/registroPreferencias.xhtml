@@ -10,7 +10,7 @@
         <div class="ui-g">
             <div class="ui-g-12">
                 <div class="card">
-                    <h1>Registro de Preferências de Plantão</h1>
+                    <h1><b>Registro de Preferências de Plantão</b></h1>
                     <p:panelGrid columns="3" columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank form-group">
                         <p:selectOneMenu id="console" value="#{selectOneMenuView.console}" style="width: 65%;" >
                             <f:selectItem itemLabel="Ano*..." itemValue="" />
@@ -54,7 +54,7 @@
                                     <h:outputText value="#{BH.formatarHorarioExibicao(BH.horaInicio)} - #{BH.formatarHorarioExibicao(BH.horaFim)}" />
                                 </p:column>
                                 <p:column headerText="Vagas">
-                                    <h:outputText value="#{BH.getQuantidadeNecessidadeEnferemeiros()}" />
+                                    <h:outputText value="#{BH.getQuantidadeNecessidadeEnfermeiros()}" />
                                 </p:column>
                                 <p:column headerText="Solicitação">
                                     <h:outputText value="Não solicitado" />

@@ -114,7 +114,7 @@ public class BlocoHorarioPreferencia {
 
         List<BlocoHorarioPreferencia> blocosHorarioPreferencia = new ArrayList<BlocoHorarioPreferencia>();
 
-        Profissional profissional = new Profissional(null,"1", "Lucas",1, null, 1,false, "1", false, false, false);
+        Profissional profissional = new Profissional(null,"1", "Lucas Mateus de Santana Cruz",1, null, 1,false, "1", false, false, false);
         ProfissionalAlocado profissionalAlocado = new ProfissionalAlocado(profissional, false);
 
         List<ProfissionalAlocado> profissionaisAlocados = new ArrayList<ProfissionalAlocado>();

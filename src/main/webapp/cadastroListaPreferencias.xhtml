@@ -17,8 +17,8 @@
         <div class="ui-g">
             <div class="ui-g-12">
                 <div class="card">
-                    <h1 style="margin-bottom: 25px;"><b>Consulta de Lista de Preferências</b></h1>
-                    <p:panelGrid columns="5" columnClasses="ui-grid-col-2, ui-grid-col-2, ui-grid-col-2, ui-grid-col-3, ui-grid-col-3 " layout="grid" styleClass="ui-panelgrid-blank form-group">
+                    <h1 style="margin-bottom: 25px;"><b>Consulta de Lista de Preferências de Plantão</b></h1>
+                    <p:panelGrid columns="4" columnClasses="ui-grid-col-2, ui-grid-col-2, ui-grid-col-2, ui-grid-col-6 " layout="grid" styleClass="ui-panelgrid-blank form-group">
                         <p:selectOneMenu id="console" value="#{selectOneMenuView.console}" style="width: 65%; margin-bottom:20px;">
                             <f:selectItem itemLabel="Ano..." itemValue="" />
                             <f:selectItem itemLabel="2018" itemValue="Xbox One" />
@@ -41,11 +41,6 @@
                             <f:selectItem itemLabel="Unidade 2" itemValue="Unidade 2" />
                             <f:selectItem itemLabel="Unidade 3" itemValue="Unidade 3" />
                         </p:selectOneMenu>
-                        <p:selectOneMenu id="console4" value="#{selectOneMenuView.console}" style="width: 65%; margin-bottom:20px;">
-                            <f:selectItem itemLabel="Tipo..." itemValue="" />
-                            <f:selectItem itemLabel="Finais de Semana e Feriados" itemValue="Unidade 1" />
-                            <f:selectItem itemLabel="Dias Úteis" itemValue="Unidade 2" />
-                        </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton id="btn2" value="Pesquisar" icon="ui-icon-search" type="button"/>
                 </div>
@@ -54,9 +49,9 @@
                 <div class="ui-g-12">
                     <p:growl id="msgs" showDetail="true"/>
 
-                    <ui:repeat var="o" value="#{preferenciaMensalService.recuperarPreferenciasDiarias()}" varStatus="status">
+                    <ui:repeat var="o" value="#{preferenciaMensalService.getPreferenciasDiariasNaoUteis()}" varStatus="status">
                         <div class="ui-g-12 ui-lg-12">
-                            <p:dataTable var="BH" value="#{o.getBlocosHorarioPreferencia()}" styleClass="borderless">
+                            <p:dataTable var="BH" value="#{o.getBlocosHorarioPreferencia()}" style="margin-bottom: 20px;" styleClass="borderless">
                                 <f:facet name="header">
                                     #{preferenciaMensalService.formatarDiaMes(o.dia)}/#{preferenciaMensalService.formatarDiaMes(preferenciaMensalService.mes)}/#{preferenciaMensalService.ano}
                                 </f:facet>
@@ -65,10 +60,10 @@
                                         <h:outputText value="#{BH.recuperarDescricaoTurnos(BH.getTurno())}" />
                                     </f:facet>
                                     <p:column>
-                                        <h:outputText value="#{profissionalAlocado.getId()}) #{profissionalAlocado.getProfissional().getNomeETurno()}" />
+                                        <h:outputText styleClass="ui-icon ui-icon-person"/>
+                                        <h:outputText value="&#160;&#160;&#160;#{profissionalAlocado.getProfissional().getNomeETurno()}" />
                                     </p:column>
                                 </p:subTable>
-
                             </p:dataTable>
                         </div>
                     </ui:repeat>

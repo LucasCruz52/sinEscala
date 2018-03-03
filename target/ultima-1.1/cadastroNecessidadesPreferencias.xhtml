@@ -43,9 +43,9 @@
                         <h:form id="form">
                             <p:growl id="msgs" showDetail="true"/>
 
-                            <p:dataTable id="cars2" var="car" rows="9" value="#{dtEditView.cars2}" editable="true" editMode="cell" widgetVar="cellCars">
+                            <p:dataTable id="necessidadesPreferencia" var="preferencia" value="#{preferenciaDiariaView.getPreferenciasMensaisDiasNaoUteis()}" editable="true" editMode="cell">
                                 <f:facet name="header">
-                                    Necessidades da Unidade de Pediatria (Janeiro)
+                                    Necessidades de Plantão da #{q} (#{preferenciaMensalService.mes})
                                 </f:facet>
 
                                 <p:columnGroup type="header">
@@ -66,27 +66,27 @@
                                     </p:row>
                                 </p:columnGroup>
 
-                                <p:ajax event="cellEdit" listener="#{dtEditView.onCellEdit}" update=":form:msgs" />
+                                <p:ajax event="cellEdit" listener="#{preferenciaDiariaView.onCellEdit}" update=":form:msgs" />
 
                                 <p:column headerText="Data">
                                     <p:cellEditor>
-                                        <f:facet name="output"><h:outputText value="01/01/2018" /></f:facet>
-                                        <f:facet name="input"><p:inputText id="modelInput1" value="01/01/2018" style="width:96%"/></f:facet>
+                                        <f:facet name="output"><h:outputText value="#{preferenciaMensalService.formatarDiaMes(preferencia.dia)}/#{preferenciaMensalService.formatarDiaMes(preferenciaMensalService.mes)}/#{preferenciaMensalService.ano}" /></f:facet>
+                                        <f:facet name="input"><p:inputText id="modelInput1" value="#{preferencia.dia}/#{preferenciaMensalService.mes}/#{preferenciaMensalService.ano}" style="width:96%"/></f:facet>
                                     </p:cellEditor>
                                 </p:column>
 
                                 <p:column>
                                     <p:cellEditor>
-                                        <f:facet name="output"><h:outputText value="5" /></f:facet>
-                                        <f:facet name="input"><p:inputText id="modelInput2" value="5" style="width:96%"/></f:facet>
+                                        <f:facet name="output"><h:outputText value="#{preferencia.blocosHorarioPreferencia.get(0).quantidadeNecessidadeTecnicos}" /></f:facet>
+                                        <f:facet name="input"><p:inputText id="modelInput2" value="#{preferencia.blocosHorarioPreferencia.get(0).quantidadeNecessidadeTecnicos}" style="width:96%"/></f:facet>
                                     </p:cellEditor>
                                 </p:column>
 
                                 <p:column>
                                     <p:cellEditor>
                                         <f:facet name="input">
-                                            <f:facet name="output"><h:outputText value="5" /></f:facet>
-                                            <f:facet name="input"><p:inputText id="modelInput3" value="5" style="width:96%"/></f:facet>
+                                            <f:facet name="output"><h:outputText value="#{preferencia.blocosHorarioPreferencia.get(1).quantidadeNecessidadeTecnicos}" /></f:facet>
+                                            <f:facet name="input"><p:inputText id="modelInput3" value="#{preferencia.blocosHorarioPreferencia.get(1).quantidadeNecessidadeTecnicos}" style="width:96%"/></f:facet>
                                         </f:facet>
                                     </p:cellEditor>
                                 </p:column>
@@ -94,45 +94,46 @@
                                 <p:column>
                                     <p:cellEditor>
                                         <f:facet name="input">
-                                            <f:facet name="output"><h:outputText value="5" /></f:facet>
-                                            <f:facet name="input"><p:inputText id="modelInput4" value="5" style="width:96%"/></f:facet>
+                                            <f:facet name="output"><h:outputText value="#{preferencia.blocosHorarioPreferencia.get(2).quantidadeNecessidadeTecnicos}" /></f:facet>
+                                            <f:facet name="input"><p:inputText id="modelInput4" value="#{preferencia.blocosHorarioPreferencia.get(2).quantidadeNecessidadeTecnicos}" style="width:96%"/></f:facet>
                                         </f:facet>
                                     </p:cellEditor>
                                 </p:column>
 
                                 <p:column>
                                     <p:cellEditor>
-                                        <f:facet name="output"><h:outputText value="5" /></f:facet>
-                                        <f:facet name="input"><p:inputText id="modelInput5" value="1" style="width:96%"/></f:facet>
+                                        <f:facet name="output"><h:outputText value="#{preferencia.blocosHorarioPreferencia.get(0).quantidadeNecessidadeEnfermeiros}" /></f:facet>
+                                        <f:facet name="input"><p:inputText id="modelInput5" value="#{preferencia.blocosHorarioPreferencia.get(0).quantidadeNecessidadeEnfermeiros}" style="width:96%"/></f:facet>
                                     </p:cellEditor>
                                 </p:column>
 
                                 <p:column>
                                     <p:cellEditor>
                                         <f:facet name="input">
-                                            <f:facet name="output"><h:outputText value="5" /></f:facet>
-                                            <f:facet name="input"><p:inputText id="modelInput6" value="5" style="width:96%"/></f:facet>
+                                            <f:facet name="output"><h:outputText value="#{preferencia.blocosHorarioPreferencia.get(1).quantidadeNecessidadeEnfermeiros}" /></f:facet>
+                                            <f:facet name="input"><p:inputText id="modelInput6" value="#{preferencia.blocosHorarioPreferencia.get(1).quantidadeNecessidadeEnfermeiros}" style="width:96%"/></f:facet>
                                         </f:facet>
                                     </p:cellEditor>
                                 </p:column>
 
                                 <p:column>
                                     <p:cellEditor>
-                                        <f:facet name="output"><h:outputText value="5" /></f:facet>
-                                        <f:facet name="input"><p:inputText id="modelInput7" value="1" style="width:96%"/></f:facet>
+                                        <f:facet name="output"><h:outputText value="#{preferencia.blocosHorarioPreferencia.get(2).quantidadeNecessidadeEnfermeiros}" /></f:facet>
+                                        <f:facet name="input"><p:inputText id="modelInput7" value="#{preferencia.blocosHorarioPreferencia.get(2).quantidadeNecessidadeEnfermeiros}" style="width:96%"/></f:facet>
                                     </p:cellEditor>
                                 </p:column>
 
                             </p:dataTable>
+                            <br/>
+                            <p:commandButton id="btn" value="Atualizar" icon="ui-icon-plus" styleClass="green-btn" type="button"/>
 
-                            <p:contextMenu for="cars2" widgetVar="cMenu">
-                                <p:menuitem value="Edit Cell" icon="ui-icon-search" onclick="PF('cellCars').showCellEditor();return false;"/>
-                                <p:menuitem value="Hide Menu" icon="ui-icon-close" onclick="PF('cMenu').hide()"/>
-                            </p:contextMenu>
+                            <div style="float: right; ">
+                                <label>Necessidade Padrão</label>
+                                <p:inputText value="#{preferenciaMensalService.getValorInicial()}" style="width: 35px; margin-right: 15px; margin-left: 10px;"/>
+                                <p:commandButton id="btn3" value="Preencher" icon="ui-icon-pencil" styleClass="cyan-btn" type="button"/>
+                            </div>
 
                         </h:form>
-                        <br/>
-                        <p:commandButton id="btn" value="Cadastrar" icon="ui-icon-plus" styleClass="green-btn" type="button"/>
                     </div>
                 </div>
             </div>

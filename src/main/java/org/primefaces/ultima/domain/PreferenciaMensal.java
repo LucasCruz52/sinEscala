@@ -157,6 +157,21 @@ public class PreferenciaMensal {
 
     }
 
+    public List<PreferenciaDiaria> recuperarDiasNaoUteis(){
+        List<PreferenciaDiaria> preferenciaDiarias = this.preferenciasDiarias;
+        List<PreferenciaDiaria> diasNaoUteis = new ArrayList<PreferenciaDiaria>();
+
+        if(preferenciaDiarias != null) {
+            for (int i = 0; i < preferenciaDiarias.size(); i++) {
+                if(preferenciaDiarias.get(i).getTipo() == 2 || preferenciaDiarias.get(i).getTipo() == 3){
+                    diasNaoUteis.add(preferenciaDiarias.get(i));
+                }
+            }
+        }
+
+        return diasNaoUteis;
+    }
+
     public static void main(String[] args) {
 
         Locale local = new Locale("pt", "BR");

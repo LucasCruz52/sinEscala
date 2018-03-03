@@ -75,7 +75,7 @@ public class PreferenciaDiaria {
         List<PreferenciaDiaria> preferenciaDiarias = new ArrayList<PreferenciaDiaria>();
 
         for(int i = 0; i < diasMes.size(); i++){
-            preferenciaDiarias.add(new PreferenciaDiaria(idPreferenciaMensal, diasMes.get(i).getDia(),diasMes.get(i).getDiaSemana(),diasMes.get(0).getTipo()));
+            preferenciaDiarias.add(new PreferenciaDiaria(idPreferenciaMensal, diasMes.get(i).getDia(),diasMes.get(i).getDiaSemana(),diasMes.get(i).getTipo()));
         }
 
         return preferenciaDiarias;
