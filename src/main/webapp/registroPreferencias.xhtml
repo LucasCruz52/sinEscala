@@ -41,10 +41,10 @@
                 <div class="card">
                     <h:form id="form">
 
-                         <ui:repeat var="o" value="#{preferenciaMensalService.recuperarPreferenciasDiarias()}" varStatus="status">
+                         <ui:repeat var="o" value="#{preferenciaMensalService.getPreferenciasDiariasNaoUteis()}" varStatus="status">
                             <p:dataTable id="radioDT" var="BH" value="#{o.getBlocosHorarioPreferencia()}" selection="#{preferenciaMensalService.selectedBlock}" rowKey="#{BH.getId()}">
                                 <f:facet name="header">
-                                    <span style="font-size: 16px; font-weight: bold;">#{o.dia}/#{preferenciaMensalService.mes}/#{preferenciaMensalService.ano}</span>
+                                    <span style="font-size: 16px; font-weight: bold;">#{preferenciaMensalService.formatarDiaMes(o.dia)}/#{preferenciaMensalService.formatarDiaMes(preferenciaMensalService.mes)}/#{preferenciaMensalService.ano}</span>
                                 </f:facet>
                                 <p:column selectionMode="single" style="width:16px;text-align:center"/>
                                 <p:column headerText="Turno">

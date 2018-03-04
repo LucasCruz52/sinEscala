@@ -32,8 +32,22 @@ public class UsuarioService{
     private Date dataExpiracao;
    
     private int idPerfil;
-    
-	public String getLogin() {
+
+    private boolean ativo;
+
+    public void setDataAtual(Date dataAtual) {
+        this.dataAtual = dataAtual;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
+    public String getLogin() {
 		return login;
 	}
 
@@ -84,6 +98,11 @@ public class UsuarioService{
 	public void setIdPerfil(int idPerfil) {
 		this.idPerfil = idPerfil;
 	}
+
+	public void pesquisarUsuarios(String nome){
+        this.nome = nome;
+        System.out.println(this.nome);
+    }
 	
 	public String cadastrar() {
 		//validar();
@@ -95,14 +114,21 @@ public class UsuarioService{
 		obj.setSenha(senha);
 		//obj.getPerfil().setIdPerfil(idPerfil);
 		
-		//UsuarioDAO usuarioDao = new UsuarioDAO();
-		//usuarioDao.salvar(obj);
+		UsuarioDAO usuarioDao = new UsuarioDAO();
+		usuarioDao.salvar(obj);
         System.out.println("SALVANDO...");
 		return "SIM";
 	}
 
-	public Usuario pegar() {
-		return new Usuario();
+	public List<Usuario> recuperarUsuario() {
+
+        //System.out.println(this.ativo + " " + this.idPerfil + " " + this.nome + " " + this.login);
+
+		List<Usuario> lista = new ArrayList<Usuario>();
+		lista.add(new Usuario());
+        lista.add(new Usuario());
+
+        return lista;
 	}
 	
 	public void Validar() {

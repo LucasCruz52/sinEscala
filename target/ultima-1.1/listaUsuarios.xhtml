@@ -13,10 +13,10 @@
                     <h1><b>Consulta de Usuários</b></h1>
                     <p:panelGrid columns="4" columnClasses="ui-grid-col-1,ui-grid-col-6, ui-grid-col-2, ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank form-group">
                         <p:outputLabel for="login" value="Login"/>
-                        <p:inputText id="login"/>
+                        <p:inputText id="login" value="#{usuarioService.login}"/>
 
                         <p:outputLabel for="perfil" value="Perfil"/>
-                        <p:selectOneMenu id="perfil">
+                        <p:selectOneMenu id="perfil" value="#{usuarioService.idPerfil}">
                             <f:selectItem itemLabel="Selecione..." itemValue="" />
                             <f:selectItem itemLabel="Administrador" itemValue="Xbox One" />
                             <f:selectItem itemLabel="Técnico" itemValue="PS4" />
@@ -24,18 +24,19 @@
                         </p:selectOneMenu>
 
                         <p:outputLabel for="nome" value="Nome"/>
-                        <p:inputText id="nome"/>
+                        <p:inputText id="nome" value="#{usuarioService.nome}"/>
 
                         <p:outputLabel for="inativos" value="Incluir inativos"/>
-                        <p:inputSwitch id="inativos"/>
+                        <p:inputSwitch id="inativos" value="#{usuarioService.ativo}"/>
                     </p:panelGrid>
 
                     <p:panelGrid columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank form-group">
                         <p:commandButton id="btn" value="Pesquisar" icon="ui-icon-search" type="button"/>
+                        <p:commandButton id="submitButton" value="Pesquisar" onclick="#{usuarioService.pesquisarUsuarios(usuarioService.nome)}" styleClass="green-btn"/>
                     </p:panelGrid>
                 </div>
                 <div class="card">
-                    <p:dataTable var="usuario" value="#{usuarioService.pegar()}" reflow="true" rows="5" paginator="true" rowKey="#{usuario.id}" >
+                    <p:dataTable var="usuario" value="#{usuarioService.recuperarUsuario()}" reflow="true" rows="5" paginator="true" rowKey="#{usuario.id}" >
                         <f:facet name="header">
                             Usuários
                             <p:tooltip />
