@@ -20,34 +20,33 @@
                         <p:panelGrid id="grid" var="" columns="2" columnClasses="ui-grid-col-6, ui-grid-col-6 " layout="grid" styleClass="ui-panelgrid-blank form-group">
 
                             <h:panelGroup styleClass="md-inputfield">
-                                <p:inputText style="width: 65%; margin-bottom:20px;" value="#{profissionalService.nome}" onkeypress ="return onlyDigits(event)" required="true"/>
+                                <p:inputText style="width: 65%; margin-bottom:20px;" value="#{profissionalService.profissionalCadastro.nome}" onkeypress ="return onlyDigits(event)" required="true"/>
                                 <label>Nome*</label>
                             </h:panelGroup>
 
                             <h:panelGroup styleClass="md-inputfield">
-                                <p:inputText id="login" style="width: 65%; margin-bottom:20px;" value="#{profissionalService.login}" required="true"/>
+                                <p:inputText id="login" style="width: 65%; margin-bottom:20px;" value="#{profissionalService.profissionalCadastro.siape}" required="true"/>
                                 <label>SIAPE*</label>
                             </h:panelGroup>
 
-                            <p:selectOneMenu id="console" value="#{profissionalService.cargo}" style="width: 65%; margin-bottom:20px;" required="true">
+                            <p:selectOneMenu id="cargo" value="#{profissionalService.cargo}" style="width: 65%; margin-bottom:20px;" required="true">
                                 <f:selectItem itemLabel = "Cargo*" itemValue= "0" />
-                                <f:selectItem itemLabel = "Técnico em Enfermagem" itemValue= "1" />
-                                <f:selectItem itemLabel = "Enfermeiro" itemValue= "2" />
+                                <f:selectItems var="cargo" value="#{cargoService.recuperarCargos()}" itemLabel="#{cargo.nome}" itemValue="#{cargo.id}" />
                             </p:selectOneMenu>
 
-                            <p:selectOneMenu id="console2" value="#{profissionalService.idVinculo}" style="width: 65%; margin-bottom:20px;" required="true">
+                            <p:selectOneMenu id="console2" value="#{profissionalService.profissionalCadastro.horario}" style="width: 65%; margin-bottom:20px;" required="true">
                                 <f:selectItem itemLabel = "Vínculo*" itemValue= "0" />
                                 <f:selectItem itemLabel = "EBSERH 6/11" itemValue= "1" />
                                 <f:selectItem itemLabel = "EBSERH 12/36" itemValue= "2" />
                             </p:selectOneMenu>
 
                             <h:panelGroup styleClass="md-inputfield">
-                                <p:inputText style="width: 65%; margin-bottom:20px;" value="#{profissionalService.rcc}" required="true"/>
+                                <p:inputText style="width: 65%; margin-bottom:20px;" value="#{profissionalService.profissionalCadastro.numRegClasse}" required="true"/>
                                 <label>RCC*</label>
                             </h:panelGroup>
 
                             <h:panelGroup styleClass="md-inputfield">
-                                <p:inputText style="width: 65%; margin-bottom:20px;" value="#{profissionalService.telefone}" required="true"/>
+                                <p:inputText style="width: 65%; margin-bottom:20px;" value="#{profissionalService.profissionalCadastro.telefone}" required="true"/>
                                 <label>Telefone</label>
                             </h:panelGroup>
 

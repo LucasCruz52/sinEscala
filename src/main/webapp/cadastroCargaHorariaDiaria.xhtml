@@ -32,10 +32,9 @@
                             <label>Duração</label>
                         </h:panelGroup>
 
-                        <p:selectOneMenu id="console" value="#{usuarioService.idPerfil}" style="width: 65%;" required="true">
+                        <p:selectOneMenu id="restricao" value="}" style="width: 65%;" required="true">
                             <f:selectItem itemLabel = "Restrição*" itemValue= "0" />
-                            <f:selectItem itemLabel = "Restrição 6/11" itemValue= "1" />
-                            <f:selectItem itemLabel = "Restrição 12/36" itemValue= "2" />
+                            <f:selectItems var="restricao" value="#{restricaoService.recuperarRestricoes()}" itemLabel="#{restricao.sigla}" itemValue="#{restricao.id}" />
                         </p:selectOneMenu>
 
                         <p:commandButton id="btn" value="Cadastrar" icon="ui-icon-plus" styleClass="green-btn" type="button"/>

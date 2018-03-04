@@ -27,4 +27,44 @@ public class Restricao implements Serializable {
     public Restricao(){
 
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getHorasTrabalho() {
+        return horasTrabalho;
+    }
+
+    public void setHorasTrabalho(int horasTrabalho) {
+        this.horasTrabalho = horasTrabalho;
+    }
+
+    public int getHorasFolga() {
+        return horasFolga;
+    }
+
+    public void setHorasFolga(int horasFolga) {
+        this.horasFolga = horasFolga;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getSigla() {
+        return sigla;
+    }
+
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
+    }
 }

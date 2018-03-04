@@ -15,9 +15,29 @@ public class PerfilService {
 
     List<Perfil> listaPerfis = new ArrayList<Perfil>();
 
+    Perfil perfilCadasto;
+
+    public List<Perfil> getListaPerfis() {
+        return listaPerfis;
+    }
+
+    public void setListaPerfis(List<Perfil> listaPerfis) {
+        this.listaPerfis = listaPerfis;
+    }
+
+    public Perfil getPerfilCadasto() {
+        return perfilCadasto;
+    }
+
+    public void setPerfilCadasto(Perfil perfilCadasto) {
+        this.perfilCadasto = perfilCadasto;
+    }
+
     public List<Perfil> recuperarPerfis(){
         PerfilDAO perfilDao = new PerfilDAO();
         this.listaPerfis = perfilDao.recuperarPerfis();
         return this.listaPerfis;
     }
+
+
 }

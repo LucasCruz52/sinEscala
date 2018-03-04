@@ -1,7 +1,5 @@
 package org.primefaces.ultima.DAO;
 
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,5 +31,19 @@ public class PerfilDAO extends GenericDAO<Perfil, Long>{
 
         return listaPerfis;
     }
+
+    public static Perfil recuperarPerfilPorID(int id){
+
+        Query query = null;
+        Perfil perfilEncontrado = new Perfil();
+
+        query = em.createQuery("select p from Perfil p where p.id = :id");
+        query.setParameter("id", id);
+
+        perfilEncontrado = (Perfil) query.getSingleResult();
+
+        return perfilEncontrado;
+    }
+
 
 }

@@ -1,14 +1,18 @@
 package org.primefaces.ultima.service;
 
 import java.util.*;
+import javax.annotation.PostConstruct;
+import javax.ejb.Init;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
 import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
+import org.primefaces.ultima.DAO.PerfilDAO;
 import org.primefaces.ultima.DAO.UsuarioDAO;
 import org.primefaces.ultima.domain.Car;
 import org.primefaces.ultima.domain.Perfil;
@@ -35,13 +39,17 @@ public class UsuarioService{
     private Date dataAtual= new Date();
     
     private Date dataExpiracao;
-   
-    private Perfil perfil;
+
+    private int idPerfil;
 
     private boolean ativo;
 
-    public Perfil getPerfil() {
-        return perfil;
+    public int getIdPerfil() {
+        return idPerfil;
+    }
+
+    public void setIdPerfil(int idPerfil) {
+        this.idPerfil = idPerfil;
     }
 
     public void setDataAtual(Date dataAtual) {
@@ -88,10 +96,6 @@ public class UsuarioService{
 		this.email = email;
 	}
 
-	public void setPerfil(Perfil perfil) {
-		this.perfil = perfil;
-	}
-	
 	public Date getDataAtual() {
 		return dataAtual;
 	}
@@ -120,7 +124,8 @@ public class UsuarioService{
 		obj.setSenha(senha);
 		obj.setNome(nome);
 		obj.setEmail(email);
-		obj.setPerfil(perfil);
+		//Perfil perfil = PerfilDAO.recuperarPerfilPorID(idPerfil);
+		//obj.setPerfil(perfil);
 		obj.setDataCadastro(dataAtual);
 		obj.setDataExpiracao(dataExpiracao);
 		obj.setAtivo(true);
@@ -150,7 +155,7 @@ public class UsuarioService{
         obj.setSenha(senha);
         obj.setEmail(email);
         obj.setAtivo(ativo);
-        obj.setPerfil(perfil);
+        //obj.setPerfil(perfil);
 
         UsuarioDAO usuarioDao = new UsuarioDAO();
         setListaUsuariosEncontrados(usuarioDao.pesquisarUsuario(obj));
@@ -173,7 +178,7 @@ public class UsuarioService{
         setEmail("");
         setSenha("");
         setDataExpiracao(null);
-        setPerfil(null);
     }
+
 }
 	

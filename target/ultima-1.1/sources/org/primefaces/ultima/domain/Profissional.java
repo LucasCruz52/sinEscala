@@ -35,8 +35,9 @@ public class Profissional implements Serializable {
     @Column(name = "turnoTrabalho")
     private int turnoTrabalho;
 
-    @Column(name = "cargo")
-    private int cargo;
+    @ManyToOne
+    @JoinColumn(name = "cargo_id")
+    private Cargo cargo;
 
     @Column(name = "isChefe")
     private boolean isChefe;
@@ -98,11 +99,11 @@ public class Profissional implements Serializable {
 		this.horario = horario;
 	}
 
-	public int getCargo() {
+	public Cargo getCargo() {
 		return cargo;
 	}
 
-	public void setCargo(int cargo) {
+	public void setCargo(Cargo cargo) {
 		this.cargo = cargo;
 	}
 
@@ -140,7 +141,7 @@ public class Profissional implements Serializable {
 
     public Profissional(){};
 
-	public Profissional(CargaHorariaDiaria cargaHoraria, String numRegClasse, String nome, int cargo, StatusProfissional status, 
+	public Profissional(CargaHorariaDiaria cargaHoraria, String numRegClasse, String nome, Cargo cargo, StatusProfissional status,
 			int turnoTrabalho, boolean isChefe, String siape, boolean isSubchefe, boolean isPlantonista, boolean isUFS) {
 	// TODO Auto-generated constructor stub
 		this.nome = nome;

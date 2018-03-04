@@ -26,6 +26,8 @@
         <mapping class="org.primefaces.ultima.domain.Restricao" />
         <mapping class="org.primefaces.ultima.domain.Perfil" />
         <mapping class="org.primefaces.ultima.domain.Intervalo" />
+        <mapping class="org.primefaces.ultima.domain.Cargo" />
+        <mapping class="org.primefaces.ultima.domain.CargaHorariaDiaria" />
 
     </session-factory>
 </hibernate-configuration>

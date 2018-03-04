@@ -114,7 +114,7 @@ public class BlocoHorarioPreferencia {
 
         List<BlocoHorarioPreferencia> blocosHorarioPreferencia = new ArrayList<BlocoHorarioPreferencia>();
 
-        Profissional profissional = new Profissional(null,"1", "Lucas Mateus de Santana Cruz",1, null, 1,false, "1", false, false, false);
+        Profissional profissional = new Profissional(null,"1", "Lucas Mateus de Santana Cruz",null, null, 1,false, "1", false, false, false);
         ProfissionalAlocado profissionalAlocado = new ProfissionalAlocado(profissional, false);
 
         List<ProfissionalAlocado> profissionaisAlocados = new ArrayList<ProfissionalAlocado>();
@@ -214,12 +214,12 @@ public class BlocoHorarioPreferencia {
         //Verificar exigências legais para alocação
         if (ExigenciasLegais.atendeExigenciasLegaisPreferencia(this.id, profissionalParaAlocacao.id)) {
 
-            if (profissionalParaAlocacao.getCargo() == 1) {
+            if (profissionalParaAlocacao.getCargo().getId() == 1) {
                 if (blocoHorarioPreferenciaParaAlocacao.quantidadeNecessidadeEnfermeiros < blocoHorarioPreferenciaParaAlocacao.enfermeirosAlocados.size()) {
                     blocoHorarioPreferenciaParaAlocacao.enfermeirosAlocados.add(new ProfissionalAlocado(profissionalParaAlocacao, false));
                     alocado = true;
                 }
-            } else if (profissionalParaAlocacao.getCargo() == 2) {
+            } else if (profissionalParaAlocacao.getCargo().getId() == 2) {
                 if (blocoHorarioPreferenciaParaAlocacao.quantidadeNecessidadeTecnicos < blocoHorarioPreferenciaParaAlocacao.tecnicosAlocados.size()) {
                     blocoHorarioPreferenciaParaAlocacao.tecnicosAlocados.add(new ProfissionalAlocado(profissionalParaAlocacao, false));
                     alocado = true;

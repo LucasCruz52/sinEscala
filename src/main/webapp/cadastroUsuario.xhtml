@@ -32,9 +32,8 @@
                             <p:inputText id="email" required="true" value="#{usuarioService.email}"/>
 
                             <p:outputLabel for="perfil" value="Perfil" />
-                            <p:selectOneMenu id="perfil" value="#{usuarioService.perfil}" style="width: 65%; margin-bottom:20px;" required="true">
-                                <f:selectItem itemLabel = "Selecione..." itemValue= "0" />
-                                <f:selectItems value="#{perfilService.recuperarPerfis()}" />
+                            <p:selectOneMenu id="perfil" value="#{usuarioService.idPerfil}" style="width: 65%; margin-bottom:20px;" required="true">
+                                <f:selectItems var="perfil" value="#{perfilView.perfisEncontrados}" itemLabel="#{perfil.nome}" itemValue="#{perfil.id}" />
                             </p:selectOneMenu>
 
                             <p:outputLabel for="dataExpiracao" value="Data de Expiração" />
