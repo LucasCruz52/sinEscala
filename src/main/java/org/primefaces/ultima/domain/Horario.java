@@ -1,22 +1,35 @@
 package org.primefaces.ultima.domain;
 
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 
-public class Horario {
+@Entity
+@Table(name = "horario", schema = "public")
+public class Horario implements Serializable {
 
-	@Id
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
 	private int id;
 
+    @Column(name = "nome")
     private String nome;
 
+    @Column(name = "descricao")
     private String descricao;
 
+    @Column(name = "sigla")
     private String sigla;
 
+    @Column(name = "turno")
     private int turno;
 
+    @ManyToOne
+    @JoinColumn(name = "cargaHorariaDiaria_id")
     private CargaHorariaDiaria cargaHorariaDiaria;
 
+    @ManyToOne
+    @JoinColumn(name = "vinculo_id")
     private Vinculo vinculo;
 
     public int getId() {

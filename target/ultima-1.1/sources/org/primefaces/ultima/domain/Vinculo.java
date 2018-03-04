@@ -1,9 +1,20 @@
 package org.primefaces.ultima.domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "vinculo", schema = "public")
 public class Vinculo {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "sigla")
     private String sigla;
+
+    @Column(name = "descricao")
     private String descricao;
 
     public int getId() {
@@ -28,5 +39,9 @@ public class Vinculo {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public Vinculo(){
+
     }
 }

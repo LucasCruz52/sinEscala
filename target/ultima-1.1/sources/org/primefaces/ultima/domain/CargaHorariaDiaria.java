@@ -1,20 +1,31 @@
 package org.primefaces.ultima.domain;
 
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "cargaHorariaDiaria", schema = "public")
 public class CargaHorariaDiaria {
 
-	@Id
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
 	public int id;
 
+    @ManyToOne
+    @JoinColumn(name = "intervalo_id")
 	private Intervalo intervalo;
 
+    @ManyToOne
+    @JoinColumn(name = "restricao_id")
 	private Restricao restricao;
-	
+
+    @Column(name = "sigla")
 	private String sigla;
-	
+
+    @Column(name = "descricao")
 	private String descricao;
 
+    @Column(name = "duracao")
 	private int duracao;
 	
 	public CargaHorariaDiaria() {

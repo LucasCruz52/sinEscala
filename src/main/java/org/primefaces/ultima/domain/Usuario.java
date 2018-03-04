@@ -6,26 +6,40 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlSchema;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
-@Table(name = "Usuario")
+@Table(name = "usuario", schema = "public")
 public class Usuario implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     public Integer id;
+
     @Column(name = "login")
     public String login;
+
+    @Column(name = "senha")
     public String senha;
+
     @Column(name = "nome")
     public String nome;
+
+    @Column(name = "email")
     public String email;
-    @Column(name = "idperfil")
-    public int idperfil;
+
+    @ManyToOne
+    @JoinColumn(name = "perfil_id")
+    private Perfil perfil;
+
     @Column(name = "ativo")
     public boolean ativo;
+
+    @Column(name = "dataCadastro")
     public Date dataCadastro;
+
+    @Column(name = "dataExpiracao")
     public Date dataExpiracao;
 
     public Usuario(){}
@@ -35,7 +49,7 @@ public class Usuario implements Serializable{
         this.senha = senha;
         this.nome = nome;
         this.email = email;
-        this.idperfil = 1;
+        this.perfil = perfil;
         this.ativo = true;
         this.dataExpiracao = dataExpiracao;
     }
@@ -46,7 +60,7 @@ public class Usuario implements Serializable{
         this.senha = senha;
         this.nome = nome;
         this.email = email;
-        this.idperfil = 1;
+        this.perfil = perfil;
         this.ativo = ativo;
         this.dataExpiracao = dataExpiracao;
     }
@@ -92,12 +106,12 @@ public class Usuario implements Serializable{
         this.email = email;
     }
 
-    public int getPerfil() {
-        return 1;
+    public Perfil getPerfil() {
+        return this.perfil;
     }
 
     public void setPerfil(Perfil perfil) {
-        this.idperfil = 1;
+        this.perfil = perfil;
     }
 
     public Date getDataCadastro() {

@@ -18,5 +18,14 @@
         <!-- Drop and re-create all database on startup -->
         <property name="hibernate.hbm2ddl.auto">create-drop</property>
 
+        <!-- Usuario -->
+        <mapping class="org.primefaces.ultima.domain.Usuario" />
+        <mapping class="org.primefaces.ultima.domain.Profissional" />
+        <mapping class="org.primefaces.ultima.domain.Horario" />
+        <mapping class="org.primefaces.ultima.domain.Vinculo" />
+        <mapping class="org.primefaces.ultima.domain.Restricao" />
+        <mapping class="org.primefaces.ultima.domain.Perfil" />
+        <mapping class="org.primefaces.ultima.domain.Intervalo" />
+
     </session-factory>
 </hibernate-configuration>

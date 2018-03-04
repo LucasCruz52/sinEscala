@@ -69,8 +69,7 @@
                                 <p:ajax event="cellEdit" listener="#{preferenciaDiariaView.onCellEdit}" update=":form:msgs" />
 
                                 <p:column headerText="Data">
-                                        <h:outputText value="#{preferenciaMensalService.formatarDiaMes(preferencia.dia)}/#{preferenciaMensalService.formatarDiaMes(preferenciaMensalService.mes)}/#{preferenciaMensalService.ano}" /></f:facet>
-                                        <p:inputText id="modelInput1" value="#{preferencia.dia}/#{preferenciaMensalService.mes}/#{preferenciaMensalService.ano}" style="width:96%"/>
+                                        <h:outputText value="#{preferenciaMensalService.formatarDiaMes(preferencia.dia)}/#{preferenciaMensalService.formatarDiaMes(preferenciaMensalService.mes)}/#{preferenciaMensalService.ano}" />
                                 </p:column>
 
                                 <p:column>

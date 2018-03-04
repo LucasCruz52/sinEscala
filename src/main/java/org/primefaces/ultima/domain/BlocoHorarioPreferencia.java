@@ -214,12 +214,12 @@ public class BlocoHorarioPreferencia {
         //Verificar exigências legais para alocação
         if (ExigenciasLegais.atendeExigenciasLegaisPreferencia(this.id, profissionalParaAlocacao.id)) {
 
-            if (profissionalParaAlocacao.cargo == 1) {
+            if (profissionalParaAlocacao.getCargo() == 1) {
                 if (blocoHorarioPreferenciaParaAlocacao.quantidadeNecessidadeEnfermeiros < blocoHorarioPreferenciaParaAlocacao.enfermeirosAlocados.size()) {
                     blocoHorarioPreferenciaParaAlocacao.enfermeirosAlocados.add(new ProfissionalAlocado(profissionalParaAlocacao, false));
                     alocado = true;
                 }
-            } else if (profissionalParaAlocacao.cargo == 2) {
+            } else if (profissionalParaAlocacao.getCargo() == 2) {
                 if (blocoHorarioPreferenciaParaAlocacao.quantidadeNecessidadeTecnicos < blocoHorarioPreferenciaParaAlocacao.tecnicosAlocados.size()) {
                     blocoHorarioPreferenciaParaAlocacao.tecnicosAlocados.add(new ProfissionalAlocado(profissionalParaAlocacao, false));
                     alocado = true;

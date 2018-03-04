@@ -22,6 +22,8 @@ import org.hibernate.Transaction;
 @SessionScoped
 public class UsuarioService{
 
+    private List<Usuario> listaUsuariosEncontrados;
+
     private String login;
     
 	private String nome;
@@ -34,9 +36,13 @@ public class UsuarioService{
     
     private Date dataExpiracao;
    
-    private int idPerfil;
+    private Perfil perfil;
 
     private boolean ativo;
+
+    public Perfil getPerfil() {
+        return perfil;
+    }
 
     public void setDataAtual(Date dataAtual) {
         this.dataAtual = dataAtual;
@@ -81,6 +87,10 @@ public class UsuarioService{
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
+	}
 	
 	public Date getDataAtual() {
 		return dataAtual;
@@ -94,29 +104,26 @@ public class UsuarioService{
 		this.dataExpiracao = dataExpiracao;
 	}
 
-	public int getIdPerfil() {
-		return idPerfil;
-	}
-
-	public void setIdPerfil(int idPerfil) {
-		this.idPerfil = idPerfil;
-	}
-
-	public void pesquisarUsuarios(String nome){
-        this.nome = nome;
-        System.out.println(this.nome);
+    public List<Usuario> getListaUsuariosEncontrados() {
+        return listaUsuariosEncontrados;
     }
-	
-	public void cadastrar() {
+
+    public void setListaUsuariosEncontrados(List<Usuario> listaUsuariosEncontrados) {
+        this.listaUsuariosEncontrados = listaUsuariosEncontrados;
+    }
+
+    public void cadastrar() {
 		//validar();
+
 		Usuario obj = new Usuario();
-		obj.setDataCadastro(dataAtual);
-		obj.setDataExpiracao(dataExpiracao);
-		obj.setNome(nome);
 		obj.setLogin(login);
 		obj.setSenha(senha);
+		obj.setNome(nome);
 		obj.setEmail(email);
-		//obj.getPerfil().setIdPerfil(idPerfil);
+		obj.setPerfil(perfil);
+		obj.setDataCadastro(dataAtual);
+		obj.setDataExpiracao(dataExpiracao);
+		obj.setAtivo(true);
 		
 		UsuarioDAO usuarioDao = new UsuarioDAO();
 		Usuario usuarioSalvo = usuarioDao.cadastrarUsuario(obj);
@@ -128,21 +135,45 @@ public class UsuarioService{
             FacesMessage msg = new FacesMessage("Falha no cadastro!");
             FacesContext.getCurrentInstance().addMessage(null, msg);
         }
+
+        limpar();
+
+        //return "/cadastroUsuario.xhtml?faces-redirect=true";
 	}
 
-	public List<Usuario> recuperarUsuario() {
+	public void pesquisar(){
+        List<Usuario> listaUsuarios;
 
-        //System.out.println(this.ativo + " " + this.idPerfil + " " + this.nome + " " + this.login);
+        Usuario obj = new Usuario();
+        obj.setNome(nome);
+        obj.setLogin(login);
+        obj.setSenha(senha);
+        obj.setEmail(email);
+        obj.setAtivo(ativo);
+        obj.setPerfil(perfil);
 
-		List<Usuario> lista = new ArrayList<Usuario>();
-		lista.add(new Usuario());
-        lista.add(new Usuario());
+        UsuarioDAO usuarioDao = new UsuarioDAO();
+        setListaUsuariosEncontrados(usuarioDao.pesquisarUsuario(obj));
+    }
 
-        return lista;
-	}
+	public void remover(int id) {
+
+        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "ID: " + id,"");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+
+    }
 	
 	public void Validar() {
 		//METODO PRA VALIDACAO DOS CAMPOS
 	}
+
+	public void limpar(){
+        setNome("");
+        setLogin("");
+        setEmail("");
+        setSenha("");
+        setDataExpiracao(null);
+        setPerfil(null);
+    }
 }
 	

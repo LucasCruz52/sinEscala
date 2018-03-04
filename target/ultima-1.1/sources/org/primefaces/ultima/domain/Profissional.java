@@ -8,50 +8,47 @@
 package org.primefaces.ultima.domain;
 
 import javax.persistence.*;
-import javax.faces.model.SelectItem;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
 
-public class Profissional {
-	
-	public static final int ENFERMEIRO = 1;
-	
-	public static final int AUX_ENFERMAGEM = 2;
-	
-	public static final int TEC_ENFERMAGEM = 3;
-	
-	@Id 
+@Entity
+@Table(name = "profissional", schema = "public")
+public class Profissional implements Serializable {
+
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
 	int id;
-	
-	public String nome;
-	
-	public String siape;
-	
-	public String numRegClasse;
-	
-	public CargaHorariaDiaria cargaHoraria;
-	
-	public int turnoTrabalho;
-	
-	public Horario horario = new Horario();
-	
-	public int cargo;
-	
-	public boolean isUFS;
-	
-	public boolean isChefe;
-	
-	public boolean isSubchefe;
- 	
-	public boolean isPlantonista;
-	
-	public String telefoneContato1;
-	
-	public String telefoneContato2;
-	
-	public Unidade unidade = new Unidade();
-	
-	public StatusProfissional status = new StatusProfissional();
+
+	@Column(name = "nome")
+	private String nome;
+
+	@Column(name = "siape")
+    private String siape;
+
+	@Column(name = "numRegClasse")
+    private String numRegClasse;
+
+    @ManyToOne
+    @JoinColumn(name = "horario_id")
+    private Horario horario;
+
+    @Column(name = "turnoTrabalho")
+    private int turnoTrabalho;
+
+    @Column(name = "cargo")
+    private int cargo;
+
+    @Column(name = "isChefe")
+    private boolean isChefe;
+
+    @Column(name = "isSubchefe")
+    private boolean isSubchefe;
+
+    @Column(name = "isPlantonista")
+    private boolean isPlantonista;
+
+    @Column(name = "telefone")
+    private String telefone;
 
 	public int getId() {
 		return id;
@@ -85,14 +82,6 @@ public class Profissional {
 		this.numRegClasse = numRegClasse;
 	}
 
-	public CargaHorariaDiaria getCargaHorariaDiaria() {
-		return cargaHoraria;
-	}
-
-	public void setCargaHoraria(CargaHorariaDiaria cargaHoraria) {
-		this.cargaHoraria = cargaHoraria;
-	}
-
 	public int getTurnoTrabalho() {
 		return turnoTrabalho;
 	}
@@ -115,14 +104,6 @@ public class Profissional {
 
 	public void setCargo(int cargo) {
 		this.cargo = cargo;
-	}
-
-	public boolean isUFS() {
-		return isUFS;
-	}
-
-	public void setUFS(boolean isUFS) {
-		this.isUFS = isUFS;
 	}
 
 	public boolean isChefe() {
@@ -149,61 +130,27 @@ public class Profissional {
 		this.isPlantonista = isPlantonista;
 	}
 
-	public String getTelefoneContato1() {
-		return telefoneContato1;
-	}
+    public String getTelefone() {
+        return telefone;
+    }
 
-	public void setTelefoneContato1(String telefoneContato1) {
-		this.telefoneContato1 = telefoneContato1;
-	}
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
 
-	public String getTelefoneContato2() {
-		return telefoneContato2;
-	}
+    public Profissional(){};
 
-	public void setTelefoneContato2(String telefoneContato2) {
-		this.telefoneContato2 = telefoneContato2;
-	}
-
-	public Unidade getUnidade() {
-		return unidade;
-	}
-
-	public void setUnidade(Unidade unidade) {
-		this.unidade = unidade;
-	}
-
-	public StatusProfissional getStatus() {
-		return status;
-	}
-
-	public void setStatus(StatusProfissional status) {
-		this.status = status;
-	}
-	
 	public Profissional(CargaHorariaDiaria cargaHoraria, String numRegClasse, String nome, int cargo, StatusProfissional status, 
 			int turnoTrabalho, boolean isChefe, String siape, boolean isSubchefe, boolean isPlantonista, boolean isUFS) {
 	// TODO Auto-generated constructor stub
 		this.nome = nome;
 		this.numRegClasse = numRegClasse;
 		this.cargo = cargo;
-		this.status = status;
 		this.turnoTrabalho = turnoTrabalho;
-		this.cargaHoraria = cargaHoraria;
 		this.siape = siape;
 		this.isChefe = isChefe;
 		this.isSubchefe = isSubchefe;
 		this.isPlantonista = isPlantonista;
-		this.isUFS = isUFS;
-	}
-	
-	
-	public List<SelectItem> getCargoCombo(){
-		List<SelectItem> lista = new ArrayList<SelectItem>();
-		lista.add(new SelectItem(ENFERMEIRO));
-		lista.add(new SelectItem(AUX_ENFERMAGEM));
-		lista.add(new SelectItem(TEC_ENFERMAGEM));
-		return lista;
 	}
 
     public String recuperarDescricaoCargo(int i){

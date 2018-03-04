@@ -16,7 +16,7 @@
                 <div class="card">
                     <h1 style="margin-bottom: 25px;"><b>Cadastro de Usuário</b></h1>
                     <h:form id="form">
-                        <p:messages id="msgs" showDetail="true" autoUpdate="true" closable="true" />
+                        <p:growl id="msgs" showDetail="true" sticky="true" />
                         <p:panelGrid id="grid" columns="4" columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4" layout="grid" styleClass="ui-panelgrid-blank form-group">
 
                             <p:outputLabel for="login" value="Login" />
@@ -32,11 +32,9 @@
                             <p:inputText id="email" required="true" value="#{usuarioService.email}"/>
 
                             <p:outputLabel for="perfil" value="Perfil" />
-                            <p:selectOneMenu id="perfil" value="#{usuarioService.idPerfil}" style="width: 65%; margin-bottom:20px;" required="true">
+                            <p:selectOneMenu id="perfil" value="#{usuarioService.perfil}" style="width: 65%; margin-bottom:20px;" required="true">
                                 <f:selectItem itemLabel = "Selecione..." itemValue= "0" />
-                                <f:selectItem itemLabel = "Administrador" itemValue= "1" />
-                                <f:selectItem itemLabel = "Técnico em Enfermagem" itemValue= "2" />
-                                <f:selectItem itemLabel = "Enfermeiro" itemValue= "3" />
+                                <f:selectItems value="#{perfilService.recuperarPerfis()}" />
                             </p:selectOneMenu>
 
                             <p:outputLabel for="dataExpiracao" value="Data de Expiração" />
@@ -44,7 +42,7 @@
                                 <p:calendar id="dataExpiracao" showOn="button" mindate="#{usuarioService.dataExpiracao}" required="true" value="#{usuarioService.dataExpiracao}"/>
                             </h:panelGroup>
 
-                            <p:commandButton id="submitButton" value="Cadastrar" action="#{usuarioService.cadastrar}" styleClass="green-btn" update=":form:grid"/>
+                            <p:commandButton icon="ui-icon-plus" id="submitButton" value="Cadastrar" action="#{usuarioService.cadastrar}" styleClass="green-btn" update=":form:msgs :form:grid"/>
                         </p:panelGrid>
                     </h:form>
                 </div>

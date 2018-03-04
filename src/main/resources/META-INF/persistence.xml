@@ -9,6 +9,9 @@
 
    <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
+     <!-- entidade mapeada -->
+     <class>org.primefaces.ultima.domain.Usuario</class>
+
    <properties>
    <!-- Autodetectar atraves das anotacoes nas classes-->
    <property name="hibernate.archive.autodetection" value="class"/>

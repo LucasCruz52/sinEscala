@@ -110,13 +110,13 @@ public class PreferenciaMensal {
 
         boolean desalocado = false;
 
-        if(profissionalParaDesalocacao.profissional.cargo == 1){
+        if(profissionalParaDesalocacao.profissional.getCargo() == 1){
             if(blocoHorarioPreferenciaParaDesalocacao.enfermeirosAlocados.size() > 0){
                 if(blocoHorarioPreferenciaParaDesalocacao.enfermeirosAlocados.remove(profissionalParaDesalocacao)) {
                     desalocado = true;
                 }
             }
-        }else if(profissionalParaDesalocacao.profissional.cargo == 2){
+        }else if(profissionalParaDesalocacao.profissional.getCargo() == 2){
             if(blocoHorarioPreferenciaParaDesalocacao.tecnicosAlocados.size() > 0){
                 if(blocoHorarioPreferenciaParaDesalocacao.tecnicosAlocados.remove(profissionalParaDesalocacao)) {
                     desalocado = true;

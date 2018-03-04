@@ -15,7 +15,7 @@ public class ExigenciasLegais {
         boolean profissionalJaAlocadoNoDia = false;
         boolean intervaloDescansoDesrespeitado = false;
 
-        Restricao restricaoProfissional = profissional.getCargaHorariaDiaria().getRestricao();
+        Restricao restricaoProfissional = profissional.getHorario().getCargaHorariaDiaria().getRestricao();
 
         List<PreferenciaDiaria> alocacoesMensaisProfissional = null; //Recuperar do banco pelo idProfissional e BlocoHorarioPrefencia.idPreferenciaDiaria
 
