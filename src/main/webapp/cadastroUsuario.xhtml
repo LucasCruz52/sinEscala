@@ -15,26 +15,21 @@
             <div class="ui-g-12">
                 <div class="card">
                     <h1 style="margin-bottom: 25px;"><b>Cadastro de Usuário</b></h1>
-
                     <h:form id="form">
-                        <p:growl id="msgs" showDetail="true"/>
-                        <p:panelGrid id="grid" columns="6" columnClasses="ui-grid-col-2, ui-grid-col-2, ui-grid-col-2, ui-grid-col-2, ui-grid-col-2, ui-grid-col-2" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                        <p:messages id="msgs" showDetail="true" autoUpdate="true" closable="true" />
+                        <p:panelGrid id="grid" columns="4" columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4" layout="grid" styleClass="ui-panelgrid-blank form-group">
 
                             <p:outputLabel for="login" value="Login" />
                             <p:inputText id="login" required="true" value="#{usuarioService.login}" />
-                            <p:message for="login" display="both" />
 
                             <p:outputLabel for="senha" value="Senha" />
-                            <p:inputText id="senha" required="true" value="#{usuarioService.senha}"/>
-                            <p:message for="senha" display="both" />
+                            <p:password id="senha" required="true" value="#{usuarioService.senha}"/>
 
                             <p:outputLabel for="nome" value="Nome" />
                             <p:inputText id="nome" required="true" value="#{usuarioService.nome}" />
-                            <p:message for="nome" display="both" />
 
                             <p:outputLabel for="email" value="Email" />
                             <p:inputText id="email" required="true" value="#{usuarioService.email}"/>
-                            <p:message for="email" display="both" />
 
                             <p:outputLabel for="perfil" value="Perfil" />
                             <p:selectOneMenu id="perfil" value="#{usuarioService.idPerfil}" style="width: 65%; margin-bottom:20px;" required="true">
@@ -43,16 +38,13 @@
                                 <f:selectItem itemLabel = "Técnico em Enfermagem" itemValue= "2" />
                                 <f:selectItem itemLabel = "Enfermeiro" itemValue= "3" />
                             </p:selectOneMenu>
-                            <p:message for="perfil" display="both" />
 
                             <p:outputLabel for="dataExpiracao" value="Data de Expiração" />
                             <h:panelGroup styleClass="md-inputfield">
-                                <p:calendar id="dataExpiracao" showOn="button" mindate="#{usuarioService.dataAtual}" required="true" value="#{usuarioService.dataExpiracao}"/>
+                                <p:calendar id="dataExpiracao" showOn="button" mindate="#{usuarioService.dataExpiracao}" required="true" value="#{usuarioService.dataExpiracao}"/>
                             </h:panelGroup>
-                            <p:message for="dataExpiracao" display="both" />
 
-                            <p:commandButton id="submitButton" value="Cadastrar" actionListener="#{usuarioService.cadastrar}" styleClass="green-btn" update=":form:msgs"/>
-
+                            <p:commandButton id="submitButton" value="Cadastrar" action="#{usuarioService.cadastrar}" styleClass="green-btn" update=":form:grid"/>
                         </p:panelGrid>
                     </h:form>
                 </div>

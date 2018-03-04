@@ -128,6 +128,10 @@ public class UsuarioService{
             FacesMessage msg = new FacesMessage("Falha no cadastro!");
             FacesContext.getCurrentInstance().addMessage(null, msg);
         }
+
+        limpar();
+
+        //return "/cadastroUsuario.xhtml?faces-redirect=true";
 	}
 
 	public List<Usuario> recuperarUsuario() {
@@ -144,5 +148,14 @@ public class UsuarioService{
 	public void Validar() {
 		//METODO PRA VALIDACAO DOS CAMPOS
 	}
+
+	public void limpar(){
+        setNome("");
+        setLogin("");
+        setEmail("");
+        setSenha("");
+        setDataExpiracao(null);
+        setIdPerfil(0);
+    }
 }
 	

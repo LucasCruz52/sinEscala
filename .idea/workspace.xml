@@ -2,24 +2,18 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="ultima:war exploded" />
+      <artifact name="ultima:war" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a9812dd-e542-43f6-a309-8dc3f1779ecb" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/DAO/UsuarioDAO.java" afterPath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/DAO/UsuarioDAO.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/service/UsuarioService.java" afterPath="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/service/UsuarioService.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/cadastroNecessidadesPreferencias.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/cadastroNecessidadesPreferencias.xhtml" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/cadastroUsuario.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/cadastroUsuario.xhtml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/DAO/UsuarioDAO.class" afterPath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/DAO/UsuarioDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/domain/Usuario.class" afterPath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/domain/Usuario.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/service/UsuarioService.class" afterPath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/service/UsuarioService.class" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/DAO/UsuarioDAO.class" afterPath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/DAO/UsuarioDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/domain/Usuario.class" afterPath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/domain/Usuario.class" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/service/UsuarioService.class" afterPath="$PROJECT_DIR$/target/ultima-1.1/WEB-INF/classes/org/primefaces/ultima/service/UsuarioService.class" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/DAO/UsuarioDAO.java" afterPath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/DAO/UsuarioDAO.java" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/domain/Usuario.java" afterPath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/domain/Usuario.java" />
-      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/service/UsuarioService.java" afterPath="$PROJECT_DIR$/target/ultima-1.1/sources/org/primefaces/ultima/service/UsuarioService.java" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/primefaces/ultima/service/UsuarioService.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/ultima-1.1.war" afterPath="$PROJECT_DIR$/target/ultima-1.1.war" />
+      <change beforePath="$PROJECT_DIR$/target/ultima-1.1/cadastroUsuario.xhtml" afterPath="$PROJECT_DIR$/target/ultima-1.1/cadastroUsuario.xhtml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,23 +80,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UsuarioDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/DAO/UsuarioDAO.java">
+      <file leaf-file-name="UsuarioService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/service/UsuarioService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="466">
+              <caret line="157" column="21" lean-forward="false" selection-start-line="157" selection-start-column="21" selection-end-line="157" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UsuarioService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/service/UsuarioService.java">
+      <file leaf-file-name="console.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4d5349c2-6b2f-4914-8ff8-ee214ea150e1/console.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="124" column="74" lean-forward="false" selection-start-line="124" selection-start-column="74" selection-end-line="124" selection-end-column="74" />
+            <state relative-caret-position="0">
+              <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -111,8 +103,8 @@
       <file leaf-file-name="primefaces-p.taglib.xml" pinned="false" current-in-tab="false">
         <entry file="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/6.0/primefaces-6.0.jar!/META-INF/primefaces-p.taglib.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="10802" column="92" lean-forward="false" selection-start-line="10802" selection-start-column="88" selection-end-line="10802" selection-end-column="92" />
+            <state relative-caret-position="174">
+              <caret line="3440" column="8" lean-forward="false" selection-start-line="3440" selection-start-column="8" selection-end-line="3440" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -121,7 +113,7 @@
       <file leaf-file-name="FacesMessage.java" pinned="false" current-in-tab="false">
         <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/javax.faces/2.2.8/javax.faces-2.2.8-sources.jar!/javax/faces/application/FacesMessage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
+            <state relative-caret-position="-220">
               <caret line="205" column="11" lean-forward="false" selection-start-line="205" selection-start-column="11" selection-end-line="205" selection-end-column="11" />
               <folding />
             </state>
@@ -131,18 +123,18 @@
       <file leaf-file-name="cadastroNecessidadesPreferencias.xhtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/cadastroNecessidadesPreferencias.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="42" column="41" lean-forward="false" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="41" />
+            <state relative-caret-position="343">
+              <caret line="48" column="42" lean-forward="false" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cadastroUsuario.xhtml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cadastroUsuario.xhtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/cadastroUsuario.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="20" column="162" lean-forward="false" selection-start-line="20" selection-start-column="162" selection-end-line="20" selection-end-column="162" />
+            <state relative-caret-position="207">
+              <caret line="46" column="159" lean-forward="false" selection-start-line="46" selection-start-column="159" selection-end-line="46" selection-end-column="159" />
               <folding />
             </state>
           </provider>
@@ -151,8 +143,28 @@
       <file leaf-file-name="cadastroUnidadeInternacao.xhtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/cadastroUnidadeInternacao.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
+            <state relative-caret-position="15">
               <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="24" selection-end-line="22" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="forms.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/forms.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="39" lean-forward="false" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sample.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/sample.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="205" column="39" lean-forward="false" selection-start-line="205" selection-start-column="39" selection-end-line="205" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -161,28 +173,8 @@
       <file leaf-file-name="messages.xhtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/messages.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="49" column="28" lean-forward="false" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="67" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="listaUsuarios.xhtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/listaUsuarios.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="505">
-              <caret line="34" column="116" lean-forward="false" selection-start-line="34" selection-start-column="116" selection-end-line="34" selection-end-column="116" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PreferenciaMensalView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/view/data/datatable/PreferenciaMensalView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="95" column="48" lean-forward="false" selection-start-line="95" selection-start-column="48" selection-end-line="95" selection-end-column="76" />
+            <state relative-caret-position="73">
+              <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="90" />
               <folding />
             </state>
           </provider>
@@ -203,8 +195,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>contacts</find>
-      <find>hiber</find>
       <find>rg.hibernate.javax.persistence</find>
       <find>entitymanager</find>
       <find>entity</find>
@@ -233,6 +223,8 @@
       <find>persistence</find>
       <find>PersistenceProvider</find>
       <find>msgs</find>
+      <find>button</find>
+      <find>submit</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -287,7 +279,6 @@
         <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/BlocoHorarioPreferencia.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/view/data/datatable/PreferenciaMensalView.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/service/PreferenciaMensalService.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/cadastroNecessidadesPreferencias.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/registroPreferencias.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/cadastroListaPreferencias.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Feriado.java" />
@@ -301,8 +292,9 @@
         <option value="$PROJECT_DIR$/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/domain/Usuario.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/DAO/UsuarioDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/service/UsuarioService.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/cadastroNecessidadesPreferencias.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/cadastroUsuario.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/org/primefaces/ultima/service/UsuarioService.java" />
       </list>
     </option>
   </component>
@@ -805,7 +797,7 @@
         </option>
       </method>
     </configuration>
-    <configuration name="cadastroUsuario.xhtml (4)" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.231" ALTERNATIVE_JRE_ENABLED="false">
+    <configuration name="cadastroUsuario.xhtml" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.231" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/cadastroUsuario.xhtml" />
       <deployment>
         <artifact name="ultima:war">
@@ -851,18 +843,18 @@
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="GlassFish Server.sinEscala" />
       <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.cadastroUsuario.xhtml" />
-      <item index="2" class="java.lang.String" itemvalue="Tomcat Server.cadastroUsuario.xhtml (1)" />
-      <item index="3" class="java.lang.String" itemvalue="Tomcat Server.cadastroUsuario.xhtml (2)" />
-      <item index="4" class="java.lang.String" itemvalue="Tomcat Server.cadastroUsuario.xhtml (3)" />
-      <item index="5" class="java.lang.String" itemvalue="Tomcat Server.cadastroUsuario.xhtml (4)" />
+      <item index="2" class="java.lang.String" itemvalue="Tomcat Server.cadastroUsuario.xhtml" />
+      <item index="3" class="java.lang.String" itemvalue="Tomcat Server.cadastroUsuario.xhtml (1)" />
+      <item index="4" class="java.lang.String" itemvalue="Tomcat Server.cadastroUsuario.xhtml (2)" />
+      <item index="5" class="java.lang.String" itemvalue="Tomcat Server.cadastroUsuario.xhtml (3)" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.cadastroUsuario.xhtml" />
-        <item index="1" class="java.lang.String" itemvalue="Tomcat Server.cadastroUsuario.xhtml (4)" />
-        <item index="2" class="java.lang.String" itemvalue="Tomcat Server.cadastroUsuario.xhtml (3)" />
-        <item index="3" class="java.lang.String" itemvalue="Tomcat Server.cadastroUsuario.xhtml (2)" />
-        <item index="4" class="java.lang.String" itemvalue="Tomcat Server.cadastroUsuario.xhtml (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Tomcat Server.cadastroUsuario.xhtml (3)" />
+        <item index="2" class="java.lang.String" itemvalue="Tomcat Server.cadastroUsuario.xhtml (2)" />
+        <item index="3" class="java.lang.String" itemvalue="Tomcat Server.cadastroUsuario.xhtml (1)" />
+        <item index="4" class="java.lang.String" itemvalue="Tomcat Server.cadastroUsuario.xhtml" />
       </list>
     </recent_temporary>
   </component>
@@ -913,7 +905,7 @@
       <workItem from="1520020538958" duration="15218000" />
       <workItem from="1520039306578" duration="9487000" />
       <workItem from="1520049212553" duration="2548000" />
-      <workItem from="1520078968610" duration="39837000" />
+      <workItem from="1520078968610" duration="42258000" />
     </task>
     <task id="LOCAL-00001" summary="Mais um commit">
       <created>1519781547095</created>
@@ -971,11 +963,18 @@
       <option name="project" value="LOCAL" />
       <updated>1520124970259</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Mais um commit">
+      <created>1520127727011</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1520127727011</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="217856000" />
+    <option name="totallyTimeSpent" value="220277000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -988,6 +987,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hibernate Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38533333" sideWeight="0.49375" order="7" side_tool="false" content_ui="tabs" />
@@ -996,7 +996,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.026655897" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09296875" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23125" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1008,12 +1008,12 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.49353796" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25333333" sideWeight="0.46688208" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25333333" sideWeight="0.46688208" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18569463" sideWeight="0.47092083" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.49353796" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3234375" sideWeight="0.38850576" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.324" sideWeight="0.4806139" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3234375" sideWeight="0.61149424" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database Console" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.324" sideWeight="0.4806139" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3234375" sideWeight="0.61149424" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3117932" sideWeight="0.3927711" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1086,22 +1086,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/view/data/datatable/PaginatorView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/view/data/datatable/EditView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="31" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/view/data/datatable/UsuarioView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1499,20 +1483,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4d5349c2-6b2f-4914-8ff8-ee214ea150e1/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/DAO/UsuarioDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1525,22 +1501,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/cadastroNecessidadesPreferencias.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="42" column="41" lean-forward="false" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/javax.faces/2.2.8/javax.faces-2.2.8-sources.jar!/javax/faces/application/FacesMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="205" column="11" lean-forward="false" selection-start-line="205" selection-start-column="11" selection-end-line="205" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/view/data/datatable/PreferenciaMensalView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="481">
@@ -1549,42 +1509,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/service/UsuarioService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/messages.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="124" column="74" lean-forward="false" selection-start-line="124" selection-start-column="74" selection-end-line="124" selection-end-column="74" />
+        <state relative-caret-position="73">
+          <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="90" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/messages.xhtml">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/cadastroNecessidadesPreferencias.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="49" column="28" lean-forward="false" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="67" />
+        <state relative-caret-position="343">
+          <caret line="48" column="42" lean-forward="false" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/javax.faces/2.2.8/javax.faces-2.2.8-sources.jar!/javax/faces/application/FacesMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-220">
+          <caret line="205" column="11" lean-forward="false" selection-start-line="205" selection-start-column="11" selection-end-line="205" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/6.0/primefaces-6.0.jar!/META-INF/primefaces-p.taglib.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="10802" column="92" lean-forward="false" selection-start-line="10802" selection-start-column="88" selection-end-line="10802" selection-end-column="92" />
+        <state relative-caret-position="174">
+          <caret line="3440" column="8" lean-forward="false" selection-start-line="3440" selection-start-column="8" selection-end-line="3440" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/cadastroUnidadeInternacao.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
+        <state relative-caret-position="15">
           <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="24" selection-end-line="22" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/forms.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="39" lean-forward="false" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/sample.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="205" column="39" lean-forward="false" selection-start-line="205" selection-start-column="39" selection-end-line="205" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/cadastroUsuario.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="20" column="162" lean-forward="false" selection-start-line="20" selection-start-column="162" selection-end-line="20" selection-end-column="162" />
+        <state relative-caret-position="207">
+          <caret line="46" column="159" lean-forward="false" selection-start-line="46" selection-start-column="159" selection-end-line="46" selection-end-column="159" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/primefaces/ultima/service/UsuarioService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="157" column="21" lean-forward="false" selection-start-line="157" selection-start-column="21" selection-end-line="157" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4d5349c2-6b2f-4914-8ff8-ee214ea150e1/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
           <folding />
         </state>
       </provider>
