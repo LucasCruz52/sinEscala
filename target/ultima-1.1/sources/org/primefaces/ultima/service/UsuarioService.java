@@ -1,13 +1,16 @@
 package org.primefaces.ultima.service;
 
 import java.util.*;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
 import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
 import org.primefaces.ultima.DAO.UsuarioDAO;
+import org.primefaces.ultima.domain.Car;
 import org.primefaces.ultima.domain.Perfil;
 import org.primefaces.ultima.domain.Usuario;
 
@@ -104,7 +107,7 @@ public class UsuarioService{
         System.out.println(this.nome);
     }
 	
-	public String cadastrar() {
+	public void cadastrar() {
 		//validar();
 		Usuario obj = new Usuario();
 		obj.setDataCadastro(dataAtual);
@@ -112,12 +115,19 @@ public class UsuarioService{
 		obj.setNome(nome);
 		obj.setLogin(login);
 		obj.setSenha(senha);
+		obj.setEmail(email);
 		//obj.getPerfil().setIdPerfil(idPerfil);
 		
 		UsuarioDAO usuarioDao = new UsuarioDAO();
-		usuarioDao.salvar(obj);
-        System.out.println("SALVANDO...");
-		return "SIM";
+		Usuario usuarioSalvo = usuarioDao.cadastrarUsuario(obj);
+
+		if(usuarioSalvo != null){
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuário cadastrado!","");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+        }else{
+            FacesMessage msg = new FacesMessage("Falha no cadastro!");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+        }
 	}
 
 	public List<Usuario> recuperarUsuario() {

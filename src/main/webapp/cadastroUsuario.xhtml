@@ -16,51 +16,42 @@
                 <div class="card">
                     <h1 style="margin-bottom: 25px;"><b>Cadastro de Usuário</b></h1>
 
-                    <h:form>
-                        <p:panelGrid id="grid" var="" columns="2" columnClasses="ui-grid-col-6, ui-grid-col-6 " layout="grid" styleClass="ui-panelgrid-blank form-group">
+                    <h:form id="form">
+                        <p:growl id="msgs" showDetail="true"/>
+                        <p:panelGrid id="grid" columns="6" columnClasses="ui-grid-col-2, ui-grid-col-2, ui-grid-col-2, ui-grid-col-2, ui-grid-col-2, ui-grid-col-2" layout="grid" styleClass="ui-panelgrid-blank form-group">
 
-                            <h:panelGroup styleClass="md-inputfield">
-                                <p:inputText id="login" style="width: 65%; margin-bottom:20px;" value="#{usuarioService.login}" required="true"/>
-                                <label>Login*</label>
-                            </h:panelGroup>
+                            <p:outputLabel for="login" value="Login" />
+                            <p:inputText id="login" required="true" value="#{usuarioService.login}" />
+                            <p:message for="login" display="both" />
 
-                            <h:panelGroup styleClass="md-inputfield">
-                                <p:inputText style="width: 65%; margin-bottom:20px;" value="#{usuarioService.nome}" onkeypress ="return onlyDigits(event)" required="true"/>
-                                <label>Nome*</label>
-                            </h:panelGroup>
+                            <p:outputLabel for="senha" value="Senha" />
+                            <p:inputText id="senha" required="true" value="#{usuarioService.senha}"/>
+                            <p:message for="senha" display="both" />
 
-                            <h:panelGroup styleClass="md-inputfield">
-                                <p:password style="width: 65%; margin-bottom:20px;" value="#{usuarioService.senha}" required="true"/>
-                                <label>Senha*</label>
-                            </h:panelGroup>
+                            <p:outputLabel for="nome" value="Nome" />
+                            <p:inputText id="nome" required="true" value="#{usuarioService.nome}" />
+                            <p:message for="nome" display="both" />
 
-                            <h:panelGroup styleClass="md-inputfield">
-                                <p:password style="width: 65%; margin-bottom:20px;"/>
-                                <label>Confirmar senha*</label>
-                            </h:panelGroup>
+                            <p:outputLabel for="email" value="Email" />
+                            <p:inputText id="email" required="true" value="#{usuarioService.email}"/>
+                            <p:message for="email" display="both" />
 
-                            <h:panelGroup styleClass="md-inputfield">
-                                <p:inputText style="width: 65%; margin-bottom:20px;" value="#{usuarioService.email}" required="true"/>
-                                <label>Email*</label>
-                            </h:panelGroup>
-
-                            <p:selectOneMenu id="console" value="#{usuarioService.idPerfil}" style="width: 65%; margin-bottom:20px;" required="true">
-                                <f:selectItem itemLabel = "Perfil*" itemValue= "0" />
+                            <p:outputLabel for="perfil" value="Perfil" />
+                            <p:selectOneMenu id="perfil" value="#{usuarioService.idPerfil}" style="width: 65%; margin-bottom:20px;" required="true">
+                                <f:selectItem itemLabel = "Selecione..." itemValue= "0" />
                                 <f:selectItem itemLabel = "Administrador" itemValue= "1" />
                                 <f:selectItem itemLabel = "Técnico em Enfermagem" itemValue= "2" />
                                 <f:selectItem itemLabel = "Enfermeiro" itemValue= "3" />
                             </p:selectOneMenu>
+                            <p:message for="perfil" display="both" />
 
+                            <p:outputLabel for="dataExpiracao" value="Data de Expiração" />
                             <h:panelGroup styleClass="md-inputfield">
-                                <p:calendar id="button" showOn="button" mindate="#{usuarioService.dataAtual}" value ="#{usuarioService.dataExpiracao}" style="width: 65%; margin-bottom:20px;">
-                                </p:calendar>
-                                <label>Data de expiração</label>
+                                <p:calendar id="dataExpiracao" showOn="button" mindate="#{usuarioService.dataAtual}" required="true" value="#{usuarioService.dataExpiracao}"/>
                             </h:panelGroup>
+                            <p:message for="dataExpiracao" display="both" />
 
-                            <h:panelGroup styleClass="md-inputfield">
-                            </h:panelGroup>
-
-                            <p:commandButton id="submitButton" value="Cadastrar" actionListener="#{usuarioService.cadastrar}" styleClass="green-btn"/>
+                            <p:commandButton id="submitButton" value="Cadastrar" actionListener="#{usuarioService.cadastrar}" styleClass="green-btn" update=":form:msgs"/>
 
                         </p:panelGrid>
                     </h:form>

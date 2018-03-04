@@ -7,17 +7,15 @@ import br.huufs.sinEscala.DAO.GenericDAO;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.Date;
 
 public class UsuarioDAO extends GenericDAO<Usuario, Long>{
 
-    static EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPAService");
+    static EntityManagerFactory emf = Persistence.createEntityManagerFactory("sinEscala");
     static EntityManager em = emf.createEntityManager();
 
-    public static void main(String[] a) throws Exception {
-
+    public Usuario cadastrarUsuario(Usuario usuario){
         em.getTransaction().begin();
-
-        Usuario usuario = new Usuario();
 
         em.persist(usuario);
         em.flush();
@@ -29,6 +27,8 @@ public class UsuarioDAO extends GenericDAO<Usuario, Long>{
 
         em.close();
         emf.close();
+
+        return st;
     }
 
 }

@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "Usuario")
 public class Usuario implements Serializable{
 
     @Id
@@ -30,8 +30,7 @@ public class Usuario implements Serializable{
 
     public Usuario(){}
 
-    public Usuario(Integer id, String login, String senha, String nome, String email, Perfil perfil, Date dataExpiracao) {
-        this.id = id;
+    public Usuario(String login, String senha, String nome, String email, Perfil perfil, Date dataExpiracao) {
         this.login = login;
         this.senha = senha;
         this.nome = nome;
