@@ -124,8 +124,9 @@ public class UsuarioService{
 		obj.setSenha(senha);
 		obj.setNome(nome);
 		obj.setEmail(email);
-		//Perfil perfil = PerfilDAO.recuperarPerfilPorID(idPerfil);
-		//obj.setPerfil(perfil);
+		Perfil perfil = new Perfil();
+		perfil.setId(idPerfil);
+		obj.setPerfil(perfil);
 		obj.setDataCadastro(dataAtual);
 		obj.setDataExpiracao(dataExpiracao);
 		obj.setAtivo(true);

@@ -3,6 +3,9 @@ package org.primefaces.ultima.service;
 import org.primefaces.context.RequestContext;
 import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
+import org.primefaces.ultima.DAO.DiaAnoDAO;
+import org.primefaces.ultima.DAO.PreferenciaMensalDAO;
+import org.primefaces.ultima.DAO.UnidadeDAO;
 import org.primefaces.ultima.domain.*;
 
 import javax.faces.application.FacesMessage;
@@ -25,13 +28,31 @@ public class PreferenciaMensalService {
     private int ano;
     private int mes;
     private UnidadeInternacao unidadeInternacao;
+    private int idUnidade;
     private int prazoDias;
     private SituacaoEscala situacao;
     private Date dataHoraGeracao;
-    private Profissional profissionalGeracao;
+    private Usuario usuarioGeracao;
+    private int idUsuario;
     private List<PreferenciaDiaria> preferenciasDiarias;
     private List<BlocoHorarioPreferencia> blocoHorarioPreferenciaEscolhidos;
     private List<PreferenciaDiaria> preferenciasDiariasNaoUteis;
+
+    public int getIdUnidade() {
+        return idUnidade;
+    }
+
+    public void setIdUnidade(int idUnidade) {
+        this.idUnidade = idUnidade;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
     public int getValorInicial() {
         return valorInicial;
@@ -118,12 +139,12 @@ public class PreferenciaMensalService {
         this.dataHoraGeracao = dataHoraGeracao;
     }
 
-    public Profissional getProfissionalGeracao() {
-        return profissionalGeracao;
+    public Usuario getUsuarioGeracao() {
+        return usuarioGeracao;
     }
 
-    public void setProfissionalGeracao(Profissional profissionalGeracao) {
-        this.profissionalGeracao = profissionalGeracao;
+    public void setUsuarioGeracao(Usuario usuarioGeracao) {
+        this.usuarioGeracao = usuarioGeracao;
     }
 
     public List<PreferenciaDiaria> getPreferenciasDiarias() {
@@ -210,5 +231,27 @@ public class PreferenciaMensalService {
         int teste = preferenciasDiariasNaoUteis.get(0).getBlocosHorarioPreferencia().get(0).getQuantidadeNecessidadeEnfermeiros();
         FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "teste", "teste: " + teste);
         FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
+
+    public void gerarListaPreferenciasUnidade(){
+
+        UnidadeInternacao unidade = new UnidadeInternacao();
+        unidade.setId(idUnidade);
+
+        Usuario usuario = new Usuario();
+        usuario.setId(idUsuario);
+
+        PreferenciaMensal preferenciaMensal = new PreferenciaMensal(ano, mes, unidade, 5, usuario );
+
+        PreferenciaMensalDAO preferenciaMensalDAO = new PreferenciaMensalDAO();
+        PreferenciaMensal preferenciaMensalSalva = preferenciaMensalDAO.cadastrarPrefenrenciaMensal(preferenciaMensal);
+
+        if(preferenciaMensalSalva != null){
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Preferência mensal salva!","");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+        }else{
+            FacesMessage msg = new FacesMessage("Falha na geração da preferência mensal!");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+        }
     }
 }

@@ -33,6 +33,7 @@
 
                             <p:outputLabel for="perfil" value="Perfil" />
                             <p:selectOneMenu id="perfil" value="#{usuarioService.idPerfil}" style="width: 65%; margin-bottom:20px;" required="true">
+                                <f:selectItem itemLabel="Selecione..." itemValue="0"></f:selectItem>
                                 <f:selectItems var="perfil" value="#{perfilView.perfisEncontrados}" itemLabel="#{perfil.nome}" itemValue="#{perfil.id}" />
                             </p:selectOneMenu>
 

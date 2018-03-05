@@ -15,8 +15,8 @@
                     <p:panelGrid columns="6" columnClasses="ui-grid-col-1,ui-grid-col-3, ui-grid-col-1, ui-grid-col-3, ui-grid-col-1, ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank form-group">
 
                         <p:outputLabel for="ano" value="Ano"/>
-                        <p:selectOneMenu id="ano">
-                            <f:selectItem itemLabel="Selecione..." itemValue="" />
+                        <p:selectOneMenu id="ano" value="#{diaAnoService}">
+                            <f:selectItem itemLabel="Selecione..." itemValue="#" />
                             <f:selectItem itemLabel="2018" itemValue="Xbox One" />
                             <f:selectItem itemLabel="2017" itemValue="PS4" />
                             <f:selectItem itemLabel="2016" itemValue="Wii U" />
@@ -44,58 +44,67 @@
                     </p:panelGrid>
                 </div>
             </div>
-            <div class="ui-g-8">
-                <div class="card">
-                    <p:dataTable var="usuario" value="#{dtUsuarioView.usuarios}" reflow="true" rows="5" paginator="true" rowKey="#{usuario.id}" >
-                        <f:facet name="header">
-                            Feriados
-                            <p:tooltip />
-                        </f:facet>
+            <h:form id="form">
+                <div class="ui-g-8">
+                    <div class="card">
+                        <p:dataTable id="grid" var="usuario" value="#{dtUsuarioView.usuarios}" reflow="true" rows="5" paginator="true" rowKey="#{usuario.id}" >
+                            <f:facet name="header">
+                                Feriados
+                                <p:tooltip />
+                            </f:facet>
 
-                        <p:column headerText="Mês" sortBy="#{usuario.ativo}" style="width: 30%">
-                            <h:outputText value="Fevereiro" />
-                        </p:column>
+                            <p:column headerText="Mês" sortBy="#{usuario.ativo}" style="width: 30%">
+                                <h:outputText value="Fevereiro" />
+                            </p:column>
 
-                        <p:column headerText="Dia" sortBy="#{usuario.nome}" style="width: 20%">
-                            <h:outputText value="01" />
-                        </p:column>
+                            <p:column headerText="Dia" sortBy="#{usuario.nome}" style="width: 20%">
+                                <h:outputText value="01" />
+                            </p:column>
 
-                        <p:column headerText="Tipo" sortBy="#{usuario.ativo}" style="width: 35%">
-                            <h:outputText value="Ponto Facultativo" />
-                        </p:column>
+                            <p:column headerText="Tipo" sortBy="#{usuario.ativo}" style="width: 35%">
+                                <h:outputText value="Ponto Facultativo" />
+                            </p:column>
 
-                        <p:column headerText="Ações"  style="width: 15%">
-                            <div style="text-align: center">
-                                <p:commandButton pt:data-tooltip="Excluir feriado" icon="ui-icon-clear" styleClass="red-btn"/>
-                            </div>
-                        </p:column>
-                    </p:dataTable>
+                            <p:column headerText="Ações"  style="width: 15%">
+                                <div style="text-align: center">
+                                    <p:commandButton pt:data-tooltip="Excluir feriado" icon="ui-icon-clear" styleClass="red-btn"/>
+                                </div>
+                            </p:column>
+                        </p:dataTable>
+                    </div>
                 </div>
-            </div>
-            <div class="ui-g-4">
-                <div class="card">
-                    <p:tooltip />
-                    <h1>Cadastro de Feriado</h1>
-                    <p:panelGrid columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                <div class="ui-g-4">
+                    <div class="card">
 
-                        <h:panelGroup styleClass="md-inputfield">
-                            <p:calendar id="button" showOn="button" style="width: 65%; margin-bottom:20px;"/>
-                            <label>Data</label>
-                        </h:panelGroup>
+                        <p:growl id="msgs" showDetail="true" sticky="true" />
+                        <h1>Cadastro de Feriado</h1>
+                        <p:panelGrid columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank form-group">
 
-                        <p:selectOneMenu id="tipoCadastro">
-                            <f:selectItem itemLabel="Tipo..." itemValue="" />
-                            <f:selectItem itemLabel="Feriado" itemValue="Xbox One" />
-                            <f:selectItem itemLabel="Ponto Facultativo" itemValue="PS4" />
-                        </p:selectOneMenu>
+                            <h:panelGroup styleClass="md-inputfield">
+                                <p:calendar id="button" showOn="button" style="width: 65%; margin-bottom:20px;" value="#{diaAnoService.dataDate}"/>
+                                <label>Data</label>
+                            </h:panelGroup>
 
-                    </p:panelGrid>
+                            <p:selectOneMenu id="tipoCadastro" value="#{diaAnoService.tipo}" required="true">
+                                <f:selectItem itemLabel="Tipo..." itemValue="0" />
+                                <f:selectItem itemLabel="Feriado" itemValue="1" />
+                                <f:selectItem itemLabel="Ponto Facultativo" itemValue="2" />
+                            </p:selectOneMenu>
 
-                    <p:panelGrid columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank form-group">
-                        <p:commandButton id="btnCadastro" value="Cadastrar" icon="ui-icon-plus" styleClass="green-btn" type="button"/>
-                    </p:panelGrid>
+                        </p:panelGrid>
+
+                        <p:commandButton icon="ui-icon-plus" id="submitButton" value="Cadastrar" action="#{diaAnoService.cadastrar}" styleClass="green-btn" update=":form:msgs :form:grid"/>
+
+                        <!--
+                        <p:panelGrid columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank form-group">
+                            <p:commandButton id="btnCadastro" value="Cadastrar" action="#{diaAnoService.cadastrar()}" icon="ui-icon-plus" styleClass="green-btn" type="button" update=":form:msgs"/>
+                        </p:panelGrid>
+
+                        -->
+
+                    </div>
                 </div>
-            </div>
+            </h:form>
         </div>
 
     </ui:define>

@@ -1,16 +1,83 @@
 package org.primefaces.ultima.domain;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
-public class UnidadeInternacao {
+@Entity
+@Table(name = "unidadeInternacao", schema = "public")
+public class UnidadeInternacao implements Serializable {
 
     static Integer ultimoId;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     protected Integer id;
+
+    @Column(name = "nome")
     protected String nome;
+
+    @Column(name = "descricao")
     protected String descricao;
+
+    @Column(name = "sigla")
     protected String sigla;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "unidadeInternacao")
     protected List<Profissional> profissionais;
+
+    public UnidadeInternacao(){
+
+    }
+
+    public static Integer getUltimoId() {
+        return ultimoId;
+    }
+
+    public static void setUltimoId(Integer ultimoId) {
+        UnidadeInternacao.ultimoId = ultimoId;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getSigla() {
+        return sigla;
+    }
+
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
+    }
+
+    public List<Profissional> getProfissionais() {
+        return profissionais;
+    }
+
+    public void setProfissionais(List<Profissional> profissionais) {
+        this.profissionais = profissionais;
+    }
 
     public UnidadeInternacao(String nome, String descricao, String sigla) {
         this.id = ultimoId;

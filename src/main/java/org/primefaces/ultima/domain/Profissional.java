@@ -51,6 +51,10 @@ public class Profissional implements Serializable {
     @Column(name = "telefone")
     private String telefone;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "unidadeInternacao_id")
+    private UnidadeInternacao unidadeInternacao;
+
 	public int getId() {
 		return id;
 	}
@@ -137,6 +141,14 @@ public class Profissional implements Serializable {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public UnidadeInternacao getUnidadeInternacao() {
+        return unidadeInternacao;
+    }
+
+    public void setUnidadeInternacao(UnidadeInternacao unidadeInternacao) {
+        this.unidadeInternacao = unidadeInternacao;
     }
 
     public Profissional(){};

@@ -1,11 +1,38 @@
 package org.primefaces.ultima.domain;
 
-public class DiaAno {
+import sun.security.util.BigInt;
 
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "diaAno", schema = "public")
+public class DiaAno implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
+
+    @Column(name = "ano")
     private int ano;
+
+    @Column(name = "mes")
     private int mes;
+
+    @Column(name = "dia")
     private int dia;
+
+    @Column(name = "tipo")
     private int tipo;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getAno() {
         return ano;

@@ -1,28 +1,39 @@
 package org.primefaces.ultima.domain;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "preferenciaDiaria", schema = "public")
 public class PreferenciaDiaria {
 
-    static Integer ultimoId = 1;
-
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy= GenerationType.SEQUENCE)
     protected Integer id;
-    protected Integer idPreferenciaMensal;
+
+    @Column(name = "dia")
     protected int dia;
+
+    @Column(name = "diaSemana")
     protected int diaSemana;
+
+    @Column(name = "tipo")
     private int tipo;
+
+    @ManyToOne
+    @JoinColumn(name = "preferenciaMensal_id")
+    protected PreferenciaMensal preferenciaMensal;
+
+    @OneToMany(fetch = FetchType.LAZY, targetEntity = BlocoHorarioPreferencia.class, mappedBy = "preferenciaMensal")
     protected List<BlocoHorarioPreferencia> blocosHorarioPreferencia;
 
-    public PreferenciaDiaria(Integer idPreferenciaMensal, int dia, int diaSemana, int tipo) {
-        this.id = ultimoId;
-        this.idPreferenciaMensal = idPreferenciaMensal;
+    public PreferenciaDiaria(int dia, int diaSemana, int tipo) {
         this.dia = dia;
         this.diaSemana = diaSemana;
         this.tipo = tipo;
         this.blocosHorarioPreferencia = BlocoHorarioPreferencia.gerarBlocosHorarioPreferencia(this.id);
-
-        ultimoId = ultimoId + 1;
     }
 
     public Integer getId() {

@@ -4,6 +4,7 @@ import br.huufs.sinEscala.DAO.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+import org.primefaces.ultima.domain.Perfil;
 import org.primefaces.ultima.domain.Usuario;
 
 import br.huufs.sinEscala.DAO.GenericDAO;
@@ -51,8 +52,18 @@ public class UsuarioDAO extends GenericDAO<Usuario, Long>{
         return listaUsuario;
     }
 
-    public void excluirUsuario(int id){
+    public List<Perfil> recuperarTodosUsuarios(){
 
+        Query query = null;
+        List<Perfil> listaPerfis = new ArrayList<Perfil>();
+
+        query = em.createQuery("select p from Perfil p");
+
+        if(query != null) {
+            listaPerfis = query.getResultList();
+        }
+
+        return listaPerfis;
     }
 
 }

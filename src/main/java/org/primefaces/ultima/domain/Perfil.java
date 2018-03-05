@@ -43,6 +43,10 @@ public class Perfil implements EntityBase {
 		this.descricao = descricao;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	@Override
 	public long getId() {
 		return this.id;

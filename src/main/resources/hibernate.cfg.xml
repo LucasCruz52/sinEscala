@@ -28,6 +28,8 @@
         <mapping class="org.primefaces.ultima.domain.Intervalo" />
         <mapping class="org.primefaces.ultima.domain.Cargo" />
         <mapping class="org.primefaces.ultima.domain.CargaHorariaDiaria" />
+        <mapping class="org.primefaces.ultima.domain.UnidadeInternacao" />
+        <mapping class="org.primefaces.ultima.domain.DiaAno" />
 
     </session-factory>
 </hibernate-configuration>

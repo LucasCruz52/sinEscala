@@ -48,7 +48,7 @@
             <div class="card">
                 <div class="ui-g-12">
                     <p:growl id="msgs" showDetail="true"/>
-                    <ui:repeat var="o" value="#{preferenciaMensalService.getPreferenciasDiariasNaoUteis()}" varStatus="status">
+                    <ui:repeat var="o" value="#{preferenciaMensalService.preferenciasDiariasNaoUteis}" varStatus="status">
                         <div class="ui-g-12 ui-lg-12">
                             <p:dataTable var="BH" value="#{o.getBlocosHorarioPreferencia()}" style="margin-bottom: 20px;" styleClass="borderless">
                                 <f:facet name="header">

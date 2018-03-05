@@ -1,13 +1,16 @@
 package org.primefaces.ultima.domain;
 
+import org.primefaces.ultima.DAO.UsuarioDAO;
 import org.primefaces.ultima.domain.ExigenciasLegais;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.sql.Time;
 import java.util.*;
 
+@Entity
+@Table(name = "blocoHorarioPreferencia", schema = "public")
 public class BlocoHorarioPreferencia {
-
-    static Integer ultimoId = 1;
 
     protected Integer id;
     protected Integer idPreferenciaDiaria;
@@ -16,12 +19,11 @@ public class BlocoHorarioPreferencia {
     protected int turno;
     protected int quantidadeNecessidadeEnfermeiros;
     protected int quantidadeNecessidadeTecnicos;
-    protected List<ProfissionalAlocado> enfermeirosAlocados;
-    protected List<ProfissionalAlocado> tecnicosAlocados;
+    protected List<ProfissionalAlocado> enfermeirosAlocados = new ArrayList<ProfissionalAlocado>();
+    protected List<ProfissionalAlocado> tecnicosAlocados = new ArrayList<ProfissionalAlocado>();;
 
     public BlocoHorarioPreferencia(int idPreferenciaDiaria, Time horaInicio, Time horaFim, int turno, int quantidadeNecessidadeEnferemeiros, int quantidadeNecessidadesTecnicos) {
 
-        this.id = ultimoId;
         this.idPreferenciaDiaria = idPreferenciaDiaria;
         this.horaInicio = horaInicio;
         this.horaFim = horaFim;
@@ -29,7 +31,6 @@ public class BlocoHorarioPreferencia {
         this.quantidadeNecessidadeEnfermeiros = quantidadeNecessidadeEnferemeiros;
         this.quantidadeNecessidadeTecnicos = quantidadeNecessidadesTecnicos;
 
-        ultimoId = ultimoId + 1;
     }
 
     public Integer getId() {
@@ -114,6 +115,8 @@ public class BlocoHorarioPreferencia {
 
         List<BlocoHorarioPreferencia> blocosHorarioPreferencia = new ArrayList<BlocoHorarioPreferencia>();
 
+        /*
+
         Profissional profissional = new Profissional(null,"1", "Lucas Mateus de Santana Cruz",null, null, 1,false, "1", false, false, false);
         ProfissionalAlocado profissionalAlocado = new ProfissionalAlocado(profissional, false);
 
@@ -125,12 +128,12 @@ public class BlocoHorarioPreferencia {
             profissionaisAlocados.add(profissionalAlocado2);
         }
 
+        */
+
         for(int i = 0; i < 3; i++){
 
             BlocoHorarioPreferencia bloco = new BlocoHorarioPreferencia(idPreferenciaDiaria, turno.get(i).getHrInicio(), turno.get(i).getHrFim(),
                     turno.get(i).getTurno(), 0, 0);
-
-            bloco.tecnicosAlocados = profissionaisAlocados;
 
             blocosHorarioPreferencia.add(bloco);
 
@@ -205,28 +208,29 @@ public class BlocoHorarioPreferencia {
 
     }
 
-    public boolean alocarProfissioal(BlocoHorarioPreferencia blocoHorarioPreferenciaParaAlocacao, Profissional profissionalParaAlocacao){
+    public boolean alocarProfissioal(Profissional profissionalParaAlocacao){
 
         boolean alocado = false;
 
         //Verificar se a vaga ainda está disponível
 
         //Verificar exigências legais para alocação
-        if (ExigenciasLegais.atendeExigenciasLegaisPreferencia(this.id, profissionalParaAlocacao.id)) {
+        //if (ExigenciasLegais.atendeExigenciasLegaisPreferencia(this.id, profissionalParaAlocacao.id)) {
 
-            if (profissionalParaAlocacao.getCargo().getId() == 1) {
-                if (blocoHorarioPreferenciaParaAlocacao.quantidadeNecessidadeEnfermeiros < blocoHorarioPreferenciaParaAlocacao.enfermeirosAlocados.size()) {
-                    blocoHorarioPreferenciaParaAlocacao.enfermeirosAlocados.add(new ProfissionalAlocado(profissionalParaAlocacao, false));
+            if (profissionalParaAlocacao.getTurnoTrabalho() == 1) {
+                //if (this.quantidadeNecessidadeEnfermeiros < this.enfermeirosAlocados.size()) {
+                    //this.enfermeirosAlocados = new ArrayList<ProfissionalAlocado>();
+                    this.enfermeirosAlocados.add(new ProfissionalAlocado(profissionalParaAlocacao, false));
                     alocado = true;
-                }
-            } else if (profissionalParaAlocacao.getCargo().getId() == 2) {
-                if (blocoHorarioPreferenciaParaAlocacao.quantidadeNecessidadeTecnicos < blocoHorarioPreferenciaParaAlocacao.tecnicosAlocados.size()) {
-                    blocoHorarioPreferenciaParaAlocacao.tecnicosAlocados.add(new ProfissionalAlocado(profissionalParaAlocacao, false));
+                //}
+            } else if (profissionalParaAlocacao.getTurnoTrabalho() == 2) {
+                //if (this.quantidadeNecessidadeTecnicos < this.tecnicosAlocados.size()) {
+                    //this.tecnicosAlocados.add(new ProfissionalAlocado(profissionalParaAlocacao, false));
                     alocado = true;
-                }
+                //}
             }
 
-        }
+        //}
 
         if(alocado) {
             //Chamar DAO para salvar bloco de horário de preferência no banco

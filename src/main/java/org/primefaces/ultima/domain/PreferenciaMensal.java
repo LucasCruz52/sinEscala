@@ -1,37 +1,65 @@
 package org.primefaces.ultima.domain;
 
+import org.primefaces.ultima.DAO.UnidadeDAO;
 import org.primefaces.ultima.service.PreferenciaMensalService;
 import org.primefaces.ultima.service.UsuarioService;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.*;
 
-public class PreferenciaMensal {
+@Entity
+@Table(name = "preferenciaMensal", schema = "public")
+public class PreferenciaMensal implements Serializable {
 
-    static Integer ultimoId = 1;
-
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy= GenerationType.SEQUENCE)
     private Integer id;
+
+    @Column(name = "ano")
     private int ano;
+
+    @Column(name = "mes")
     private int mes;
+
+    @ManyToOne
+    @JoinColumn(name = "unidade_id")
     private UnidadeInternacao unidadeInternacao;
+
+    @Column(name = "prazoDias")
     private int prazoDias;
-    private SituacaoEscala situacao;
+
+    @OneToMany(fetch = FetchType.LAZY, targetEntity = SituacaoEscala.class, mappedBy = "preferenciaMensal")
+    private List<SituacaoEscala> situacaoPreferencia;
+
+    @Column(name = "nome")
     private Date dataHoraGeracao;
-    private Profissional profissionalGeracao;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuarioGeracao;
+
+    @OneToMany(fetch = FetchType.LAZY, targetEntity = PreferenciaDiaria.class, mappedBy = "preferenciaMensal")
     private List<PreferenciaDiaria> preferenciasDiarias;
 
+    public PreferenciaMensal() {
+
+    }
+
     public PreferenciaMensal(int ano, int mes, UnidadeInternacao unidadeInternacao, int prazoDias,
-                             Profissional profissionalGeracao){
-        this.id = ultimoId;
+                             Usuario usuariolGeracao){
         this.ano = ano;
         this.mes = mes;
         this.unidadeInternacao = unidadeInternacao;
         this.prazoDias = prazoDias;
         this.situacao = new SituacaoEscala();
         this.dataHoraGeracao = new Date();
-        this.profissionalGeracao = profissionalGeracao;
+        this.usuarioGeracao = usuarioGeracao;
         this.preferenciasDiarias = PreferenciaDiaria.gerarPreferenciasDiarias(this.id, ano, mes);
 
-        ultimoId = ultimoId + 1;
+        alocarProfissionaisDiasUteis();
+
     }
 
     public Integer getId() {
@@ -90,12 +118,12 @@ public class PreferenciaMensal {
         this.dataHoraGeracao = dataHoraGeracao;
     }
 
-    public Profissional getProfissionalGeracao() {
-        return profissionalGeracao;
+    public Usuario getUsuarioGeracao() {
+        return usuarioGeracao;
     }
 
-    public void setProfissionalGeracao(Profissional profissionalGeracao) {
-        this.profissionalGeracao = profissionalGeracao;
+    public void setUsuarioGeracao(Usuario usuarioGeracao) {
+        this.usuarioGeracao = usuarioGeracao;
     }
 
     public List<PreferenciaDiaria> getPreferenciasDiarias() {
@@ -170,6 +198,27 @@ public class PreferenciaMensal {
         }
 
         return diasNaoUteis;
+    }
+
+    private void alocarProfissionaisDiasUteis(){
+
+        List<Profissional> listaProfissionais = new ArrayList<Profissional>();
+
+        //UnidadeDAO unidadeDAO = new UnidadeDAO();
+        //listaProfissionais = unidadeDAO.recuperarTodosProfissionaisUnidade();
+        listaProfissionais.add(new Profissional(null, "111", "Lucas Mateus de Santana Cruz", null, null,
+        1, false, "123", false, false, false));
+
+        for(int i = 0; i < this.getPreferenciasDiarias().size(); i ++){
+            for(int j = 0; j < this.getPreferenciasDiarias().get(i).getBlocosHorarioPreferencia().size(); j++){
+                for(int k = 0; k < listaProfissionais.size(); k++){
+                    if(listaProfissionais.get(k).getTurnoTrabalho() == this.getPreferenciasDiarias().get(i).getBlocosHorarioPreferencia().get(j).getTurno() ) {
+                        this.getPreferenciasDiarias().get(i).getBlocosHorarioPreferencia().get(j).alocarProfissioal(listaProfissionais.get(k));
+                    }
+                }
+            }
+        }
+
     }
 
     public static void main(String[] args) {
