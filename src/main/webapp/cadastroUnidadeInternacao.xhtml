@@ -18,24 +18,27 @@
                     <p:panelGrid columns="3" columnClasses="ui-grid-col-6, ui-grid-col-6 " layout="grid" styleClass="ui-panelgrid-blank form-group">
 
                         <h:panelGroup styleClass="md-inputfield">
-                            <p:inputText style="width: 65%; margin-bottom:20px;"/>
-                            <label>Nome</label>
+                            <p:outputLabel for="nome" value="Nome" />
+                            <p:inputText id="nome" required="true" value="#{unidadeService.nome}" style="width: 65%; margin-bottom:20px;" >
+                            </p:inputText>
                         </h:panelGroup>
 
                         <h:panelGroup styleClass="md-inputfield">
-                            <p:inputText style="width: 65%; margin-bottom:20px;"/>
-                            <label>Descrição</label>
+                           <p:outputLabel for="descricao" value="Descrição" />
+                           <p:inputText id="descricao" required="true" value="#{unidadeService.descricao}" style="width: 65%; margin-bottom:20px;" >
+                            </p:inputText>
                         </h:panelGroup>
 
                         <h:panelGroup styleClass="md-inputfield">
-                            <p:inputText style="width: 65%; margin-bottom:20px;"/>
-                            <label>Sigla</label>
+                           <p:outputLabel for="sigla" value="Sigla" />
+                            <p:inputText id="sigla" required="true" value="#{unidadeService.sigla}" style="width: 65%; margin-bottom:20px;"> 
+                            </p:inputText>
                         </h:panelGroup>
 
                         <h:panelGroup styleClass="md-inputfield">
                         </h:panelGroup>
 
-                        <p:commandButton id="btn" value="Cadastrar" icon="ui-icon-plus" styleClass="green-btn" type="button"/>
+                        <p:commandButton id="btn" value="Cadastrar" action="#{unidadeService.cadastrar()}"  icon="ui-icon-plus" styleClass="green-btn" />
 
                     </p:panelGrid>
                 </div>
