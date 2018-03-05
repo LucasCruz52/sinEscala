@@ -4,6 +4,7 @@ import org.primefaces.context.RequestContext;
 import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
 import org.primefaces.ultima.DAO.DiaAnoDAO;
+import org.primefaces.ultima.DAO.PreferenciaDiariaDAO;
 import org.primefaces.ultima.DAO.PreferenciaMensalDAO;
 import org.primefaces.ultima.DAO.UnidadeDAO;
 import org.primefaces.ultima.domain.*;
@@ -12,6 +13,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -27,7 +29,6 @@ public class PreferenciaMensalService {
     private Integer id;
     private int ano;
     private int mes;
-    private UnidadeInternacao unidadeInternacao;
     private int idUnidade;
     private int prazoDias;
     private SituacaoEscala situacao;
@@ -105,14 +106,6 @@ public class PreferenciaMensalService {
 
     public void setMes(int mes) {
         this.mes = mes;
-    }
-
-    public UnidadeInternacao getUnidadeInternacao() {
-        return unidadeInternacao;
-    }
-
-    public void setUnidadeInternacao(UnidadeInternacao unidadeInternacao) {
-        this.unidadeInternacao = unidadeInternacao;
     }
 
     public int getPrazoDias() {
@@ -236,19 +229,60 @@ public class PreferenciaMensalService {
     public void gerarListaPreferenciasUnidade(){
 
         UnidadeInternacao unidade = new UnidadeInternacao();
-        unidade.setId(idUnidade);
+        unidade.setId(this.idUnidade);
 
         Usuario usuario = new Usuario();
-        usuario.setId(idUsuario);
+        usuario.setId(38);
 
-        PreferenciaMensal preferenciaMensal = new PreferenciaMensal(ano, mes, unidade, 5, usuario );
+        PreferenciaMensal preferenciaMensal = new PreferenciaMensal(this.ano, this.mes, unidade, 5, usuario);
 
         PreferenciaMensalDAO preferenciaMensalDAO = new PreferenciaMensalDAO();
         PreferenciaMensal preferenciaMensalSalva = preferenciaMensalDAO.cadastrarPrefenrenciaMensal(preferenciaMensal);
 
         if(preferenciaMensalSalva != null){
-            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Preferência mensal salva!","");
-            FacesContext.getCurrentInstance().addMessage(null, msg);
+
+            List<DiasMes> diasMes = new ArrayList<DiasMes>();
+
+            diasMes = DiasMes.recuperarDiasMes(ano, mes);
+
+            List<PreferenciaDiaria> listaPreferenciasDiarias = new ArrayList<PreferenciaDiaria>();
+
+            for(int i = 0; i < diasMes.size(); i++){
+                PreferenciaDiaria preferencia = new PreferenciaDiaria(diasMes.get(i).getDia(),diasMes.get(i).getDiaSemana(),diasMes.get(i).getTipo());
+                preferencia.setPreferenciaMensal(preferenciaMensalSalva);
+                listaPreferenciasDiarias.add(preferencia);
+            }
+
+            PreferenciaDiariaDAO preferenciaDiariaDAO = new PreferenciaDiariaDAO();
+            List<PreferenciaDiaria> listaPreferenciasSalvas = preferenciaDiariaDAO.cadastrarPrefenrenciasDiarias(listaPreferenciasDiarias);
+
+            if(listaPreferenciasSalvas != null){
+
+                List<BlocoHorarioPreferencia> listaBlocosHorarioPreferencia = new ArrayList<BlocoHorarioPreferencia>();
+
+                List<Turno> turno = new ArrayList<Turno>();
+
+                turno.add(new Turno(new Time(7,0,0), new Time(13,0,0), 1));
+                turno.add(new Turno(new Time(13,0,0), new Time(19,0,0), 2));
+                turno.add(new Turno(new Time(19,0,0), new Time(7,0,0), 3));
+
+
+                for (int i = 0; i < listaPreferenciasSalvas.size(); i++) {
+
+                    for (int j = 0; j < turno.size(); j++) {
+
+                        BlocoHorarioPreferencia bloco = new BlocoHorarioPreferencia (turno.get(j).getHrInicio(), turno.get(j).getHrFim(),
+                                turno.get(j).getTurno(), 0, 0);
+
+                        bloco.setPreferenciaDiaria(listaPreferenciasDiarias.get(i));
+                        listaBlocosHorarioPreferencia.add(bloco);
+                    }
+
+                }
+                //FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Preferência mensal gerada!","");
+                //FacesContext.getCurrentInstance().addMessage(null, msg);
+            }
+
         }else{
             FacesMessage msg = new FacesMessage("Falha na geração da preferência mensal!");
             FacesContext.getCurrentInstance().addMessage(null, msg);
