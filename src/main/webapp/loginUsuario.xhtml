@@ -25,19 +25,19 @@
             </div>
             <div class="ui-g-12">
                 <h:panelGroup styleClass="md-inputfield">
-                    <p:inputText />
+                    <p:inputText id="login" required="true" value="#{loginService.login}"/>
                     <label>Usuário</label>
                 </h:panelGroup>
             </div>
             <div class="ui-g-12">
                 <h:panelGroup styleClass="md-inputfield">
-                    <p:password />
+                    <p:password id="senha" required="true" value="#{loginService.senha}"/>
                     <label>Senha</label>
                 </h:panelGroup>
             </div>
             <div class="ui-g-12">
-                <p:button outcome="/dashboard" value="Entrar" icon="ui-icon-person" />
-                <p:button outcome="/dashboard" value="Esqueci minha senha" icon="ui-icon-help" styleClass="secondary"/>
+                <p:commandButton action="#{loginService.fazerLogin}" value="Entrar" icon="ui-icon-person"/> 
+                <!--  <p:button outcome="/dashboard" value="Esqueci minha senha" icon="ui-icon-help" styleClass="secondary"/> -->
             </div>
         </div>
     </div>

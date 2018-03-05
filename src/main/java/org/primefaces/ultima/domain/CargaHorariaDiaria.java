@@ -9,7 +9,7 @@ public class CargaHorariaDiaria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-	public int id;
+	private int id;
 
     @ManyToOne
     @JoinColumn(name = "intervalo_id")

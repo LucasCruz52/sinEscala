@@ -19,6 +19,7 @@ public class UsuarioDAO extends GenericDAO<Usuario, Long>{
 
     static EntityManagerFactory emf = Persistence.createEntityManagerFactory("sinEscala");
     static EntityManager em = emf.createEntityManager();
+    GenericDAO<Usuario, Long> gdao = new GenericDAO();
 
     public Usuario cadastrarUsuario(Usuario usuario){
         em.getTransaction().begin();
@@ -43,13 +44,27 @@ public class UsuarioDAO extends GenericDAO<Usuario, Long>{
         List<Usuario> listaUsuario = new ArrayList<Usuario>();
 
         query = em.createQuery("select u from Usuario u where nome = :nome");
-        query.setParameter("nome",usuario.nome);
+        query.setParameter("nome", usuario.getNome());
 
         if(query != null) {
             listaUsuario = query.getResultList();
         }
 
         return listaUsuario;
+    }
+    
+    public Usuario excluirUsuario(Usuario usuario) {
+
+    	gdao.remover(usuario.getId());
+    	return null;
+    	
+    }
+    
+    public Usuario alterarUsuario(Usuario usuario) {
+    	
+    	gdao.atualizar(usuario);
+    	return null;
+    	
     }
 
     public List<Perfil> recuperarTodosUsuarios(){

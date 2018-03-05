@@ -15,32 +15,32 @@ public class Usuario implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    public Integer id;
+    private Integer id;
 
     @Column(name = "login")
-    public String login;
+    private String login;
 
     @Column(name = "senha")
-    public String senha;
+    private String senha;
 
     @Column(name = "nome")
-    public String nome;
+    private String nome;
 
     @Column(name = "email")
-    public String email;
+    private String email;
 
     @ManyToOne
     @JoinColumn(name = "perfil_id")
     private Perfil perfil;
 
     @Column(name = "ativo")
-    public boolean ativo;
+    private boolean ativo;
 
     @Column(name = "dataCadastro")
-    public Date dataCadastro;
+    private Date dataCadastro;
 
     @Column(name = "dataExpiracao")
-    public Date dataExpiracao;
+    private Date dataExpiracao;
 
     public Usuario(){}
 

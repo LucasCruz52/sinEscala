@@ -29,11 +29,10 @@
                             <p:inputText id="nome" required="true" value="#{usuarioService.nome}" />
 
                             <p:outputLabel for="email" value="Email" />
-                            <p:inputText id="email" required="true" value="#{usuarioService.email}"/>
+                            <p:inputText id="email" required="true" value="#{usuarioService.email}" onchange="checarEmail();"/>
 
                             <p:outputLabel for="perfil" value="Perfil" />
                             <p:selectOneMenu id="perfil" value="#{usuarioService.idPerfil}" style="width: 65%; margin-bottom:20px;" required="true">
-                                <f:selectItem itemLabel="Selecione..." itemValue="0"></f:selectItem>
                                 <f:selectItems var="perfil" value="#{perfilView.perfisEncontrados}" itemLabel="#{perfil.nome}" itemValue="#{perfil.id}" />
                             </p:selectOneMenu>
 
@@ -57,6 +56,17 @@
    		return false;
 	}
 //]]>
+	//<![CDATA[
+	function checarEmail(){
+		if( document.forms[0].email.value=="" 
+		   || document.forms[0].email.value.indexOf('@')==-1 
+		     || document.forms[0].email.value.indexOf('.')==-1 )
+			{
+				alert( "Por favor, informe um E-MAIL válido!" );
+				return false;
+			}
+		}
+	//]]>
 </script>
     </ui:define>
 

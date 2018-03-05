@@ -34,10 +34,10 @@ public class PreferenciaMensalDAO {
         return st;
     }
 
-    public PreferenciaMensal pesquisarListaPreferencia(PreferenciaMensal preferenciaMensal){
+    //public PreferenciaMensal pesquisarListaPreferencia(PreferenciaMensal preferenciaMensal){
 
-        Query query = null;
-
+      //  Query query = null;
+/*
         query = em.createQuery("select u from Usuario u where nome = :nome");
         query.setParameter("nome",usuario.nome);
 
@@ -45,7 +45,7 @@ public class PreferenciaMensalDAO {
             listaUsuario = query.getResultList();
         }
 
-        return listaUsuario;
-    }
+       return listaUsuario; */
+   // }
 
 }

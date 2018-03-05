@@ -2,7 +2,6 @@ package org.primefaces.ultima.service;
 
 import java.util.*;
 import javax.annotation.PostConstruct;
-import javax.ejb.Init;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -14,9 +13,11 @@ import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
 import org.primefaces.ultima.DAO.PerfilDAO;
 import org.primefaces.ultima.DAO.UsuarioDAO;
-import org.primefaces.ultima.domain.Car;
+
 import org.primefaces.ultima.domain.Perfil;
 import org.primefaces.ultima.domain.Usuario;
+
+import br.huufs.sinEscala.DAO.Utils;
 
 //Imports de elementos para o uso do Hibernate funcionar import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -43,6 +44,8 @@ public class UsuarioService{
     private int idPerfil;
 
     private boolean ativo;
+    
+    Perfil perfil = new Perfil();
 
     public int getIdPerfil() {
         return idPerfil;
@@ -103,12 +106,21 @@ public class UsuarioService{
 	public Date getDataExpiracao() {
 		return dataExpiracao;
 	}
+	
 
 	public void setDataExpiracao(Date dataExpiracao) {
 		this.dataExpiracao = dataExpiracao;
 	}
 
-    public List<Usuario> getListaUsuariosEncontrados() {
+    public Perfil getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
+	}
+
+	public List<Usuario> getListaUsuariosEncontrados() {
         return listaUsuariosEncontrados;
     }
 
@@ -118,18 +130,18 @@ public class UsuarioService{
 
     public void cadastrar() {
 		//validar();
-
+    	String transitoria = Utils.converterStringEmMD5(senha);
 		Usuario obj = new Usuario();
 		obj.setLogin(login);
 		obj.setSenha(senha);
 		obj.setNome(nome);
 		obj.setEmail(email);
-		Perfil perfil = new Perfil();
-		perfil.setId(idPerfil);
-		obj.setPerfil(perfil);
+		obj.setSenha(transitoria);
 		obj.setDataCadastro(dataAtual);
 		obj.setDataExpiracao(dataExpiracao);
 		obj.setAtivo(true);
+		perfil.setId(idPerfil);
+		obj.setPerfil(perfil);
 		
 		UsuarioDAO usuarioDao = new UsuarioDAO();
 		Usuario usuarioSalvo = usuarioDao.cadastrarUsuario(obj);
@@ -155,7 +167,7 @@ public class UsuarioService{
         obj.setLogin(login);
         obj.setSenha(senha);
         obj.setEmail(email);
-        obj.setAtivo(ativo);
+        
         //obj.setPerfil(perfil);
 
         UsuarioDAO usuarioDao = new UsuarioDAO();
@@ -163,8 +175,12 @@ public class UsuarioService{
     }
 
 	public void remover(int id) {
-
-        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "ID: " + id,"");
+		
+		Usuario obj = new Usuario();
+		
+		UsuarioDAO uDao = new UsuarioDAO();
+		uDao.excluirUsuario(obj);
+        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuário excluído com sucesso!", "");
         FacesContext.getCurrentInstance().addMessage(null, msg);
 
     }
@@ -183,3 +199,4 @@ public class UsuarioService{
 
 }
 	
+

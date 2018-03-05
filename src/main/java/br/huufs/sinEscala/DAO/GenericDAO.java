@@ -7,13 +7,13 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
-public abstract class GenericDAO<T, I extends Serializable> {
+public class GenericDAO<T, I extends Serializable> {
 
 	protected EntityManager entityManager;
 
 	private Class<T> persistedClass;
 
-	protected GenericDAO() {
+	public GenericDAO() {
 		   
 	}
 
@@ -40,8 +40,8 @@ public abstract class GenericDAO<T, I extends Serializable> {
 		return entity;
 	}
 
-	public void remover(I id) {
-		T entity = find(id);
+	public void remover(Integer integer) {
+		T entity = find((I) integer);
 		EntityTransaction tx = entityManager.getTransaction();
 		tx.begin();
 		T mergedEntity = entityManager.merge(entity);

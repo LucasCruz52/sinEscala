@@ -156,9 +156,10 @@ public class PreferenciaMensalService {
         return this.preferenciasDiarias;
     }
 
-    public List<PreferenciaMensal> pesquisarPreferenciaMensal(){
-        PreferenciaMensalDAO
-    }
+   // public List<PreferenciaMensal> pesquisarPreferenciaMensal(){
+        
+    	//PreferenciaMensalDAO
+    //}
 
     public BlocoHorarioPreferencia getSelectedBlock() {
         return selectedBlock;
