@@ -26,14 +26,26 @@ public class PreferenciaDiaria {
     @JoinColumn(name = "preferenciaMensal_id")
     protected PreferenciaMensal preferenciaMensal;
 
-    @OneToMany(fetch = FetchType.LAZY, targetEntity = BlocoHorarioPreferencia.class, mappedBy = "preferenciaMensal")
-    protected List<BlocoHorarioPreferencia> blocosHorarioPreferencia;
+    @OneToMany(fetch = FetchType.LAZY, targetEntity = BlocoHorarioPreferencia.class)
+    protected List<BlocoHorarioPreferencia> blocosHorarioPreferencia = new ArrayList<BlocoHorarioPreferencia>();
+
+    public PreferenciaDiaria(){
+
+    }
+
+    public PreferenciaMensal getPreferenciaMensal() {
+        return preferenciaMensal;
+    }
+
+    public void setPreferenciaMensal(PreferenciaMensal preferenciaMensal) {
+        this.preferenciaMensal = preferenciaMensal;
+    }
 
     public PreferenciaDiaria(int dia, int diaSemana, int tipo) {
         this.dia = dia;
         this.diaSemana = diaSemana;
         this.tipo = tipo;
-        this.blocosHorarioPreferencia = BlocoHorarioPreferencia.gerarBlocosHorarioPreferencia(this.id);
+        //this.blocosHorarioPreferencia = BlocoHorarioPreferencia.gerarBlocosHorarioPreferencia(this.id);
     }
 
     public Integer getId() {
@@ -86,7 +98,7 @@ public class PreferenciaDiaria {
         List<PreferenciaDiaria> preferenciaDiarias = new ArrayList<PreferenciaDiaria>();
 
         for(int i = 0; i < diasMes.size(); i++){
-            preferenciaDiarias.add(new PreferenciaDiaria(idPreferenciaMensal, diasMes.get(i).getDia(),diasMes.get(i).getDiaSemana(),diasMes.get(i).getTipo()));
+            preferenciaDiarias.add(new PreferenciaDiaria(diasMes.get(i).getDia(),diasMes.get(i).getDiaSemana(),diasMes.get(i).getTipo()));
         }
 
         return preferenciaDiarias;

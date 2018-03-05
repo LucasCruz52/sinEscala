@@ -6,6 +6,8 @@ import org.primefaces.ultima.service.UsuarioService;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.*;
 
 @Entity
@@ -24,16 +26,16 @@ public class PreferenciaMensal implements Serializable {
     private int mes;
 
     @ManyToOne
-    @JoinColumn(name = "unidade_id")
+    @JoinColumn(name = "unidadeInternacao_id")
     private UnidadeInternacao unidadeInternacao;
 
     @Column(name = "prazoDias")
     private int prazoDias;
 
-    @OneToMany(fetch = FetchType.LAZY, targetEntity = SituacaoEscala.class, mappedBy = "preferenciaMensal")
-    private List<SituacaoEscala> situacaoPreferencia;
+    @OneToMany(fetch = FetchType.LAZY, targetEntity = SituacaoEscala.class)
+    private List<SituacaoEscala> situacaoPreferencia = new ArrayList<SituacaoEscala>();
 
-    @Column(name = "nome")
+    @Column(name = "dataHoraGeracao")
     private Date dataHoraGeracao;
 
     @ManyToOne
@@ -41,25 +43,33 @@ public class PreferenciaMensal implements Serializable {
     private Usuario usuarioGeracao;
 
     @OneToMany(fetch = FetchType.LAZY, targetEntity = PreferenciaDiaria.class, mappedBy = "preferenciaMensal")
-    private List<PreferenciaDiaria> preferenciasDiarias;
+    private List<PreferenciaDiaria> preferenciasDiarias = new ArrayList<PreferenciaDiaria>();
 
     public PreferenciaMensal() {
 
     }
 
     public PreferenciaMensal(int ano, int mes, UnidadeInternacao unidadeInternacao, int prazoDias,
-                             Usuario usuariolGeracao){
+                             Usuario usuarioGeracao){
         this.ano = ano;
         this.mes = mes;
         this.unidadeInternacao = unidadeInternacao;
         this.prazoDias = prazoDias;
-        this.situacao = new SituacaoEscala();
         this.dataHoraGeracao = new Date();
         this.usuarioGeracao = usuarioGeracao;
-        this.preferenciasDiarias = PreferenciaDiaria.gerarPreferenciasDiarias(this.id, ano, mes);
 
-        alocarProfissionaisDiasUteis();
+        //this.preferenciasDiarias = PreferenciaDiaria.gerarPreferenciasDiarias(this.id, ano, mes);
 
+        //alocarProfissionaisDiasUteis();
+
+    }
+
+    public List<SituacaoEscala> getSituacaoPreferencia() {
+        return situacaoPreferencia;
+    }
+
+    public void setSituacaoPreferencia(List<SituacaoEscala> situacaoPreferencia) {
+        this.situacaoPreferencia = situacaoPreferencia;
     }
 
     public Integer getId() {
@@ -100,14 +110,6 @@ public class PreferenciaMensal implements Serializable {
 
     public void setPrazoDias(int prazoDias) {
         this.prazoDias = prazoDias;
-    }
-
-    public SituacaoEscala getSituacao() {
-        return situacao;
-    }
-
-    public void setSituacao(SituacaoEscala situacao) {
-        this.situacao = situacao;
     }
 
     public Date getDataHoraGeracao() {
@@ -221,6 +223,7 @@ public class PreferenciaMensal implements Serializable {
 
     }
 
+    /*
     public static void main(String[] args) {
 
         Locale local = new Locale("pt", "BR");
@@ -246,6 +249,12 @@ public class PreferenciaMensal implements Serializable {
             }
         }
 
+    }
+    */
+
+    public static void main(String[] args) {
+        Timestamp hora = new Timestamp(7);
+        System.out.println(hora);
     }
 
 

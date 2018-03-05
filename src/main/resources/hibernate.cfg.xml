@@ -30,6 +30,12 @@
         <mapping class="org.primefaces.ultima.domain.CargaHorariaDiaria" />
         <mapping class="org.primefaces.ultima.domain.UnidadeInternacao" />
         <mapping class="org.primefaces.ultima.domain.DiaAno" />
+        <mapping class="org.primefaces.ultima.domain.BlocoHorarioPreferencia" />
+        <mapping class="org.primefaces.ultima.domain.PreferenciaDiaria" />
+        <mapping class="org.primefaces.ultima.domain.PreferenciaMensal" />
+        <mapping class="org.primefaces.ultima.domain.ProfissionalAlocado" />
+        <mapping class="org.primefaces.ultima.domain.SituacaoEscala" />
+        <mapping class="org.primefaces.ultima.domain.TipoSituacaoEscala" />
 
     </session-factory>
 </hibernate-configuration>

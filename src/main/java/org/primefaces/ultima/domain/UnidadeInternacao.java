@@ -8,8 +8,6 @@ import java.util.List;
 @Table(name = "unidadeInternacao", schema = "public")
 public class UnidadeInternacao implements Serializable {
 
-    static Integer ultimoId;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -29,14 +27,6 @@ public class UnidadeInternacao implements Serializable {
 
     public UnidadeInternacao(){
 
-    }
-
-    public static Integer getUltimoId() {
-        return ultimoId;
-    }
-
-    public static void setUltimoId(Integer ultimoId) {
-        UnidadeInternacao.ultimoId = ultimoId;
     }
 
     public Integer getId() {
@@ -80,12 +70,9 @@ public class UnidadeInternacao implements Serializable {
     }
 
     public UnidadeInternacao(String nome, String descricao, String sigla) {
-        this.id = ultimoId;
         this.nome = nome;
         this.descricao = descricao;
         this.sigla = sigla;
-
-        ultimoId = ultimoId + 1;
     }
 
     public UnidadeInternacao(String nome, String descricao, String sigla, List<Profissional> profissionais) {

@@ -3,10 +3,7 @@ package org.primefaces.ultima.service;
 import org.primefaces.context.RequestContext;
 import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
-import org.primefaces.ultima.DAO.DiaAnoDAO;
-import org.primefaces.ultima.DAO.PreferenciaDiariaDAO;
-import org.primefaces.ultima.DAO.PreferenciaMensalDAO;
-import org.primefaces.ultima.DAO.UnidadeDAO;
+import org.primefaces.ultima.DAO.*;
 import org.primefaces.ultima.domain.*;
 
 import javax.faces.application.FacesMessage;
@@ -159,6 +156,10 @@ public class PreferenciaMensalService {
         return this.preferenciasDiarias;
     }
 
+    public List<PreferenciaMensal> pesquisarPreferenciaMensal(){
+        PreferenciaMensalDAO
+    }
+
     public BlocoHorarioPreferencia getSelectedBlock() {
         return selectedBlock;
     }
@@ -254,7 +255,7 @@ public class PreferenciaMensalService {
             }
 
             PreferenciaDiariaDAO preferenciaDiariaDAO = new PreferenciaDiariaDAO();
-            List<PreferenciaDiaria> listaPreferenciasSalvas = preferenciaDiariaDAO.cadastrarPrefenrenciasDiarias(listaPreferenciasDiarias);
+            List<PreferenciaDiaria> listaPreferenciasSalvas = preferenciaDiariaDAO.cadastrarPreferenciasDiarias(listaPreferenciasDiarias);
 
             if(listaPreferenciasSalvas != null){
 
@@ -279,8 +280,14 @@ public class PreferenciaMensalService {
                     }
 
                 }
-                //FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Preferência mensal gerada!","");
-                //FacesContext.getCurrentInstance().addMessage(null, msg);
+
+                BlocoHorarioPreferenciaDAO blocoHorarioPreferenciaDAO = new BlocoHorarioPreferenciaDAO();
+                List<BlocoHorarioPreferencia> listaBlocosHorarioPreferenciaSalvas = blocoHorarioPreferenciaDAO.cadastrarBlocosHorarioPreferencia(listaBlocosHorarioPreferencia);
+
+                if(listaBlocosHorarioPreferenciaSalvas != null) {
+                    FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Preferência mensal gerada!", "");
+                    FacesContext.getCurrentInstance().addMessage(null, msg);
+                }
             }
 
         }else{

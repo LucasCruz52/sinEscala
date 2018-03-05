@@ -1,10 +1,11 @@
 package org.primefaces.ultima.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "profissionalAlocado", schema = "public")
-public class ProfissionalAlocado {
+public class ProfissionalAlocado implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

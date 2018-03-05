@@ -2,10 +2,15 @@ package org.primefaces.ultima.DAO;
 
 import org.primefaces.ultima.domain.DiaAno;
 import org.primefaces.ultima.domain.PreferenciaMensal;
+import org.primefaces.ultima.domain.Usuario;
+import org.primefaces.ultima.service.ListaPreferenciasService;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PreferenciaMensalDAO {
 
@@ -27,6 +32,20 @@ public class PreferenciaMensalDAO {
         //emf.close();
 
         return st;
+    }
+
+    public PreferenciaMensal pesquisarListaPreferencia(PreferenciaMensal preferenciaMensal){
+
+        Query query = null;
+
+        query = em.createQuery("select u from Usuario u where nome = :nome");
+        query.setParameter("nome",usuario.nome);
+
+        if(query != null) {
+            listaUsuario = query.getResultList();
+        }
+
+        return listaUsuario;
     }
 
 }

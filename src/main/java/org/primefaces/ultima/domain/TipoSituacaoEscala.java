@@ -3,10 +3,11 @@ package org.primefaces.ultima.domain;
 import sun.security.util.BigInt;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "tipoSituacaoEscala", schema = "public")
-public class TipoSituacaoEscala {
+public class TipoSituacaoEscala implements Serializable {
 
     @Id
     @Column(name = "id")

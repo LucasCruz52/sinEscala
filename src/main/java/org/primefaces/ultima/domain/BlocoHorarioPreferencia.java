@@ -3,28 +3,51 @@ package org.primefaces.ultima.domain;
 import org.primefaces.ultima.DAO.UsuarioDAO;
 import org.primefaces.ultima.domain.ExigenciasLegais;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.*;
 
 @Entity
-@Table(name = "blocoHorarioPreferencia", schema = "public")
-public class BlocoHorarioPreferencia {
+@Table(name = "blocohorariopreferencia", schema = "public")
+public class BlocoHorarioPreferencia implements Serializable{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     protected Integer id;
-    protected Integer idPreferenciaDiaria;
+
+    @ManyToOne
+    @JoinColumn(name = "preferenciadiaria_id")
+    protected PreferenciaDiaria preferenciaDiaria;
+
+    @Column(name = "horaInicio")
     protected Time horaInicio;
+
+    @Column(name = "horaFim")
     protected Time horaFim;
+
+    @Column(name = "turno")
     protected int turno;
+
+    @Column(name = "quantidadeNecessidadeEnfermeiros")
     protected int quantidadeNecessidadeEnfermeiros;
+
+    @Column(name = "quantidadeNecessidadeTecnicos")
     protected int quantidadeNecessidadeTecnicos;
+
+    @OneToMany(fetch = FetchType.LAZY, targetEntity = ProfissionalAlocado.class)
     protected List<ProfissionalAlocado> enfermeirosAlocados = new ArrayList<ProfissionalAlocado>();
-    protected List<ProfissionalAlocado> tecnicosAlocados = new ArrayList<ProfissionalAlocado>();;
 
-    public BlocoHorarioPreferencia(int idPreferenciaDiaria, Time horaInicio, Time horaFim, int turno, int quantidadeNecessidadeEnferemeiros, int quantidadeNecessidadesTecnicos) {
+    @OneToMany(fetch = FetchType.LAZY, targetEntity = ProfissionalAlocado.class)
+    protected List<ProfissionalAlocado> tecnicosAlocados = new ArrayList<ProfissionalAlocado>();
 
-        this.idPreferenciaDiaria = idPreferenciaDiaria;
+    public BlocoHorarioPreferencia() {
+
+    }
+
+    public BlocoHorarioPreferencia(Time horaInicio, Time horaFim, int turno, int quantidadeNecessidadeEnferemeiros, int quantidadeNecessidadesTecnicos) {
+
         this.horaInicio = horaInicio;
         this.horaFim = horaFim;
         this.turno = turno;
@@ -39,14 +62,6 @@ public class BlocoHorarioPreferencia {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public static Integer getUltimoId() {
-        return ultimoId;
-    }
-
-    public static void setUltimoId(Integer ultimoId) {
-        BlocoHorarioPreferencia.ultimoId = ultimoId;
     }
 
     public Time getHoraInicio() {
@@ -105,6 +120,14 @@ public class BlocoHorarioPreferencia {
         this.tecnicosAlocados = tecnicosAlocados;
     }
 
+    public PreferenciaDiaria getPreferenciaDiaria() {
+        return preferenciaDiaria;
+    }
+
+    public void setPreferenciaDiaria(PreferenciaDiaria preferenciaDiaria) {
+        this.preferenciaDiaria = preferenciaDiaria;
+    }
+
     public static List<BlocoHorarioPreferencia> gerarBlocosHorarioPreferencia(Integer idPreferenciaDiaria) {
 
         List<Turno> turno = new ArrayList<Turno>();
@@ -132,7 +155,7 @@ public class BlocoHorarioPreferencia {
 
         for(int i = 0; i < 3; i++){
 
-            BlocoHorarioPreferencia bloco = new BlocoHorarioPreferencia(idPreferenciaDiaria, turno.get(i).getHrInicio(), turno.get(i).getHrFim(),
+            BlocoHorarioPreferencia bloco = new BlocoHorarioPreferencia (turno.get(i).getHrInicio(), turno.get(i).getHrFim(),
                     turno.get(i).getTurno(), 0, 0);
 
             blocosHorarioPreferencia.add(bloco);

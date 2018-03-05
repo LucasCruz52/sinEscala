@@ -7,30 +7,33 @@
 
 package org.primefaces.ultima.domain;
 
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.Date;
 
+@Entity
+@Table(name = "situacaoEscala", schema = "public")
 public class SituacaoEscala {
-	
+
 	@Id
-	public int id;
-	
-	public static final int CRIADA = 1;
-	
-	public static final int EDITADA = 2;
-	
-	public static final int SUBMETIDA = 3;
-	
-	public static final int EM_ANALISE_CHEFIA = 4;
-	
-	public static final int DEVOLVIDA_PARA_AJUSTES = 5;
-	
-	public static final int HOMOLOGADA = 6;
-	
-	public static final int EXECUTADA = 7;
-	
-	public static final int FINALIZADA = 8;
-	
-	public String descricao;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private int id;
+
+	@Column(name = "dataHora")
+	private Timestamp dataHora;
+
+	@ManyToOne
+	@JoinColumn(name = "tipoSituacao_id")
+	private TipoSituacaoEscala tipoSituacaoEscala;
+
+	@ManyToOne
+	@JoinColumn(name = "usuario_id")
+	private Usuario usuarioRegistro;
+
+	@Column(name = "observacoes")
+	private String observacoes;
 
 	public int getId() {
 		return id;
@@ -40,14 +43,38 @@ public class SituacaoEscala {
 		this.id = id;
 	}
 
-	public String getDescricao() {
-		return descricao;
+	public Timestamp getDataHora() {
+		return dataHora;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setDataHora(Timestamp dataHora) {
+		this.dataHora = dataHora;
 	}
-	
+
+	public TipoSituacaoEscala getTipoSituacaoEscala() {
+		return tipoSituacaoEscala;
+	}
+
+	public void setTipoSituacaoEscala(TipoSituacaoEscala tipoSituacaoEscala) {
+		this.tipoSituacaoEscala = tipoSituacaoEscala;
+	}
+
+	public Usuario getUsuarioRegistro() {
+		return usuarioRegistro;
+	}
+
+	public void setUsuarioRegistro(Usuario usuarioRegistro) {
+		this.usuarioRegistro = usuarioRegistro;
+	}
+
+	public String getObservacoes() {
+		return observacoes;
+	}
+
+	public void setObservacoes(String observacoes) {
+		this.observacoes = observacoes;
+	}
+
 	public SituacaoEscala() {
 		// TODO Auto-generated constructor stub
 	}
