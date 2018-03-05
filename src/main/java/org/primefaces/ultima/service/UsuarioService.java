@@ -1,5 +1,6 @@
 package org.primefaces.ultima.service;
 
+import java.io.IOException;
 import java.util.*;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -26,8 +27,10 @@ import org.hibernate.Transaction;
 @ManagedBean(name = "usuarioService")
 @SessionScoped
 public class UsuarioService{
-
-    private List<Usuario> listaUsuariosEncontrados;
+	
+	private final String CADASTRO_USUARIO = "cadastroUsuario.jsp";
+    
+	private List<Usuario> listaUsuariosEncontrados;
 
     private String login;
     
@@ -196,7 +199,9 @@ public class UsuarioService{
         setSenha("");
         setDataExpiracao(null);
     }
-
+	public void redirecionar() throws IOException {
+		FacesContext.getCurrentInstance().getExternalContext().redirect(CADASTRO_USUARIO);
+	}
 }
 	
 

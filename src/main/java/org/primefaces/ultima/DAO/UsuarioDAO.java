@@ -43,8 +43,8 @@ public class UsuarioDAO extends GenericDAO<Usuario, Long>{
         Query query = null;
         List<Usuario> listaUsuario = new ArrayList<Usuario>();
 
-        query = em.createQuery("select u from Usuario u where nome = :nome");
-        query.setParameter("nome", usuario.getNome());
+        query = em.createQuery("select u from Usuario u where login = :login");
+        query.setParameter("login", usuario.getLogin());
 
         if(query != null) {
             listaUsuario = query.getResultList();

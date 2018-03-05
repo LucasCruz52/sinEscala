@@ -2,12 +2,11 @@ package org.primefaces.ultima.service;
 
 import java.io.Serializable;
 import java.util.Enumeration;
-import java.util.List;
 
-import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
+
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
+
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
@@ -15,15 +14,14 @@ import org.primefaces.ultima.DAO.UsuarioDAO;
 import org.primefaces.ultima.domain.Usuario;
 
 import br.huufs.sinEscala.DAO.Utils;
+import br.huufs.sinEscala.DAO.util.SessionUtil;
 
-
+@RequestScoped
 @ManagedBean(name = "loginService")
-@SessionScoped
 public class LoginService implements Serializable {
 	
 	private String login;
 	private String senha;
-	Usuario usuario = new Usuario();
 	
 	public String getLogin() {
 		return login;
@@ -40,41 +38,57 @@ public class LoginService implements Serializable {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
 	
 	public LoginService() {
 		
 	}
     
     public String fazerLogin() {
-    	if (login == null) {
+    	System.out.println("autentica..");
+        
+        if (login.equals("admin")&&senha.equals("admin")) {
+            System.out.println("Confirmou  usuario e senha ...");        
+            
+            
+            Object b = new Object();
+            
+            SessionUtil.setParam("USUARIOLogado", b);
+            
+        return "/dashboard.xhtml?faces-redirect=true";
+
+        } else {
+            
+            return null;
+
+        }
+
+    }
+
+ 
+    	/*if (login == null) {
     		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuário ou senha incorretos!","");
             FacesContext.getCurrentInstance().addMessage(null, msg); 
+            return"";
         } else {
         	UsuarioDAO udao = new UsuarioDAO();
         	List<Usuario> listaUsuario= udao.pesquisarUsuario(usuario);
-        	// USE MD5!!!
-            if (senha.equals(listaUsuario.iterator().next().getSenha())&&
-            		login.equals(listaUsuario.iterator().next().getLogin())) {
+        	// USE MD5!!!listaUsuario.iterator().next().getSenha()listaUsuario.iterator().next().getLogin())
+            if (senha.equals("okokok")&&
+            		login.equals("testando")) {
                 HttpSession session;
                 FacesContext ctx = FacesContext.getCurrentInstance();
                 session = (HttpSession) ctx.getExternalContext().getSession(false);
                 session.setAttribute("usuarioAutenticado", usuario);
                 FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bem vindo!","");
                 FacesContext.getCurrentInstance().addMessage(null, msg);
+                return "/ultima/cadastroUsuario.xhtml?faces-redirect=true";
             } else {
             	FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuário ou senha incorretos!","");
                 FacesContext.getCurrentInstance().addMessage(null, msg);
+                return "";
             }
         }
-    	return null;
+    	
     }
     
     	/*

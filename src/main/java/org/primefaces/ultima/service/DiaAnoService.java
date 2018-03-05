@@ -1,6 +1,6 @@
 package org.primefaces.ultima.service;
 
-import org.primefaces.ultima.DAO.DiaAnoDAO;
+//import org.primefaces.ultima.DAO.DiaAnoDAO;
 import org.primefaces.ultima.domain.DiaAno;
 import org.primefaces.ultima.domain.DiasMes;
 import org.primefaces.ultima.domain.Perfil;
@@ -49,16 +49,16 @@ public class DiaAnoService {
             obj.setAno(cal.get(1));
             obj.setTipo(tipo);
 
-            DiaAnoDAO diaAnoDao = new DiaAnoDAO();
-            DiaAno diaAnoSalvo = diaAnoDao.cadastrarDiaAno(obj);
+           // DiaAnoDAO diaAnoDao = new DiaAnoDAO();
+           //DiaAno diaAnoSalvo = diaAnoDao.cadastrarDiaAno(obj);
 
-            if (diaAnoSalvo != null) {
-                FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Feriado cadastrado com sucesso!", "");
-                FacesContext.getCurrentInstance().addMessage(null, msg);
-            } else {
-                FacesMessage msg = new FacesMessage("Falha no cadastro do feriado!");
-                FacesContext.getCurrentInstance().addMessage(null, msg);
-            }
+           // if (diaAnoSalvo != null) {
+            //    FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Feriado cadastrado com sucesso!", "");
+            //    FacesContext.getCurrentInstance().addMessage(null, msg);
+           // } else {
+           //     FacesMessage msg = new FacesMessage("Falha no cadastro do feriado!");
+           //     FacesContext.getCurrentInstance().addMessage(null, msg);
+          //  }
         }
 
     }
